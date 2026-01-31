@@ -15,7 +15,7 @@ main:
     weight: 3
   - name: Funding
     url: '#funding'
-    weight: 35
+    weight: 3.5
   - name: Innovations
     url: project
     weight: 4
