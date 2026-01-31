@@ -1,11 +1,15 @@
 // Custom styling for professional academic portfolio
 
 // ===== Color Variables - UNI Purple & Gold Theme =====
-// Official UNI Colors
-$primary-purple: #2E1A47;    // Campaniling
-$dark-purple: #51284F;       // Forever
-$light-purple: #A884BC;      // Dawn
-$accent-gold: #CFB023;       // Maize
+// Official UNI Basic/Primary Colors
+$primary-purple: #500778;    // Panther Purple (PRIMARY)
+$accent-gold: #FFB500;       // Goldenrod (PRIMARY)
+
+// Official UNI Secondary Colors
+$campaniling: #2E1A47;       // Campaniling (dark purple)
+$forever: #51284F;           // Forever (dark purple)
+$dawn: #A884BC;              // Dawn (light purple)
+$maize: #CFB023;             // Maize (gold)
 $old-gold: #9A7611;          // Old Gold
 $spring-blossom: #AC4FC6;    // Spring Blossom (bright purple accent)
 $fountain: #5CB8B2;          // Fountain (teal accent)
@@ -63,11 +67,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, $primary-purple 0%, $dark-purple 100%);
+  background: linear-gradient(135deg, $primary-purple 0%, $campaniling 100%);
   border: none;
 
   &:hover {
-    background: linear-gradient(135deg, $dark-purple 0%, $dark-purple 100%);
+    background: linear-gradient(135deg, $campaniling 0%, $campaniling 100%);
   }
 }
 
@@ -177,7 +181,7 @@ p, span, div, li {
 .stat-number {
   font-size: 3em;
   font-weight: 700;
-  background: linear-gradient(135deg, $primary-purple 0%, $dark-purple 100%);
+  background: linear-gradient(135deg, $primary-purple 0%, $campaniling 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -281,7 +285,7 @@ table {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   thead {
-    background: linear-gradient(135deg, $primary-purple 0%, $dark-purple 100%);
+    background: linear-gradient(135deg, $primary-purple 0%, $campaniling 100%);
     color: #fff;
 
     th {
@@ -426,7 +430,7 @@ textarea:focus {
 // High contrast mode support
 @media (prefers-contrast: high) {
   .btn-primary {
-    background: $dark-purple;
+    background: $campaniling;
     border: 2px solid #fff;
   }
 

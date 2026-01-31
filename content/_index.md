@@ -23,8 +23,8 @@ sections:
         label: ''
     design:
       background:
-        gradient_start: '#2E1A47'
-        gradient_end: '#51284F'
+        gradient_start: '#500778'
+        gradient_end: '#2E1A47'
         text_color_light: true
       spacing:
         padding: ['100px', '0', '100px', '0']
@@ -36,19 +36,19 @@ sections:
       text: |
         <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 40px 0;">
           <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #2E1A47;">9+</div>
+            <div style="font-size: 2.5em; font-weight: bold; color: #500778;">9+</div>
             <div style="color: #666; font-size: 1.1em;">Publications</div>
           </div>
           <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #CFB023;">20+</div>
+            <div style="font-size: 2.5em; font-weight: bold; color: #FFB500;">20+</div>
             <div style="color: #666; font-size: 1.1em;">Presentations</div>
           </div>
           <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #2E1A47;">6+</div>
+            <div style="font-size: 2.5em; font-weight: bold; color: #500778;">6+</div>
             <div style="color: #666; font-size: 1.1em;">Years Teaching</div>
           </div>
           <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #CFB023;">500+</div>
+            <div style="font-size: 2.5em; font-weight: bold; color: #FFB500;">500+</div>
             <div style="color: #666; font-size: 1.1em;">Students Taught</div>
           </div>
         </div>
