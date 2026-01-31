@@ -164,11 +164,11 @@ sections:
     design:
       columns: '2'
 
-  # Projects
+  # Innovations
   - block: collection
     id: projects
     content:
-      title: Teaching Projects
+      title: Teaching Innovations
       subtitle: Interactive Educational Tools
       text: ''
       filters:

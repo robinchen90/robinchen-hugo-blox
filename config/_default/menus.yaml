@@ -10,7 +10,7 @@ main:
   - name: Publications
     url: publication
     weight: 2
-  - name: Projects
+  - name: Innovations
     url: project
     weight: 3
   - name: Teaching
