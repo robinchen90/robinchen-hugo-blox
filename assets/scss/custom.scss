@@ -153,19 +153,19 @@ h1, h2, h3, h4, h5, h6 {
 // ===== Hero Section Enhancements =====
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
 .hero-lead {
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: #ffffff;
   line-height: 1.6;
@@ -298,7 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 // Publication text styling - Black on white
 .pub-title,
 .article-title {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: #1a1a1a;
@@ -316,13 +316,13 @@ h1, h2, h3, h4, h5, h6 {
 .pub-authors,
 .article-metadata {
   color: #333;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
 .pub-meta {
   color: #666;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-style: italic;
 }
 
@@ -357,7 +357,7 @@ a {
 .social-links {
   a {
     color: $primary-purple;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 0 0.5rem;
     transition: all 0.3s ease;
 
@@ -388,7 +388,7 @@ a {
   .role {
     color: $accent-gold;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -396,6 +396,7 @@ a {
   .organization {
     color: $primary-purple;
     font-weight: 600;
+    font-size: 1rem;
   }
 }
 
@@ -432,7 +433,7 @@ a {
 }
 
 .stat-number {
-  font-size: 3.5em;
+  font-size: 2.5em;
   font-weight: 900;
   color: $accent-gold !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -443,6 +444,7 @@ a {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 0.9rem;
 }
 
 // ===== Features Section =====
@@ -492,7 +494,7 @@ a {
   }
 
   .feature-icon {
-    font-size: 3rem;
+    font-size: 2.2rem;
     color: $primary-purple;
     margin-bottom: 1.5rem;
     transition: all 0.4s ease;
@@ -500,7 +502,7 @@ a {
   }
 
   .feature-title {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: $primary-purple;
     margin-bottom: 1rem;
@@ -511,7 +513,7 @@ a {
   .feature-description {
     color: #333;
     line-height: 1.8;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
   }
 }
 
