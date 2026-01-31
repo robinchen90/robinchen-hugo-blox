@@ -93,7 +93,7 @@ Simple Loan, Fixed Payment Loan, Discount Bond, Consol (Perpetuity)
 
 ### Overview
 
-ClassHub is a web app that helps instructors manage attendance and peer evaluations in team-based courses.
+[ClassHub](https://econclasshub.netlify.app/) is a web app that helps instructors manage attendance and peer evaluations in team-based courses.
 
 ### Key Features
 
