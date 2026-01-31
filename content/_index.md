@@ -29,34 +29,6 @@ sections:
       spacing:
         padding: ['100px', '0', '100px', '0']
 
-  # Stats Block
-  - block: markdown
-    content:
-      title: ''
-      text: |
-        <div class="stats-block">
-          <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
-            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
-              <div class="stat-number">9+</div>
-              <div class="stat-label">Publications</div>
-            </div>
-            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
-              <div class="stat-number">20+</div>
-              <div class="stat-label">Presentations</div>
-            </div>
-            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
-              <div class="stat-number">6+</div>
-              <div class="stat-label">Years Teaching</div>
-            </div>
-            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
-              <div class="stat-number">500+</div>
-              <div class="stat-label">Students Taught</div>
-            </div>
-          </div>
-        </div>
-    design:
-      columns: '1'
-
   # About/Biography
   - block: about.biography
     id: about
