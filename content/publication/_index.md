@@ -35,4 +35,18 @@ sections:
     design:
       view: citation
       columns: '1'
+
+  # Work in Progress
+  - block: collection
+    id: work-in-progress
+    content:
+      title: Work in Progress
+      text: ""
+      filters:
+        folders:
+          - publication
+        publication_type: 'article'
+    design:
+      view: citation
+      columns: '1'
 ---
