@@ -76,6 +76,7 @@ sections:
             Undergraduate:
 
             * ECON1041 Principles of Macroeconomics
+            * ECON2132 Money and Banking
             * ECON3371 Economic and Business Forecasting
 
             Developed interactive educational tools including Bond Price Calculator and ClassHub platform used by 500+ students.
