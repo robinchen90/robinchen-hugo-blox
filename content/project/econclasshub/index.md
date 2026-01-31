@@ -1,15 +1,12 @@
 ---
-title: "ClassHub - Attendance & Peer Evaluation"
+title: "ClassHub - Attendance & Peer Evaluation Platform"
 date: 2024-02-01T00:00:00
 
 # Project summary to display on homepage
-summary: "A comprehensive classroom management platform for tracking attendance and facilitating peer evaluations. Designed to enhance student engagement and streamline course administration."
+summary: "A web app that helps instructors manage attendance and peer evaluations in team-based courses with presentations and group projects."
 
 # Tags: can be used for filtering projects
 tags: ["Teaching", "Education Technology", "Web Application", "Classroom Management"]
-
-# Optional external URL for project (replaces project detail page)
-external_link: "https://econclasshub.netlify.app/"
 
 # Slides (optional)
 slides: ""
@@ -31,53 +28,71 @@ links:
 # To use, add an image named `featured.jpg/png` to your page's folder
 image:
   # Caption (optional)
-  caption: "ClassHub - Classroom Management Platform"
+  caption: "ClassHub - Attendance & Peer Evaluation Platform"
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point: "Smart"
 ---
 
+**For:** Team-based courses with presentations and group projects
+
+<a href="https://econclasshub.netlify.app/" target="_blank" class="btn btn-primary btn-lg">Access ClassHub →</a>
+
 ## Overview
 
-**ClassHub** is an innovative classroom management platform designed to streamline two critical aspects of course administration: **attendance tracking** and **peer evaluation**. This tool was developed to enhance student engagement and provide instructors with efficient methods for monitoring class participation.
+ClassHub is a web app that helps instructors manage attendance and peer evaluations in team-based courses.
 
 ## Key Features
 
-### Attendance Management
-- Easy check-in system for students
-- Real-time attendance tracking
-- Historical attendance records
-- Automated reporting capabilities
+| Feature | How It Works |
+|---------|--------------|
+| **Attendance** | Generate time-limited codes; students submit via phone/laptop |
+| **Teams** | Students create or join teams; instructors view rosters |
+| **Peer Evaluation** | Anonymous teammate ratings on contribution (rank + score) |
+| **Team Rankings** | Students rate other teams' presentations (content, delivery, creativity) |
+| **Dashboard** | Instructors see all data, manage records, export results |
 
-### Peer Evaluation System
-- Structured peer assessment framework
-- Anonymous evaluation options
-- Customizable evaluation criteria
-- Aggregated feedback reports
+## Problems Solved
 
-## Benefits for Educators
+| Traditional Method | With ClassHub |
+|-------------------|---------------|
+| Paper sign-ins (slow, fakeable) | Digital codes with timestamps |
+| Free-riders in teams | Peer evaluations document contributions |
+| Manual data entry | Automatic record-keeping |
+| Scattered tools | One integrated platform |
 
-- **Time-saving**: Automates routine administrative tasks
-- **Data-driven insights**: Track participation patterns over time
-- **Enhanced engagement**: Encourages active student participation
-- **Fair assessment**: Facilitates objective peer evaluations for group work
+## Benefits
 
-## Benefits for Students
+**For Instructors:**
+- Save time on attendance and grading
+- Identify struggling students early
+- Data-backed grade adjustments for team members
 
-- **Accountability**: Clear record of class participation
-- **Collaboration skills**: Learn to give and receive constructive feedback
-- **Transparency**: Understand how participation contributes to their learning
+**For Students:**
+- Fair recognition for contributions
+- Develop professional feedback skills
+- Mobile-friendly, instant sync
 
-## Pedagogical Approach
+## Technical Overview
 
-This tool aligns with my **student-oriented, evidence-based, and application-driven** teaching philosophy. By making attendance and peer evaluation more transparent and accessible, ClassHub promotes:
+| Spec | Detail |
+|------|--------|
+| Type | Web app (works on any device) |
+| Auth | Firebase Authentication |
+| Database | Firebase Firestore (real-time) |
+| Hosting | Netlify |
+| Cost | Free for typical class sizes |
+| Capacity | 200+ concurrent users |
 
-- Active learning
-- Student accountability
-- Collaborative classroom environment
-- Fair and objective assessment practices
+## Quick Start
 
-## Technology
+**Instructor (one-time setup ~15 min):**
+1. Create Firebase project
+2. Deploy to Netlify
+3. Create class → share join code
 
-ClassHub is built as a responsive web application, accessible from any device with an internet connection, ensuring that all students can participate regardless of their technology access.
+**Students:**
+1. Register with instructor's code
+2. Join class
+3. Submit attendance / complete evaluations
