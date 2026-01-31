@@ -17,8 +17,8 @@ sections:
         label: View Research
         url: '/publication/'
       cta_alt:
-        label: Teaching Resources
-        url: '/teaching/'
+        label: Teaching Experience
+        url: '/#teaching'
       cta_note:
         label: ''
     design:

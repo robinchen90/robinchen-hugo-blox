@@ -226,6 +226,31 @@ header nav .nav-link:hover {
   }
 }
 
+// Make hero CTA buttons look identical
+.hero-cta,
+.cta-group a,
+.hero .btn,
+.hero-lead + .cta-group a {
+  background: $accent-gold !important;
+  color: $primary-purple !important;
+  border: none !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: $maize !important;
+    color: $primary-purple !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 181, 0, 0.4);
+  }
+}
+
 // ===== Card Enhancements =====
 
 .card,
