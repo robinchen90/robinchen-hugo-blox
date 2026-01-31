@@ -1,41 +1,45 @@
 ---
 # Display name
-title: Nelson Bighetti
+title: Zhengyang (Robin) Chen
 
 # Full Name (for SEO)
-first_name: Nelson
-last_name: Bighetti
+first_name: Zhengyang
+last_name: Chen
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: Assistant Professor in Economics
 
 # Organizations/Affiliations
 organizations:
-  - name: Stanford University
-    url: ''
+  - name: University of Northern Iowa
+    url: 'https://business.uni.edu/economics/directory/zhengyang-robin-chen'
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research interests include Macroeconomics and Monetary Economics, Time Series Analysis and Financial Markets.
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Monetary Economics
+  - Macroeconomics
+  - Time Series Analysis
+  - Financial Markets
 
 education:
   courses:
-    - course: PhD in Artificial Intelligence
-      institution: Stanford University
+    - course: PhD in Economics
+      institution: The University of Texas at Dallas, TX, USA
+      year: 2020
+    - course: MS in Finance
+      institution: Johns Hopkins University, MD, USA
+      year: 2015
+    - course: MS in Real Estate
+      institution: Johns Hopkins University, MD, USA
+      year: 2013
+    - course: B.BM in International Business
+      institution: Guangdong University of Foreign Studies, China
       year: 2012
-    - course: MEng in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2009
-    - course: BSc in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2008
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -44,34 +48,37 @@ education:
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:test@example.org'
-  - icon: twitter
+    link: '#contact'
+  - icon: researchgate
+    icon_pack: ai
+    link: 'https://www.researchgate.net/profile/Zhengyang-Chen-7'
+  - icon: linkedin-in
     icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
+    link: 'https://www.linkedin.com/in/robinchen90/'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/gcushen
-# Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: files/cv.pdf
+    link: 'https://scholar.google.com/citations?user=fAkfUpYAAAAJ&hl=en&authuser=4'
+  - icon: orcid
+    icon_pack: ai
+    link: 'https://orcid.org/0000-0002-8450-5801'
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ''
+email: 'zchen.econ@gmail.com'
 
 # Highlight the author in author lists? (true/false)
-highlight_name: false
+highlight_name: true
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
   - Researchers
+  - Visitors
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Hello, I am an [***assistant professor of economics***](https://business.uni.edu/economics/directory/zhengyang-robin-chen) at the University of Northern Iowa, IA. My [***research interests***](/post/researchstatement/) are in the intersection of monetary economics, time-series analysis and financial markets.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Teaching is always a self-fulfillment for me. My [***teaching portfolio***](/#experience) includes courses at undergrad and grad levels in macroeconomics, monetary economics and forecasting. [***My teaching philosophy***](/post/Teachingstatement/) can be summarized as three phrases -- student-oriented, evidence-based, and application-driven.
+
+Used to be an international student, I deeply understand how each individual is easily subjected to prejudice on race, gender, color, nationality and so many things that cannot be changed by oneself. Thus, I advocate [***equity, equality and diversity***](/post/statement-of-diversity/"Statement of Diversity") in my classroom.
+
+I earned my [***Ph.D. of Economics***](/UTD_PhD_eDiploma.pdf) at the University of Texas at Dallas and was proudly advised by [***Prof. Victor J. Valcarcel***](https://sites.google.com/view/vicvalc/home), [***Prof. Daniel Arce***](https://profiles.utdallas.edu/darce), [***Prof. Patrick Brandt***](https://profiles.utdallas.edu/pbrandt) and [***Dr. Enrique Martínez-García***](https://www.dallasfed.org/research/economists/martinez-garcia.cfm).

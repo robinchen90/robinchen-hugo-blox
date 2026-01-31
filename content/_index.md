@@ -5,76 +5,82 @@ date: 2022-10-24
 type: landing
 
 sections:
-  - block: hero
+  - block: about.biography
+    id: about
     content:
-      title: |
-        Wowchemy
-        Research Group
-      image:
-        filename: welcome.jpg
-      text: |
-        <br>
-        
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
-  
-  - block: collection
-    content:
-      title: Latest News
-      subtitle:
-      text:
-      count: 5
-      filters:
-        author: ''
-        category: ''
-        exclude_featured: false
-        publication_type: ''
-        tag: ''
-      offset: 0
-      order: desc
-      page_type: post
-    design:
-      view: card
-      columns: '1'
-  
-  - block: markdown
-    content:
-      title:
-      subtitle: ''
-      text:
-    design:
-      columns: '1'
-      background:
-        image: 
-          filename: coders.jpg
-          filters:
-            brightness: 1
-          parallax: false
-          position: center
-          size: cover
-          text_color_light: true
-      spacing:
-        padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen
+      title: Biography
+      username: admin
 
   - block: collection
+    id: featured
     content:
-      title: Latest Preprints
-      text: ""
-      count: 5
+      title: Featured Publications
       filters:
         folders:
           - publication
-        publication_type: 'article'
+        featured_only: true
     design:
-      view: citation
-      columns: '1'
+      columns: '2'
+      view: card
 
-  - block: markdown
+  - block: collection
     content:
-      title:
-      subtitle:
-      text: |
-        {{% cta cta_link="./people/" cta_text="Meet the team →" %}}
+      title: Recent Publications
+      text: |-
+        {{% callout note %}}
+        Quickly discover relevant content by [filtering publications](./publication/).
+        {{% /callout %}}
+      filters:
+        folders:
+          - publication
+        exclude_featured: true
     design:
-      columns: '1'
+      columns: '2'
+      view: citation
+
+  - block: collection
+    id: posts
+    content:
+      title: Recent Posts
+      subtitle: ''
+      text: ''
+      count: 5
+      filters:
+        folders:
+          - post
+        author: ""
+        category: ""
+        tag: ""
+        exclude_featured: false
+        exclude_future: false
+        exclude_past: false
+        publication_type: ""
+      offset: 0
+      order: desc
+    design:
+      columns: '2'
+      view: compact
+
+  - block: contact
+    id: contact
+    content:
+      title: Contact
+      subtitle:
+      text:
+      email: zhengyang.chen@uni.edu
+      phone:
+      address:
+        street: 2382 Minnesota St, CBB 202
+        city: Cedar Falls
+        region: IA
+        postcode: '50614'
+        country: United States
+        country_code: US
+      coordinates:
+        latitude: '42.5186'
+        longitude: '-92.4549'
+      contact_links:
+      autolink: true
+    design:
+      columns: '2'
 ---
