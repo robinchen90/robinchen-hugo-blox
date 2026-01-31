@@ -153,14 +153,25 @@ h1, h2, h3, h4, h5, h6 {
 // Additional specificity for navigation links
 nav.navbar .navbar-nav .nav-item .nav-link,
 .navbar-collapse .navbar-nav .nav-link,
-header nav .nav-link {
+header nav .nav-link,
+.navbar a,
+.navbar .nav-item a,
+header .navbar-nav a {
   color: $accent-gold !important;
 }
 
 nav.navbar .navbar-nav .nav-item .nav-link:hover,
 .navbar-collapse .navbar-nav .nav-link:hover,
-header nav .nav-link:hover {
+header nav .nav-link:hover,
+.navbar a:hover,
+.navbar .nav-item a:hover,
+header .navbar-nav a:hover {
   color: #ffffff !important;
+}
+
+// Force all navigation text to be gold
+.navbar *:not(.navbar-brand) {
+  color: $accent-gold !important;
 }
 
 // ===== Hero Section Enhancements =====
