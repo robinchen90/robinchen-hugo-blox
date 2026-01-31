@@ -6,7 +6,7 @@ date: 2021-01-06T00:00:00
 authors: ["admin","Victor J. Valcarcel"]
 
 # Publication type.
-publication_types: ["manuscript"]
+publication_types: ["article"]
 
 # Publication name and optional abbreviated version.
 publication: ""
