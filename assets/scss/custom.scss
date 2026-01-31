@@ -150,6 +150,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+// Additional specificity for navigation links
+nav.navbar .navbar-nav .nav-item .nav-link,
+.navbar-collapse .navbar-nav .nav-link,
+header nav .nav-link {
+  color: $accent-gold !important;
+}
+
+nav.navbar .navbar-nav .nav-item .nav-link:hover,
+.navbar-collapse .navbar-nav .nav-link:hover,
+header nav .nav-link:hover {
+  color: #ffffff !important;
+}
+
 // ===== Hero Section Enhancements =====
 
 .hero-title {
