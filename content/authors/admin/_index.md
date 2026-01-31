@@ -79,6 +79,6 @@ Hello, I am an assistant professor in the [***Economics Department***](https://b
 
 Teaching is always a self-fulfillment for me. My [***teaching portfolio***](/#experience) includes courses at undergrad and grad levels in macroeconomics, monetary economics and forecasting. [***My teaching philosophy***](/post/Teachingstatement/) can be summarized as three phrases -- student-oriented, evidence-based, and application-driven.
 
-Used to be an international student, I deeply understand how each individual is easily subjected to prejudice on race, gender, color, nationality and so many things that cannot be changed by oneself. Thus, I advocate [***equity, equality and diversity***](/post/statement-of-diversity/"Statement of Diversity") in my classroom.
+Used to be an international student, I deeply understand how each individual is easily subjected to prejudice on race, gender, color, nationality and so many things that cannot be changed by oneself. Thus, I advocate ***equity, equality and diversity*** in my classroom.
 
 I earned my [***Ph.D. of Economics***](/UTD_PhD_eDiploma.pdf) at the University of Texas at Dallas and was proudly advised by [***Prof. Victor J. Valcarcel***](https://sites.google.com/view/vicvalc/home), [***Prof. Daniel Arce***](https://profiles.utdallas.edu/darce), [***Prof. Patrick Brandt***](https://profiles.utdallas.edu/pbrandt) and [***Dr. Enrique Martínez-García***](https://www.dallasfed.org/research/economists/martinez-garcia.cfm).
