@@ -75,7 +75,7 @@ user_groups:
   - Visitors
 ---
 
-Hello, I am an [***assistant professor of economics***](https://business.uni.edu/economics/directory/zhengyang-robin-chen) at the University of Northern Iowa, IA. My [***research interests***](/post/researchstatement/) are in the intersection of monetary economics, time-series analysis and financial markets.
+Hello, I am an assistant professor in the [***Economics Department***](https://business.uni.edu/economics/directory/zhengyang-robin-chen) at the University of Northern Iowa, IA. My [***research interests***](/post/researchstatement/) are in the intersection of monetary economics, time-series analysis and financial markets.
 
 Teaching is always a self-fulfillment for me. My [***teaching portfolio***](/#experience) includes courses at undergrad and grad levels in macroeconomics, monetary economics and forecasting. [***My teaching philosophy***](/post/Teachingstatement/) can be summarized as three phrases -- student-oriented, evidence-based, and application-driven.
 
