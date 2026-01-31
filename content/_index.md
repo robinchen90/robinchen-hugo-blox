@@ -34,28 +34,28 @@ sections:
     content:
       title: ''
       text: |
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 40px 0;">
-          <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #500778;">9+</div>
-            <div style="color: #666; font-size: 1.1em;">Publications</div>
-          </div>
-          <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #FFB500;">20+</div>
-            <div style="color: #666; font-size: 1.1em;">Presentations</div>
-          </div>
-          <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #500778;">6+</div>
-            <div style="color: #666; font-size: 1.1em;">Years Teaching</div>
-          </div>
-          <div style="text-align: center; padding: 20px; min-width: 150px;">
-            <div style="font-size: 2.5em; font-weight: bold; color: #FFB500;">500+</div>
-            <div style="color: #666; font-size: 1.1em;">Students Taught</div>
+        <div class="stats-block">
+          <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
+              <div class="stat-number">9+</div>
+              <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Presentations</div>
+            </div>
+            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
+              <div class="stat-number">6+</div>
+              <div class="stat-label">Years Teaching</div>
+            </div>
+            <div class="stat-box" style="text-align: center; padding: 2rem 2.5rem; min-width: 180px; border-radius: 16px;">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Students Taught</div>
+            </div>
           </div>
         </div>
     design:
       columns: '1'
-      background:
-        color: '#f8f9fa'
 
   # About/Biography
   - block: about.biography
