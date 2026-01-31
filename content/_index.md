@@ -5,27 +5,6 @@ date: 2022-10-24
 type: landing
 
 sections:
-  # Hero Section
-  - block: hero
-    content:
-      title: Zhengyang (Robin) Chen
-      text: ''
-      cta:
-        label: View Research
-        url: '/publication/'
-      cta_alt:
-        label: Teaching Resources
-        url: '/#teaching'
-      cta_note:
-        label: ''
-    design:
-      background:
-        gradient_start: '#500778'
-        gradient_end: '#2E1A47'
-        text_color_light: true
-      spacing:
-        padding: ['100px', '0', '100px', '0']
-
   # About/Biography
   - block: about.biography
     id: about
