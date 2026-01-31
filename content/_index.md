@@ -186,7 +186,7 @@ sections:
       title: Contact
       subtitle:
       text:
-      email: zhengyang.chen@uni.edu
+      email: zhengyang.chen at uni.edu
       phone:
       address:
         street: 2382 Minnesota St, CBB 202
@@ -195,9 +195,6 @@ sections:
         postcode: '50614'
         country: United States
         country_code: US
-      coordinates:
-        latitude: '42.5186'
-        longitude: '-92.4549'
       contact_links:
       autolink: true
     design:
