@@ -15,7 +15,7 @@ sections:
         Advancing our understanding of monetary policy transmission, Fed policy rules, and structural identification in macroeconomic models.
       cta:
         label: View Research
-        url: '#featured'
+        url: '/publication/'
       cta_alt:
         label: Teaching Resources
         url: '/teaching/'
@@ -67,19 +67,6 @@ sections:
           icon_pack: fas
     design:
       columns: '2'
-
-  # Featured Publications
-  - block: collection
-    id: featured
-    content:
-      title: Featured Publications
-      filters:
-        folders:
-          - publication
-        featured_only: true
-    design:
-      columns: '2'
-      view: card
 
   # Recent Publications
   - block: collection
