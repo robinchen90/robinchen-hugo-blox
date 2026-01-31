@@ -90,27 +90,77 @@ sections:
     content:
       title: Teaching Experience
       items:
-        - title: Instructor
+        - title: Assistant Professor of Economics
           company: University of Northern Iowa
-          company_url: 'https://www.uni.edu'
+          company_url: 'https://business.uni.edu/economics/directory/zhengyang-robin-chen'
           location: Cedar Falls, Iowa
-          date_start: '2018-05-15'
+          date_start: '2023-08-20'
           date_end: ''
           description: |
-            Teaching courses in Money & Banking, Macroeconomics, and developing interactive educational tools.
+            Undergraduate:
 
-            **Key Achievements:**
-            * Developed Bond Price Calculator used by 500+ students
-            * Created ClassHub attendance and peer evaluation platform
-            * Recipient of teaching excellence recognition
-        - title: Graduate Teaching Assistant
-          company: University of Texas at Dallas
+            * ECON1041 Principles of Macroeconomics
+            * ECON3371 Economic and Business Forecasting
+
+            Developed interactive educational tools including Bond Price Calculator and ClassHub platform used by 500+ students.
+
+        - title: Assistant Professor in Economics
+          company: St. Cloud State University
+          company_url: ''
+          location: St. Cloud, Minnesota
+          date_start: '2021-08-20'
+          date_end: '2023-05-30'
+          description: |
+            Undergraduate:
+
+            * ECON205 Principles of Macroeconomics
+            * ECON470 Intermediate Economic and Business Forecasting
+            * ECON471 Money and Banking
+
+            Graduate:
+
+            * ECON570 Intermediate Economic and Business Forecasting
+            * ECON571 Money and Banking
+            * ECON605 Macroeconomic Theory
+            * ECON670 Advanced Economic and Business Forecasting
+
+        - title: Visiting Assistant Professor in Economics
+          company: Birmingham-Southern College
+          company_url: ''
+          location: Birmingham, Alabama
+          date_start: '2020-09-01'
+          date_end: '2021-08-01'
+          description: |
+            With full curricular and evaluation responsibilities:
+
+            * EC360 Time Series Visualization and Forecasting (Approved)
+            * EC201 Principles of Macroeconomics
+            * EC308 Macroeconomics
+            * EC303 Money and Banking
+
+        - title: Instructor
+          company: UT Dallas
           company_url: 'https://www.utdallas.edu'
           location: Richardson, Texas
-          date_start: '2015-08-01'
-          date_end: '2018-05-01'
+          date_start: '2018-05-15'
+          date_end: '2019-05-30'
           description: |
-            Supported undergraduate economics courses and conducted recitation sessions.
+            With full curricular and evaluation responsibilities:
+
+            * ECON2301 Principles of Macroeconomics (5 semesters, Summer 2018 to Fall 2019)
+
+        - title: Teaching Assistant
+          company: UT Dallas
+          company_url: 'https://www.utdallas.edu'
+          location: Richardson, Texas
+          date_start: '2015-09-01'
+          date_end: '2020-05-31'
+          description: |
+            Teaching assistant for Dr. Victor Valcarcel:
+
+            * ECON2301 Principles of Macroeconomics (2 terms)
+            * ECON3312 Money and Banking (3 terms)
+            * ECON7302 Macroeconomics Theory II (2 terms)
     design:
       columns: '2'
 
