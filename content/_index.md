@@ -140,6 +140,67 @@ sections:
     design:
       columns: '2'
 
+  # Grants & Fellowships
+  - block: accomplishments
+    id: funding
+    content:
+      title: 'Grants & Fellowships'
+      subtitle: ''
+      text: ''
+      date_format: Jan 2006
+      items:
+        - title: 'Research & Sponsored Programs (RSP) Capacity Building Grant Program'
+          certificate_url: ''
+          date_start: '2026-08-01'
+          date_end: '2027-05-31'
+          description: '$15,000'
+          organization: 'Office of Research & Sponsored Programs, UNI'
+          organization_url: 'https://rsp.uni.edu'
+          url: 'https://rsp.uni.edu/internal-funding'
+          icon: ''
+
+        - title: 'Tim Williams Junior Faculty Fellowship'
+          certificate_url: ''
+          date_start: '2025-08-01'
+          date_end: '2026-05-31'
+          description: '$7,500'
+          organization: 'Wilson College of Business, UNI'
+          organization_url: ''
+          url: 'https://business.uni.edu/faculty-staff/named-professorships'
+          icon: ''
+
+        - title: 'Summer Research Fellowship'
+          certificate_url: ''
+          date_start: '2025-05-01'
+          date_end: '2025-08-31'
+          description: '$9,000'
+          organization: 'Division of Graduate Studies, UNI'
+          organization_url: ''
+          url: 'https://grad.uni.edu/info-faculty-staff/summer-fellowship'
+          icon: ''
+
+        - title: 'Pre-Tenure Faculty Grant'
+          certificate_url: ''
+          date_start: '2025-01-01'
+          date_end: '2026-05-31'
+          description: '$1,500'
+          organization: "Provost's Office, UNI"
+          organization_url: ''
+          url: 'https://provost.uni.edu/pre-tenure-faculty-grant'
+          icon: ''
+
+        - title: 'Wilson College of Business Faculty Research Stipend'
+          certificate_url: ''
+          date_start: '2024-05-01'
+          date_end: '2024-08-31'
+          description: '$7,500'
+          organization: 'Wilson College of Business, UNI'
+          organization_url: ''
+          url: ''
+          icon: ''
+    design:
+      columns: '2'
+
   # Innovations
   - block: collection
     id: projects
