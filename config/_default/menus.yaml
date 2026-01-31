@@ -14,7 +14,7 @@ main:
     url: project
     weight: 3
   - name: Teaching
-    url: teaching
+    url: '#teaching'
     weight: 4
   - name: Conferences
     url: conferences

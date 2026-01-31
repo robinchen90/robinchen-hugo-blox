@@ -127,6 +127,7 @@ sections:
 
   # Teaching Timeline
   - block: experience
+    id: teaching
     content:
       title: Teaching Experience
       items:
