@@ -22,10 +22,18 @@ body {
   background-color: #ffffff;
 }
 
-// Purple section backgrounds
-.home-section:nth-child(odd) {
+// Default text colors - Black on white
+body,
+.home-section {
+  color: #1a1a1a;
+}
+
+// Purple panel sections (strategic use)
+.purple-panel,
+.home-section.purple-bg {
   background: linear-gradient(135deg, $primary-purple 0%, $campaniling 100%);
   color: #ffffff;
+  padding: 4rem 0;
 
   h1, h2, h3, h4, h5, h6 {
     color: #ffffff !important;
@@ -34,12 +42,21 @@ body {
   p, span, div, li {
     color: #ffffff;
   }
+
+  a {
+    color: $accent-gold;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
 }
 
-// Gold accent sections
-.home-section.gold-section {
+// Gold accent panels (rare, strategic use)
+.gold-panel {
   background: linear-gradient(135deg, $accent-gold 0%, $maize 100%);
   color: $primary-purple;
+  padding: 4rem 0;
 
   h1, h2, h3, h4, h5, h6 {
     color: $primary-purple !important;
@@ -59,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  color: #1a1a1a;
 }
 
 // Section headings with gold underline accent
@@ -67,6 +85,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
+    color: $primary-purple;
 
     &::after {
       content: '';
@@ -80,17 +99,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-// Purple section headings with white text and gold underline
-.home-section:nth-child(odd) h2::after {
-  background: $accent-gold;
-}
+// Headings in purple panels - white with gold underline
+.purple-panel,
+.home-section.purple-bg {
+  h2 {
+    color: #ffffff !important;
 
-// White section headings with purple text and gold underline
-.home-section:nth-child(even) h2 {
-  color: $primary-purple !important;
-
-  &::after {
-    background: $accent-gold;
+    &::after {
+      background: $accent-gold;
+    }
   }
 }
 
@@ -248,50 +265,48 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-// Force readable text colors in publications
+// Publication text styling - Black on white
 .pub-title,
-.article-title,
-h1, h2, h3, h4, h5, h6 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a1a1a !important;
+.article-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1a1a1a;
 
   a {
-    color: #1a1a1a !important;
+    color: #1a1a1a;
     text-decoration: none;
 
     &:hover {
-      color: $primary-purple !important;
+      color: $primary-purple;
     }
   }
 }
 
 .pub-authors,
-.article-metadata,
-.card-text {
-  color: #333 !important;
+.article-metadata {
+  color: #333;
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
-  background: transparent !important;
 }
 
 .pub-meta {
-  color: #555 !important;
+  color: #666;
   font-size: 0.9rem;
   font-style: italic;
 }
 
-// Gold highlights for special elements
+// Gold highlights for featured publications
 .featured,
 .pub-featured {
   border-left-color: $accent-gold;
-  background: linear-gradient(to right, rgba(255, 184, 28, 0.05), transparent) !important;
+  border-left-width: 6px;
+  background: linear-gradient(to right, rgba(255, 181, 0, 0.08), transparent);
 }
 
-// Ensure all text is readable
+// Default text colors - Black on white
 p, span, div, li {
-  color: #333;
+  color: #1a1a1a;
 }
 
 // ===== Links & Interactive Elements =====
@@ -305,16 +320,6 @@ a {
   &:hover {
     color: $accent-gold;
     text-decoration: none;
-  }
-}
-
-// Links in purple sections
-.home-section:nth-child(odd) a {
-  color: $accent-gold;
-
-  &:hover {
-    color: #ffffff;
-    text-decoration: underline;
   }
 }
 
