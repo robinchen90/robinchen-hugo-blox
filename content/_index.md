@@ -151,8 +151,8 @@ sections:
       items:
         - title: 'Research & Sponsored Programs (RSP) Capacity Building Grant Program'
           certificate_url: ''
-          date_start: '2026-08-01'
-          date_end: '2027-05-31'
+          date_start: '2026-02-01'
+          date_end: '2027-10-31'
           description: '$15,000'
           organization: 'Office of Research & Sponsored Programs, UNI'
           organization_url: 'https://rsp.uni.edu'
@@ -161,8 +161,8 @@ sections:
 
         - title: 'Tim Williams Junior Faculty Fellowship'
           certificate_url: ''
-          date_start: '2025-08-01'
-          date_end: '2026-05-31'
+          date_start: '2025-06-01'
+          date_end: '2026-06-30'
           description: '$7,500'
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
