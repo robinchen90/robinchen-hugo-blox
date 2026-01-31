@@ -10,7 +10,7 @@ sections:
     content:
       title: Zhengyang (Robin) Chen
       text: |
-        **Economics Professor | Researcher | Educator**
+        **Assistant Professor | Researcher | Educator**
 
         Advancing our understanding of monetary policy transmission, Fed policy rules, and structural identification in macroeconomic models.
       cta:
