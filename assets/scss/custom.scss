@@ -1,5 +1,12 @@
 // Custom styling for professional academic portfolio
 
+// ===== Color Variables - Purple & Gold Theme =====
+$primary-purple: #4B2E83;
+$dark-purple: #2E1A4F;
+$light-purple: #7B68A6;
+$accent-gold: #FFB81C;
+$dark-gold: #D4941F;
+
 // ===== Typography & Spacing =====
 
 body {
@@ -51,11 +58,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  background: linear-gradient(135deg, $primary-purple 0%, $dark-purple 100%);
   border: none;
 
   &:hover {
-    background: linear-gradient(135deg, #0052a3 0%, #003d7a 100%);
+    background: linear-gradient(135deg, $dark-purple 0%, $dark-purple 100%);
   }
 }
 
@@ -89,45 +96,68 @@ h1, h2, h3, h4, h5, h6 {
 
 // ===== Publication Styling =====
 
-.pub-list-item {
+.pub-list-item,
+.article-metadata,
+.pub-item,
+.card-text {
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  background: #fff;
+  background: #fff !important;
   border-radius: 12px;
-  border-left: 4px solid #0066cc;
+  border-left: 4px solid $accent-gold;
   transition: all 0.3s ease;
 
   &:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     transform: translateX(4px);
+    border-left-color: $primary-purple;
   }
 }
 
-.pub-title {
+// Force readable text colors in publications
+.pub-title,
+.article-title,
+h1, h2, h3, h4, h5, h6 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: #1a1a1a !important;
 
   a {
-    color: #2c3e50;
+    color: #1a1a1a !important;
     text-decoration: none;
 
     &:hover {
-      color: #0066cc;
+      color: $primary-purple !important;
     }
   }
 }
 
-.pub-authors {
-  color: #666;
+.pub-authors,
+.article-metadata,
+.card-text {
+  color: #333 !important;
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
+  background: transparent !important;
 }
 
 .pub-meta {
-  color: #888;
+  color: #555 !important;
   font-size: 0.9rem;
   font-style: italic;
+}
+
+// Gold highlights for special elements
+.featured,
+.pub-featured {
+  border-left-color: $accent-gold;
+  background: linear-gradient(to right, rgba(255, 184, 28, 0.05), transparent) !important;
+}
+
+// Ensure all text is readable
+p, span, div, li {
+  color: #333;
 }
 
 // ===== Stats Block =====
@@ -142,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 .stat-number {
   font-size: 3em;
   font-weight: 700;
-  background: linear-gradient(135deg, #0066cc 0%, #003d7a 100%);
+  background: linear-gradient(135deg, $primary-purple 0%, $dark-purple 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -165,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .feature-icon {
     font-size: 2.5rem;
-    color: #0066cc;
+    color: $primary-purple;
     margin-bottom: 1rem;
   }
 
@@ -223,7 +253,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem;
   background: #fff;
   border-radius: 12px;
-  border-left: 4px solid #0066cc;
+  border-left: 4px solid $primary-purple;
   margin-bottom: 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -246,7 +276,7 @@ table {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   thead {
-    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    background: linear-gradient(135deg, $primary-purple 0%, $dark-purple 100%);
     color: #fff;
 
     th {
@@ -312,7 +342,7 @@ textarea {
   transition: all 0.3s ease;
 
   &:focus {
-    border-color: #0066cc;
+    border-color: $primary-purple;
     box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
     outline: none;
   }
@@ -391,12 +421,12 @@ textarea:focus {
 // High contrast mode support
 @media (prefers-contrast: high) {
   .btn-primary {
-    background: #0052a3;
+    background: $dark-purple;
     border: 2px solid #fff;
   }
 
   .card:hover {
-    border: 2px solid #0066cc;
+    border: 2px solid $primary-purple;
   }
 }
 
