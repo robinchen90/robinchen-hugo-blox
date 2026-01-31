@@ -20,7 +20,7 @@ I believe in **student-oriented, evidence-based, and application-driven** teachi
 
 ### Overview
 
-A web-based educational tool that transforms abstract financial formulas into interactive, visual learning experiences. Students can explore bond pricing, yields, and mortgage calculations with instant feedback.
+A [web-based educational tool](https://bondpricecalculator.netlify.app/) that transforms abstract financial formulas into interactive, visual learning experiences. Students can explore bond pricing, yields, and mortgage calculations with instant feedback.
 
 ### Key Features
 
