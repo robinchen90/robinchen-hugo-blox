@@ -150,7 +150,7 @@ sections:
       text: ''
       date_format: Jan 2006
       items:
-        - title: 'Research & Sponsored Programs (RSP) Capacity Building Grant Program'
+        - title: 'RSP Capacity Building Grant Program'
           certificate_url: ''
           date_start: '2026-02-01'
           date_end: '2027-10-31'
@@ -175,7 +175,7 @@ sections:
           date_start: '2025-05-01'
           date_end: '2025-08-31'
           description: '$9,000'
-          organization: 'Division of Graduate Studies, UNI'
+          organization: 'Division of Graduate Studies + Wilson College of Business, UNI'
           organization_url: ''
           url: 'https://grad.uni.edu/info-faculty-staff/summer-fellowship'
           icon: ''
