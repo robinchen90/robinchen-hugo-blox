@@ -26,7 +26,7 @@ sections:
           icon: university
           icon_pack: fas
         - name: Structural VAR Identification
-          description: Developing and applying advanced econometric techniques for causal identification in macroeconomic models, including SVAR and narrative approaches.
+          description: Developing and applying advanced econometric techniques for causal identification in structural VAR.
           icon: project-diagram
           icon_pack: fas
         - name: Money Demand & Aggregation
