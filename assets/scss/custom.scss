@@ -725,19 +725,31 @@ textarea {
 
 // ===== Footer Enhancements =====
 
-footer {
+footer,
+.site-footer,
+footer.site-footer {
   background: linear-gradient(135deg, $primary-purple 0%, $campaniling 100%);
   color: #ffffff;
-  padding: 3rem 0 2rem 0;
+  padding: 2rem 0;
   margin-top: 4rem;
   text-align: center;
   position: relative;
 
+  // Footer logo at top
+  &::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-image: url('/media/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 1.5rem auto;
+  }
+
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
   }
 
   p, span, div {
@@ -751,19 +763,6 @@ footer {
       color: #ffffff;
     }
   }
-}
-
-// Footer logo - positioned inside footer
-footer .container::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 60px;
-  background-image: url('/media/logo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 1rem;
 }
 
 // ===== Animations =====
