@@ -56,7 +56,7 @@ sections:
       filters:
         folders:
           - publication
-        exclude_featured: true
+        exclude_featured: false
       sort_by: 'Date'
       sort_ascending: false
     design:
