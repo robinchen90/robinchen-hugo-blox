@@ -1,7 +1,10 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-logo">
-      <img src="/media/logo.png" alt="Robin Chen Logo" width="60" height="60">
+      {{ $logo := resources.Get "media/logo.png" }}
+      {{ if $logo }}
+      <img src="{{ $logo.RelPermalink }}" alt="Robin Chen Logo" width="60" height="60">
+      {{ end }}
     </div>
     <p class="powered-by">
       {{ with site.Params.footer.copyright.notice }}
