@@ -419,6 +419,27 @@ a {
 
 // ===== Biography/About Section =====
 
+// Add logo next to Biography title
+#about h2,
+.about-biography h2,
+section[id="about"] h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url('/media/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+}
+
 .about-section {
   background: #ffffff;
 
@@ -707,28 +728,16 @@ textarea {
 footer {
   background: linear-gradient(135deg, $primary-purple 0%, $campaniling 100%);
   color: #ffffff;
-  padding: 2rem 0;
+  padding: 3rem 0 2rem 0;
   margin-top: 4rem;
   text-align: center;
+  position: relative;
 
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  // Footer logo
-  &::before {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 80px;
-    background-image: url('/media/logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0 auto 1rem auto;
   }
 
   p, span, div {
@@ -742,6 +751,19 @@ footer {
       color: #ffffff;
     }
   }
+}
+
+// Footer logo - positioned inside footer
+footer .container::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url('/media/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 1rem;
 }
 
 // ===== Animations =====
