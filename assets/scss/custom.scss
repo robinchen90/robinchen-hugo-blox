@@ -739,13 +739,13 @@ footer.site-footer {
   }
 
   .footer-logo {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 
     img {
       display: inline-block;
-      border-radius: 50%;
-      background: #ffffff;
-      padding: 5px;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
     }
   }
 
