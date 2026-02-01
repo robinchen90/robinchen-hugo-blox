@@ -153,7 +153,7 @@ sections:
       text: ''
       date_format: Jan 2006
       items:
-        - title: 'RSP Capacity Building Grant Program | Principal Investigator'
+        - title: 'RSP Capacity Building Grant | Principal Investigator'
           certificate_url: ''
           date_start: '2026-02-01'
           date_end: '2027-10-31'
