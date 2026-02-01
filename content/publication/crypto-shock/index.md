@@ -20,7 +20,7 @@ publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated version.
 publication: "Journal of Risk and Financial Management"
-publication_short: "JRFM"
+publication_short: ""
 
 # Abstract.
 abstract: "This paper examines cryptocurrency shock transmission to financial markets and the macroeconomy using a Bayesian structural VAR with Pandemic Priors from 2015 to 2024. By affecting overall risk appetite, cryptocurrency price shocks generate positive financial market spillovers, accounting for 18% of equity and 27% of commodity price fluctuations. Real economic effects are significant in driving investment but remain limited, contributing only 4% to unemployment and 6% to industrial production variance. However, cryptocurrency shocks explain 18% of price-level forecast error variance at long horizons. Narrative analysis reveals sentiment and technology as primary shock drivers. These findings demonstrate cryptocurrency's deep financial system integration with important inflation implications for monetary policy."

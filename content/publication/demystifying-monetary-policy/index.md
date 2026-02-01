@@ -31,7 +31,7 @@ summary: "This paper explains why monetary policy surprises are predictable: the
 doi: "10.1016/j.jmacro.2025.103736"
 
 # Is this a featured publication? (true/false)
-featured: true
+featured: false
 
 # Tags (optional).
 tags: ["Monetary Policy", "Federal Reserve", "FOMC", "Financial Conditions", "Policy Surprises", "Macroeconomics"]

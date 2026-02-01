@@ -10,7 +10,7 @@ publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated version.
 publication: "Journal of Economic Dynamics and Control"
-publication_short: "JEDC"
+publication_short: ""
 
 # Abstract.
 abstract: "We propose a novel approach that directly embeds rational expectations (RE) into a low-dimensional structural vector autoregression (SVAR) without the need for any mapping to a dynamic stochastic general equilibrium (DSGE) model. Beginning from a fully specified \"consensus\" structural model, we establish an instrumental variable procedure internal to the SVAR to obtain RE-consistent structural responses to identified monetary policy shocks. Our RE-SVAR framework facilitates a comparison across two alternative monetary policy indicators that accommodate long horizons in the formation of inflation expectations in the policy rule. We construct clouds of responses of inflation and economic activity to monetary policy shocks. We find large regions of puzzling responses to innovations in the federal funds rate. This suggests that indicator often requires being augmented with more information in standard VAR settings. A money growth rule characterization—with Divisia M4 as a policy indicator—exhibits comparatively larger regions of sensible responses within a low-dimensional textbook model of the economy."

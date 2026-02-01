@@ -10,7 +10,7 @@ publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated version.
 publication: "Macroeconomic Dynamics"
-publication_short: "MD"
+publication_short: ""
 
 # Abstract.
 abstract: "A large literature has shown money demand functions constructed from simplesum aggregates are unstable. We revisit the controversy surrounding the instability of money demand by examining cointegrating income-money relationships with the Divisia monetary aggregates for the U.S., and compare them with their simple-sum counterparts. We innovate by conducting a more granular analysis of various monetary assets and their associated user costs. We find characterizing money demand with simple-sum measures only works well in a period preceding 1980. Divisia aggregates, their components, and their user costs provide a more reliable interpretation of money demand. Subsample analysis across 1980 and 2008 suggests the instability of money demand is a matter of measurement rather than a consequence of a structural change in agents' preference for monetary assets."

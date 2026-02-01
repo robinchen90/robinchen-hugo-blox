@@ -61,6 +61,9 @@ social:
   - icon: orcid
     icon_pack: ai
     link: 'https://orcid.org/0000-0002-8450-5801'
+  - icon: publons
+    icon_pack: ai
+    link: 'https://www.webofscience.com/wos/author/record/HSG-6785-2023'
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'zchen.econ@gmail.com'

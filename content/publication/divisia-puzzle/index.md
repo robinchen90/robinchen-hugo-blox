@@ -10,7 +10,7 @@ publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated version.
 publication: "Journal of Economic Dynamics and Control"
-publication_short: "JEDC"
+publication_short: ""
 
 # Abstract.
 abstract: "We investigate the effects of U.S. monetary policy shocks from two alternative policy indicators for a modern sample encompassing 1988-2020. The choice of the Wu and Xia (2016) shadow federal funds rate leads to persistent price puzzles. These puzzles arise despite inclusion of the usual suspect fixes such as commodity prices, federal funds futures and forward rate data. We find they occur at monthly and quarterly frequencies in time-varying and constant-parameter approaches. We consider an alternative indicator with the same broad monetary aggregate Keating et al. (2019) employed in their investigation of a historical sample. This alternative provides a consistent resolution of the price puzzle and it does not require the ad hoc inclusion of commodity prices or futures data. While this price puzzle correction is not a feature of our time-varying approach—as it also obtains from constant parameter econometric estimation—our analysis suggests monetary policy has transmitted substantial expansionary effects in money markets in the aftermath of the 2007 Financial Crisis and the decade that followed."
