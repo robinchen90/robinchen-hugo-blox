@@ -79,11 +79,11 @@ sections:
             * ECON2132 Money and Banking
             * ECON3371 Economic and Business Forecasting
 
-            Developed interactive educational tools including Bond Price Calculator and ClassHub platform used by 500+ students.
+            Developed interactive educational tools including Bond Price Calculator and ClassHub platform.
 
         - title: Assistant Professor in Economics
           company: St. Cloud State University
-          company_url: ''
+          company_url: 'https://www.stcloudstate.edu/'
           location: St. Cloud, Minnesota
           date_start: '2021-08-20'
           date_end: '2023-05-30'
