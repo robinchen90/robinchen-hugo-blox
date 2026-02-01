@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo">
+      <img src="/media/logo.png" alt="Robin Chen Logo" width="60" height="60">
+    </div>
+    <p class="powered-by">
+      {{ with site.Params.footer.copyright.notice }}
+        {{ replace . "{year}" now.Year | markdownify }}
+      {{ end }}
+    </p>
+    {{ if site.Params.footer.powered_by | default true }}
+    <p class="powered-by">
+      Published with <a href="https://hugoblox.com/" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    </p>
+    {{ end }}
+  </div>
+</footer>
