@@ -153,11 +153,11 @@ sections:
       text: ''
       date_format: Jan 2006
       items:
-        - title: 'RSP Capacity Building Grant Program'
+        - title: 'RSP Capacity Building Grant Program | Principal Investigator'
           certificate_url: ''
           date_start: '2026-02-01'
           date_end: '2027-10-31'
-          description: 'Principal Investigator. $15,000'
+          description: '$15,000'
           organization: 'Office of Research & Sponsored Programs, UNI'
           organization_url: 'https://rsp.uni.edu'
           url: 'https://rsp.uni.edu/internal-funding'
