@@ -220,29 +220,29 @@ sections:
       columns: '2'
       view: showcase
 
-  # Recent Posts
-  - block: collection
-    id: posts
-    content:
-      title: Recent Posts
-      subtitle: ''
-      text: ''
-      count: 5
-      filters:
-        folders:
-          - post
-        author: ""
-        category: ""
-        tag: ""
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ""
-      offset: 0
-      order: desc
-    design:
-      columns: '2'
-      view: compact
+  # Recent Posts - Hidden
+  # - block: collection
+  #   id: posts
+  #   content:
+  #     title: Recent Posts
+  #     subtitle: ''
+  #     text: ''
+  #     count: 5
+  #     filters:
+  #       folders:
+  #         - post
+  #       author: ""
+  #       category: ""
+  #       tag: ""
+  #       exclude_featured: false
+  #       exclude_future: false
+  #       exclude_past: false
+  #       publication_type: ""
+  #     offset: 0
+  #     order: desc
+  #   design:
+  #     columns: '2'
+  #     view: compact
 
   # Contact
   - block: contact

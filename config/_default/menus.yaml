@@ -22,9 +22,9 @@ main:
   - name: Conferences
     url: conferences
     weight: 5
-  - name: Blog
-    url: post
-    weight: 6
+#  - name: Blog
+#    url: post
+#    weight: 6
   - name: Contact
     url: '#contact'
     weight: 7
