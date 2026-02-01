@@ -15,13 +15,13 @@ main:
     weight: 3
   - name: Funding
     url: '#funding'
-    weight: 3.5
+    weight: 4
   - name: Innovations
     url: project
-    weight: 4
+    weight: 5
   - name: Conferences
     url: conferences
-    weight: 5
+    weight: 6
 #  - name: Blog
 #    url: post
 #    weight: 6
