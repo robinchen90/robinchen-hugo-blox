@@ -187,7 +187,7 @@ sections:
           certificate_url: ''
           date_start: '2025-05-01'
           date_end: '2025-08-31'
-          description: '$9,000'
+          description: '$3,800 + match to 1/9 salary'
           organization: 'Division of Graduate Studies + Wilson College of Business, UNI'
           organization_url: ''
           url: 'https://grad.uni.edu/info-faculty-staff/summer-fellowship'
