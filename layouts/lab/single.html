@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ .Params.description }}">
+<title>{{ .Title }} | University of Northern Iowa</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Params.description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- Favicon -->
+{{ $icon := resources.Get "media/icon.png" }}
+{{ if $icon }}
+<link rel="icon" type="image/png" href="{{ $icon.RelPermalink }}">
+{{ end }}
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+{{ if eq hugo.Environment "production" }}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YHNDLE3XG5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YHNDLE3XG5');
+</script>
+{{ end }}
+
+<style>
+  :root {
+    --purple-deep: #4B116F;
+    --purple-mid: #6B2D8B;
+    --purple-light: #8B4DAB;
+    --purple-pale: #F3E8FA;
+    --gold: #FFCD00;
+    --gold-dark: #D4A800;
+    --gold-light: #FFF4CC;
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --gray-50: #F7F7F5;
+    --gray-100: #EEEDE9;
+    --gray-200: #DDDBD4;
+    --gray-400: #9B9789;
+    --gray-600: #6B6860;
+    --gray-800: #2D2B28;
+    --gray-900: #1A1917;
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Instrument Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--off-white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(75, 17, 111, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--gold);
+    transition: all 0.3s ease;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .nav-brand-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.65rem;
+    color: var(--purple-deep);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .nav-brand-text {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-brand-sub {
+    font-size: 0.65rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    display: block;
+    margin-top: -2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(165deg, var(--purple-deep) 0%, #2A0845 45%, #1A0530 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(255,205,0,0.06) 0%, transparent 60%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-5%, 3%) scale(1.1); }
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,205,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,205,0,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%);
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,205,0,0.1);
+    border: 1px solid rgba(255,205,0,0.25);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease-out 0.15s both;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    animation: fadeInUp 0.8s ease-out 0.45s both;
+  }
+
+  .hero-stat {
+    text-align: left;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-top: 0.35rem;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    animation: fadeInUp 1s ease-out 0.8s both;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; height: 40px; }
+    50% { opacity: 1; height: 50px; }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 2rem;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--purple-mid);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    max-width: 680px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .about-text p {
+    color: var(--gray-600);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  /* PROJECTS */
+  #projects {
+    background: linear-gradient(170deg, var(--purple-deep) 0%, #1A0530 100%);
+    color: var(--white);
+  }
+
+  #projects .section-label { color: var(--gold); }
+  #projects .section-title { color: var(--white); }
+  #projects .section-desc { color: rgba(255,255,255,0.6); }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .project-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    transition: all 0.3s ease;
+  }
+
+  .project-item:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,205,0,0.2);
+  }
+
+  .project-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding-top: 0.25rem;
+  }
+
+  .project-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .project-dot.active {
+    animation: pulse 2s ease infinite;
+    box-shadow: 0 0 12px rgba(255,205,0,0.4);
+  }
+
+  .project-line {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .project-meta {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .project-item p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .project-tag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.75rem;
+    background: rgba(255,205,0,0.1);
+    border: 1px solid rgba(255,205,0,0.2);
+    border-radius: 100px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .project-funding {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .project-funder {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  .project-amount {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-top: 0.25rem;
+  }
+
+  /* NEWS */
+  #news {
+    background: var(--off-white);
+  }
+
+  .news-filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .news-filter {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    border: 1px solid var(--gray-200);
+    background: var(--white);
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+  }
+
+  .news-filter:hover {
+    border-color: var(--purple-light);
+    color: var(--purple-mid);
+  }
+
+  .news-filter.active {
+    background: var(--purple-deep);
+    border-color: var(--purple-deep);
+    color: var(--white);
+  }
+
+  .news-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .news-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--gray-100);
+    transition: all 0.2s ease;
+  }
+
+  .news-item:first-child { border-top: 1px solid var(--gray-100); }
+
+  .news-item:hover {
+    padding-left: 1rem;
+  }
+
+  .news-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    padding-top: 0.2rem;
+  }
+
+  .news-type {
+    display: inline-block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .news-type.grant { background: var(--gold-light); color: var(--gold-dark); }
+  .news-type.paper { background: var(--purple-pale); color: var(--purple-mid); }
+  .news-type.event { background: #E8F5E9; color: #2E7D32; }
+  .news-type.team { background: #E3F2FD; color: #1565C0; }
+  .news-type.snack { background: #FFF3E0; color: #E65100; }
+
+  .news-item.hidden {
+    display: none;
+  }
+
+  .news-content h3 {
+    font-size: 1rem;
+    color: var(--gray-900);
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.35rem;
+  }
+
+  .news-content p {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  /* PEOPLE */
+  #people {
+    background: var(--gray-50);
+  }
+
+  .people-section-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gray-400);
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .people-section-label:first-of-type { margin-top: 0; }
+
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .people-grid.ra-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .person-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--gray-100);
+    background: var(--white);
+    transition: all 0.3s ease;
+  }
+
+  .person-card:hover {
+    border-color: var(--purple-pale);
+    box-shadow: 0 4px 20px rgba(75,17,111,0.06);
+  }
+
+  .person-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--purple-deep), var(--purple-mid));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .person-info h3 {
+    font-size: 1rem;
+    color: var(--gray-900);
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+
+  .person-role {
+    font-size: 0.78rem;
+    color: var(--purple-mid);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  .person-info p {
+    font-size: 0.82rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* PUBLICATIONS */
+  #publications {
+    background: var(--white);
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pub-item {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: start;
+  }
+
+  .pub-year {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--purple-mid);
+    font-weight: 600;
+    padding-top: 0.15rem;
+  }
+
+  .pub-item h3 {
+    font-size: 0.95rem;
+    color: var(--gray-900);
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+  }
+
+  .pub-authors {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+  }
+
+  .pub-venue {
+    font-size: 0.82rem;
+    color: var(--gray-400);
+    font-style: italic;
+    margin-top: 0.2rem;
+  }
+
+  .pub-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pub-badge.published { background: #E8F5E9; color: #2E7D32; }
+  .pub-badge.working { background: var(--gold-light); color: var(--gold-dark); }
+
+  /* FOOTER */
+  footer {
+    background: var(--gray-900);
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-brand-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.55rem;
+    color: var(--purple-deep);
+    line-height: 1.1;
+  }
+
+  .footer-text {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .footer-text a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* VALUES */
+  #values {
+    background: linear-gradient(170deg, var(--purple-deep) 0%, #1A0530 100%);
+    color: var(--white);
+    padding: 7rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #values::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 50% 50% at 10% 20%, rgba(255,205,0,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 85% 75%, rgba(255,205,0,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  #values .section-label { color: var(--gold); }
+  #values .section-label::before { background: var(--gold); }
+  #values .section-title { color: var(--white); }
+  #values .section-desc { color: rgba(255,255,255,0.5); }
+
+  .values-intro {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 720px;
+    line-height: 1.85;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .values-category {
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .values-category:last-child { margin-bottom: 0; }
+
+  .values-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .values-cat-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  .values-cat-num.research { background: rgba(255,205,0,0.15); color: var(--gold); }
+  .values-cat-num.students { background: rgba(139,77,171,0.2); color: var(--purple-light); }
+  .values-cat-num.ai { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+
+  .values-cat-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+
+  .values-cat-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.15rem;
+  }
+
+  .values-keywords {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .values-keyword-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.45rem 1.2rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .values-keyword-pill:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(255,205,0,0.05);
+  }
+
+  .values-keyword-pill.active {
+    border-color: var(--gold);
+    color: var(--gray-900);
+    background: var(--gold);
+  }
+
+  .values-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .values-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    margin-bottom: 0.75rem;
+  }
+
+  .values-card:hover {
+    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .values-card-header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .values-card-header:hover {
+    padding-left: 2.25rem;
+  }
+
+  .values-card-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .values-card-word {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--white);
+    transition: color 0.3s ease;
+  }
+
+  .values-card.open .values-card-word {
+    color: var(--gold);
+  }
+
+  .values-card-dash {
+    width: 24px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .values-card.open .values-card-dash {
+    background: var(--gold);
+    width: 32px;
+  }
+
+  .values-card-oneliner {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+  }
+
+  .values-card-toggle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.4);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .values-card.open .values-card-toggle {
+    transform: rotate(45deg);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .values-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+  }
+
+  .values-card.open .values-card-body {
+    max-height: 600px;
+  }
+
+  .values-card-content {
+    padding: 0 2rem 2rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .values-card-content p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.92rem;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+
+  .values-card-content p:last-child { margin-bottom: 0; }
+
+  .values-card-content .values-highlight {
+    color: var(--gold);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .values-level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 0.5rem;
+  }
+
+  .values-level-badge .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .values-divider {
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,205,0,0.2), rgba(255,255,255,0.05), transparent);
+    margin: 3rem 0;
+  }
+
+  .values-closing {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: rgba(255,205,0,0.06);
+    border: 1px solid rgba(255,205,0,0.15);
+    border-radius: 16px;
+  }
+
+  .values-closing-num {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .values-closing-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .values-closing-text {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    max-width: 650px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    section { padding: 4rem 1.25rem; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: rgba(75, 17, 111, 0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 1rem 1.25rem 1.5rem;
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { list-style: none; }
+    .nav-links a {
+      display: block;
+      padding: 0.75rem 0;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-links li:last-child a { border-bottom: none; }
+    .nav-hamburger { display: flex; }
+    .nav-inner { padding: 0 1.25rem; height: 60px; }
+    .nav-brand-text { font-size: 1.1rem; }
+
+    .hero { min-height: auto; }
+    .hero-content { padding: 7rem 1.25rem 4rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-desc { font-size: 1rem; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .hero-stat-num { font-size: 2rem; }
+    .hero-scroll { display: none; }
+
+    .section-title { font-size: 1.8rem; }
+    .section-desc { font-size: 0.95rem; }
+
+    .people-grid, .people-grid.ra-grid { grid-template-columns: 1fr; }
+    .person-card { padding: 1.25rem; }
+    .person-avatar { width: 56px; height: 56px; font-size: 1.2rem; }
+
+    .project-item { grid-template-columns: 1fr; padding: 1.75rem; }
+    .project-status { display: none; }
+    .project-funding { text-align: left; margin-top: 0.5rem; }
+    .project-item h3 { font-size: 1.15rem; }
+
+    .news-item { grid-template-columns: 80px 1fr; gap: 1rem; padding: 1.25rem 0; }
+    .news-date { font-size: 0.68rem; }
+    .news-filters { gap: 0.4rem; }
+    .news-filter { padding: 0.35rem 0.75rem; font-size: 0.65rem; }
+
+    #values { padding: 4rem 1.25rem; }
+    .values-intro { font-size: 1rem; }
+    .values-cat-header { gap: 1rem; }
+    .values-cat-title { font-size: 1.25rem; }
+    .values-card-header { padding: 1.25rem 1.5rem; }
+    .values-card-header:hover { padding-left: 1.5rem; }
+    .values-card-content { padding: 0 1.5rem 1.5rem; }
+    .values-card-content p { font-size: 0.88rem; }
+    .values-card-word { font-size: 1.15rem; }
+    .values-card-oneliner { display: none; }
+    .values-card-dash { display: none; }
+    .values-closing { flex-direction: column; gap: 1rem; padding: 2rem; }
+    .values-closing-num { font-size: 3rem; }
+    .values-closing-text { font-size: 0.88rem; }
+    .values-divider { margin: 2rem 0; }
+
+    .pub-item { grid-template-columns: 40px 1fr; gap: 1rem; }
+    .pub-badge { display: none; }
+    .pub-item h3 { font-size: 0.9rem; }
+
+    .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 1.8rem; }
+    .hero-stats { gap: 1.25rem; }
+    .hero-stat-num { font-size: 1.6rem; }
+    .hero-stat-label { font-size: 0.65rem; }
+    .hero-badge { font-size: 0.65rem; padding: 0.3rem 0.75rem; }
+    .section-title { font-size: 1.5rem; }
+    .person-card { flex-direction: column; gap: 1rem; }
+    .news-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .news-date { font-size: 0.65rem; }
+    .values-cat-num { width: 40px; height: 40px; font-size: 0.65rem; }
+    .project-item { padding: 1.25rem; }
+    .project-tags { gap: 0.35rem; }
+    .project-tag { font-size: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <div class="nav-brand-icon">AI+E</div>
+      <div>
+        <span class="nav-brand-text">AI + Econ Lab</span>
+        <span class="nav-brand-sub">University of Northern Iowa</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#people" onclick="closeMenu()">People</a></li>
+      <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+      <li><a href="#news" onclick="closeMenu()">News</a></li>
+      <li><a href="#values" onclick="closeMenu()">Values</a></li>
+      <li><a href="#publications" onclick="closeMenu()">Papers</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Wilson College of Business &middot; University of Northern Iowa</div>
+    <h1>AI Methods for <em>Economics Research</em></h1>
+    <p class="hero-desc">
+      We use large language models to build novel datasets in monetary policy and energy finance. Undergraduate researchers work alongside faculty on every project.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Active Grants</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label">Faculty Members</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Students</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$24K</div>
+        <div class="hero-stat-label">Funded</div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="hero-scroll">
+    Scroll
+    <div class="hero-scroll-line"></div>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-text" style="max-width:780px;">
+      <div class="section-label">About the Lab</div>
+      <h2 class="section-title">AI + Econ Lab</h2>
+      <p>
+        We study how institutions make decisions under uncertainty. Our current work asks how the Federal Reserve weighs competing policy objectives, and whether energy firms use stock market signals to manage risk. These are old questions. Large language models make new answers possible.
+      </p>
+      <p>
+        We treat AI as a <strong>tool</strong> for structured data extraction, as <strong>leverage</strong> that lets a small team build datasets at scales previously requiring large research groups, and as a <strong>mirror</strong> that surfaces how economic actors communicate priorities, assess risk, and justify decisions.
+      </p>
+      <p>
+        Every project trains undergraduates in AI tools, Python, econometrics, and research documentation. The lab is funded by UNI internal grants and targets external proposals to the NSF Economics Program, the Alfred P. Sloan Foundation, and the International Actuarial Association.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section id="people">
+  <div class="section-inner">
+    <div class="section-label">Our Team</div>
+    <h2 class="section-title">People</h2>
+    <p class="section-desc">Faculty and undergraduate researchers.</p>
+
+    <div class="people-section-label">Faculty</div>
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-avatar">ZY</div>
+        <div class="person-info">
+          <h3>Dr. Zhengyang (Robin) Chen</h3>
+          <div class="person-role">Assistant Professor of Economics &middot; Lab Director</div>
+          <p>Monetary policy, macro-finance, time-series econometrics. Ph.D., UT Dallas. Published in Journal of Macroeconomics, JEDC, and Macroeconomic Dynamics.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar">ZD</div>
+        <div class="person-info">
+          <h3>Dr. Zhongdong (Ronnie) Chen</h3>
+          <div class="person-role">Associate Professor of Finance &middot; Member</div>
+          <p>Corporate risk management, energy finance, banking. Ph.D., U. of Tennessee. Publications in Energy Economics (A*) and Journal of Behavioral Finance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="people-section-label">Research Assistants</div>
+    <div class="people-grid ra-grid">
+      <div class="person-card">
+        <div class="person-avatar" style="font-size:1rem;">RA</div>
+        <div class="person-info">
+          <h3>Position Open</h3>
+          <div class="person-role">Fed Minutes &middot; LLM Pipeline</div>
+          <p>Build Python pipeline for batch-processing FOMC documents across ChatGPT, Claude, and Gemini APIs.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar" style="font-size:1rem;">RA</div>
+        <div class="person-info">
+          <h3>Position Open</h3>
+          <div class="person-role">Fed Minutes &middot; Human Validation</div>
+          <p>Independently code FOMC meetings for inter-rater reliability. Compute Cohen's kappa across AI and human classifications.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar" style="font-size:1rem;">RA</div>
+        <div class="person-info">
+          <h3>Position Open</h3>
+          <div class="person-role">Fed Minutes &middot; Dataset Construction</div>
+          <p>Structure validated outputs into research-ready formats. Prepare data files, codebook, and documentation for openICPSR deposit.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar" style="font-size:1rem;">RA</div>
+        <div class="person-info">
+          <h3>Position Open</h3>
+          <div class="person-role">Oil Hedging &middot; SEC Filing Extraction</div>
+          <p>Validate AI-extracted hedging positions against 10-K filings for 100 energy firms. Cross-check derivatives data across three LLM platforms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVE PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">Funded Research</div>
+    <h2 class="section-title">Active Projects</h2>
+    <p class="section-desc">Current studies using LLM-based extraction and classification to construct datasets for economics and finance.</p>
+
+    <div class="project-list">
+      <div class="project-item">
+        <div class="project-status">
+          <div class="project-dot active"></div>
+          <div class="project-line"></div>
+        </div>
+        <div>
+          <div class="project-meta">Capacity Building Grant &middot; 2025&ndash;26</div>
+          <h3>Revealed Federal Reserve Priorities</h3>
+          <p>Does the Fed treat financial stability as a de facto third mandate? We classify 210 FOMC meetings (1993&ndash;2020) to measure how policymakers allocate stated rationale across inflation, employment, and financial stability. Three LLMs provide initial classifications; human annotators validate a stratified 20% sample (target kappa &gt; 0.80). The completed dataset targets an NSF Economics Program proposal.</p>
+          <div class="project-tags">
+            <span class="project-tag">FOMC Analysis</span>
+            <span class="project-tag">NLP Classification</span>
+            <span class="project-tag">Monetary Policy</span>
+          </div>
+        </div>
+        <div class="project-funding">
+          <div class="project-funder">UNI RSP</div>
+          <div class="project-amount">$15,000</div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-status">
+          <div class="project-dot active"></div>
+          <div class="project-line"></div>
+        </div>
+        <div>
+          <div class="project-meta">Capacity Building Grant &middot; 2025&ndash;26</div>
+          <h3>AI-Powered Hedging Data Extraction</h3>
+          <p>Do energy firms learn from stock prices to adjust hedging? We extract corporate hedging positions from SEC filings for 100 upstream firms over 2010&ndash;2025 &mdash; the first large-scale dataset since Jin and Jorion (2006). We test whether abnormal oil price risk exposure predicts hedging adjustments, and whether under-hedging contributed to bankruptcy during the 2014&ndash;16 and 2020 crises.</p>
+          <div class="project-tags">
+            <span class="project-tag">SEC Filings</span>
+            <span class="project-tag">Derivatives Extraction</span>
+            <span class="project-tag">Energy Finance</span>
+          </div>
+        </div>
+        <div class="project-funding">
+          <div class="project-funder">UNI RSP</div>
+          <div class="project-amount">$7,425</div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-status">
+          <div class="project-dot active"></div>
+          <div class="project-line"></div>
+        </div>
+        <div>
+          <div class="project-meta">Pre-Tenure Faculty Grant &middot; 2025&ndash;26</div>
+          <h3>Fed Policy Priority Protocol Development</h3>
+          <p>Pilot study validating AI classification protocols on 50 FOMC meetings. Establishes inter-rater reliability benchmarks and tests whether Economic:Financial discussion ratios predict policy actions beyond standard Taylor rule variables. Proof-of-concept for the full 210-meeting dataset.</p>
+          <div class="project-tags">
+            <span class="project-tag">Protocol Development</span>
+            <span class="project-tag">Pilot Study</span>
+            <span class="project-tag">Reliability Testing</span>
+          </div>
+        </div>
+        <div class="project-funding">
+          <div class="project-funder">UNI Provost</div>
+          <div class="project-amount">$1,500</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS & ECON SNACKS -->
+<section id="news">
+  <div class="section-inner">
+    <div class="section-label">Latest from the Lab</div>
+    <h2 class="section-title">News &amp; Econ Snacks</h2>
+    <p class="section-desc">Updates, publications, and short posts from our research assistants.</p>
+
+    <div class="news-filters">
+      <button class="news-filter active" onclick="filterNews('all', this)">All</button>
+      <button class="news-filter" onclick="filterNews('grant', this)">Grants</button>
+      <button class="news-filter" onclick="filterNews('paper', this)">Papers</button>
+      <button class="news-filter" onclick="filterNews('team', this)">Team</button>
+      <button class="news-filter" onclick="filterNews('snack', this)">Econ Snacks</button>
+    </div>
+
+    <div class="news-feed">
+      <div class="news-item" data-tag="snack">
+        <div class="news-date">Spring 2026</div>
+        <div class="news-content">
+          <span class="news-type snack">Econ Snack</span>
+          <h3>What I Learned Reading 50 FOMC Transcripts</h3>
+          <p>How the Federal Reserve actually talks about financial crises behind closed doors. <em>Coming soon.</em></p>
+        </div>
+      </div>
+      <div class="news-item" data-tag="snack">
+        <div class="news-date">Spring 2026</div>
+        <div class="news-content">
+          <span class="news-type snack">Econ Snack</span>
+          <h3>ChatGPT vs. Claude vs. Gemini: Who Reads SEC Filings Best?</h3>
+          <p>Three AI platforms, one hedging disclosure. Where they agree, where they don&rsquo;t, and what it means. <em>Coming soon.</em></p>
+        </div>
+      </div>
+      <div class="news-item" data-tag="snack">
+        <div class="news-date">Spring 2026</div>
+        <div class="news-content">
+          <span class="news-type snack">Econ Snack</span>
+          <h3>Inter-Rater Reliability: Why Two Coders Are Better Than One</h3>
+          <p>A practical guide to Cohen&rsquo;s kappa, what 0.80 means, and why disagreement is informative. <em>Coming soon.</em></p>
+        </div>
+      </div>
+      <div class="news-item" data-tag="grant">
+        <div class="news-date">Feb 2026</div>
+        <div class="news-content">
+          <span class="news-type grant">Grant</span>
+          <h3>Two Capacity Building Grants Awarded</h3>
+          <p>UNI&rsquo;s Office of Research &amp; Sponsored Programs awarded $15,000 for the Fed minutes project (PI: Robin Chen) and $7,425 for the oil hedging project (PI: Ronnie Chen).</p>
+        </div>
+      </div>
+      <div class="news-item" data-tag="team">
+        <div class="news-date">Jan 2026</div>
+        <div class="news-content">
+          <span class="news-type team">Team</span>
+          <h3>Recruiting Five Undergraduate RAs</h3>
+          <p>Open positions across three projects for Spring and Summer 2026. Roles involve LLM pipeline development, human validation, and SEC filing extraction.</p>
+        </div>
+      </div>
+      <div class="news-item" data-tag="paper">
+        <div class="news-date">2026</div>
+        <div class="news-content">
+          <span class="news-type paper">Paper</span>
+          <h3>Publication in Journal of Macroeconomics</h3>
+          <p>Chen, Zhengyang. &ldquo;Demystifying Monetary Policy Surprises.&rdquo;</p>
+        </div>
+      </div>
+      <div class="news-item" data-tag="paper">
+        <div class="news-date">2020</div>
+        <div class="news-content">
+          <span class="news-type paper">Paper</span>
+          <h3>Publication in Energy Economics</h3>
+          <p>Chen, Z., Craig, K.A., and Karpovics, M. &ldquo;Once bitten twice shy? Evidence from the US banking industry during the crash of the energy market.&rdquo; Vol. 92. (A* journal, Impact Factor 13.6)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES: THE LAB'S OPERATING SYSTEM -->
+<section id="values">
+  <div class="section-inner" style="position:relative;z-index:2;">
+    <div class="section-label">Guideline for Research Assistants</div>
+    <h2 class="section-title" style="color:var(--white);max-width:700px;">The Lab&rsquo;s Operating System</h2>
+    <p class="values-intro">
+      Nine words across three categories. These are operational principles, not aspirations. Read them before your first week.
+    </p>
+
+    <!-- CATEGORY 1: RESEARCH -->
+    <div class="values-category">
+      <div class="values-cat-header">
+        <div class="values-cat-num research">01</div>
+        <div>
+          <div class="values-cat-title">Research Outcomes</div>
+          <div class="values-cat-subtitle">What the work should look like when it&rsquo;s done</div>
+        </div>
+      </div>
+
+      <div class="values-cards">
+        <!-- CONSISTENT -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Consistent</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Same question, same answer, every time</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <p>Good research produces the same answer when you ask the same question twice. That sounds obvious, but most work that involves human judgment fails this test quietly. Two people read the same document and code it differently. The same person codes it differently on a Tuesday than on a Friday. Nobody notices because nobody checks.</p>
+              <p>AI forces you to confront consistency directly. When you run a protocol, you get an output. When you run it again, you get the same output. When a second platform gives a different answer, you can&rsquo;t shrug it off &mdash; you have to figure out why. The disagreement is visible, documented, and demands resolution.</p>
+              <p>Students trained in this environment develop an <span class="values-highlight">intolerance for sloppiness</span>. They learn that &ldquo;it seems right&rdquo; is not a standard. They learn to build processes where consistency isn&rsquo;t hoped for but engineered. That discipline transfers to any field, any job, any graduate program. A person who instinctively asks <em>&ldquo;would this produce the same result if I ran it again?&rdquo;</em> is a person whose work can be trusted.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- REPLICABLE -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Replicable</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">A stranger can follow your steps and get the same result</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <p>Replicable means someone else can do what you did and verify that it works. Not someone on your team. Not someone who watched you do it. A stranger at another university, reading your documentation, following your steps, getting the same result.</p>
+              <p>This is a higher standard than most people ever encounter before graduate school &mdash; and many graduate students never encounter it either. But AI-driven research makes it natural. Every prompt is text. Every model version has a name. Every input and output can be logged. The infrastructure for replicability is <span class="values-highlight">built into the workflow</span> if you&rsquo;re disciplined enough to use it.</p>
+              <p>Students who learn to work this way internalize something important: <em>your work should be able to stand without you in the room to explain it.</em> Your documentation should be complete enough that it speaks for itself. That&rsquo;s not just a research skill. It&rsquo;s a professional skill. The person who writes code others can read, builds processes others can follow, and documents decisions others can understand &mdash; that person is valuable everywhere.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ELEGANT -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Elegant</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Simple enough to explain, powerful enough to matter</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <p>Elegant means simple enough to explain and powerful enough to matter. It means you solved the problem with the minimum necessary complexity. Nothing extra. Nothing decorative. Just the clean line between question and answer.</p>
+              <p>Elegance is hard because the temptation is always to add more. More variables, more steps, more qualifications. The undisciplined researcher builds a complicated system and calls it thorough. The disciplined one strips away everything that doesn&rsquo;t contribute and calls what remains sufficient.</p>
+              <p>AI tempts you toward complexity &mdash; you can process more data, add more models, run more variations. <span class="values-highlight">Elegance is knowing when to stop.</span> It&rsquo;s the prompt that works in four sentences instead of forty. It&rsquo;s the protocol that a new student can learn in a week instead of a semester. It&rsquo;s the research design that someone outside your field can understand in one paragraph.</p>
+              <p>Students rarely encounter elegance as an explicit value. They&rsquo;re taught to be thorough, comprehensive, detailed. Nobody tells them that the hardest and most respected thing is to make something simple. The lab does.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="values-divider"></div>
+
+    <!-- CATEGORY 2: STUDENTS -->
+    <div class="values-category">
+      <div class="values-cat-header">
+        <div class="values-cat-num students">02</div>
+        <div>
+          <div class="values-cat-title">Student Expectations</div>
+          <div class="values-cat-subtitle">Who you need to be to do this work</div>
+        </div>
+      </div>
+
+      <div class="values-cards">
+        <!-- HIGH STANDARD -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Hold High Standard</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Not good enough to submit &mdash; actually good</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <p>This is not about grades. It&rsquo;s about the relationship you have with your own work.</p>
+              <p>A student who holds a high standard finishes something, looks at it, and asks whether it&rsquo;s <em>actually</em> good &mdash; not whether it&rsquo;s good enough to submit. The difference is internal. Nobody is checking over your shoulder at midnight. The question is whether you check yourself.</p>
+              <p>AI makes this both easier and harder. Easier because you can produce more output faster. Harder because <span class="values-highlight">quantity creates the illusion of quality</span>. The student who generates ten pages of AI output and submits it without scrutiny has produced nothing of value. The student who generates the same ten pages, reads every line, catches the error on page seven, and fixes it &mdash; that student has done real work. The output might look identical. The difference is entirely in the person.</p>
+              <p>The lab asks you to hold a standard that most people won&rsquo;t hold until someone forces them to &mdash; and then to hold it when nobody is forcing you. That&rsquo;s a habit. Once you have it, you don&rsquo;t lose it.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURIOUS -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Curious</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Follow the question past the point where it&rsquo;s required</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <p>Curiosity is the willingness to follow a question past the point where it's required. You were asked to classify sentences. You did it. But then you noticed something odd — a pattern you weren't looking for, a result that doesn't fit your expectation, an edge case that the protocol doesn't address. The incurious student ignores it and moves on. The curious student stops and investigates.</p>
+              <p>Most of what matters in research — and in careers — comes from that pause. The assigned task gets you to the table. <span class="values-highlight">Curiosity is what you do once you're there.</span></p>
+              <p>AI amplifies curiosity in a specific way. The cost of testing an idea has collapsed. If you wonder whether something is true, you can often check in five minutes instead of five weeks. That means a curious person can follow more threads, test more hunches, and learn faster than at any previous point in history. But only if they have the instinct to ask in the first place. The technology doesn't generate curiosity. It rewards it.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSEVERANCE -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Perseverance</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Iteration with intelligence, not stubbornness</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <p>Some things don't work the first time. Or the fifth time. Or the tenth time.</p>
+              <p>Perseverance is not stubbornness. Stubbornness is doing the same thing repeatedly and refusing to change. Perseverance is doing something, watching it fail, figuring out what went wrong, adjusting, and trying again. It's <span class="values-highlight">iteration with intelligence</span>. It requires the emotional ability to absorb failure without being defeated by it and the intellectual ability to learn from failure without ignoring it.</p>
+              <p>AI work is relentlessly iterative. A prompt fails. You rewrite it. The rewrite handles most cases but breaks on a new edge case. You fix the edge case and introduce a different problem. This cycle is not a bug in the process — it <em>is</em> the process. The student who expects things to work immediately will be miserable. The student who finds satisfaction in the gradual narrowing of errors — who sees each failed attempt as the problem getting smaller — will thrive.</p>
+              <p>Perseverance is also the trait that separates people who have skills from people who have accomplishments. Plenty of people learn to use AI. Far fewer stick with a project long enough to produce something that matters. The lab gives you a place to practice finishing things, which is a rarer and more valuable ability than most people realize.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="values-divider"></div>
+
+    <!-- CATEGORY 3: AI -->
+    <div class="values-category">
+      <div class="values-cat-header">
+        <div class="values-cat-num ai">03</div>
+        <div>
+          <div class="values-cat-title">AI Capacity</div>
+          <div class="values-cat-subtitle">Three levels of understanding what this technology is</div>
+        </div>
+      </div>
+
+      <div class="values-cards">
+        <!-- TOOL -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Tool</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Level 1 — You tell it what to do. It does it.</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <div class="values-level-badge"><span class="dot"></span> Level 1</div>
+              <p>A tool does what you tell it to do. You learn the commands, you follow the steps, you get an output. This is where everyone begins and where most people stay.</p>
+              <p>Using AI as a tool means you can write a prompt that produces a useful result. You can format inputs, interpret outputs, and troubleshoot when something goes wrong. You understand API calls, token limits, model differences. You know which platform handles what well. You can sit down with a task and get it done.</p>
+              <p>This is real and it matters. Most people right now cannot do this competently. They copy and paste into a chatbox and accept whatever comes back. <span class="values-highlight">A student who can design a structured prompt, evaluate the quality of the response, and iterate toward a better result already has an advantage over the majority of professionals in any industry.</span></p>
+              <p>But a tool only extends what you were already going to do. It makes existing work faster. It doesn't change what work you attempt. If you stop here, you are a more efficient version of who you were before. You haven't changed the category of what's possible.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVERAGE -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Leverage</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Level 2 — It changes the scale of what one person can do</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <div class="values-level-badge"><span class="dot"></span> Level 2</div>
+              <p>Leverage changes the scale of what one person can accomplish. It's not about doing the same thing faster — it's about doing things that were previously impossible for someone in your position.</p>
+              <p>An undergraduate at a teaching university, working ten hours a week, has no business producing a dataset that covers fifteen years of corporate filings for a hundred firms. That's a multi-year project for a team at a research university. But with the right AI protocol, the right mentorship, and enough discipline, that undergraduate can do it. Not because they're exceptional. Because the leverage changed.</p>
+              <p>This is what most people miss about AI. They think about productivity — saving twenty minutes on an email, generating a first draft faster. That's Level 1 thinking applied to Level 2 technology. <span class="values-highlight">Leverage means asking a different question entirely: what would I attempt if the constraint I've always accepted no longer existed?</span></p>
+              <p>A student who understands leverage stops measuring themselves against what's expected of someone at their level. They start asking what's possible. The answer, right now, is more than at any point in history — but only for people who recognize that the old constraints have moved. Most people keep operating within boundaries that no longer exist. The student who sees that the wall has come down, and walks through it, is the one who produces something that matters.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MIRROR -->
+        <div class="values-card" onclick="toggleCard(this)">
+          <div class="values-card-header">
+            <div class="values-card-left">
+              <span class="values-card-word">Mirror</span>
+              <span class="values-card-dash"></span>
+              <span class="values-card-oneliner">Level 3 — It reveals the quality of your thinking</span>
+            </div>
+            <div class="values-card-toggle">+</div>
+          </div>
+          <div class="values-card-body">
+            <div class="values-card-content">
+              <div class="values-level-badge"><span class="dot"></span> Level 3</div>
+              <p>A mirror shows you what's actually there, not what you think is there.</p>
+              <p>When you give AI a vague prompt, you get a vague answer. When you give it a confused question, the confusion comes back amplified. The output is a reflection of the input — and the input is a reflection of how clearly you think. Most people, when they get a bad result from AI, blame the technology. The more honest response is to look at what you asked and ask whether the question was any good.</p>
+              <p><span class="values-highlight">AI is the first tool in history that gives you immediate, unsparing feedback on the quality of your thinking.</span> A spreadsheet doesn't care whether your categories make sense. A search engine doesn't tell you your question is poorly framed. But an AI that produces garbage output when given garbage input is telling you something about your input — if you're willing to listen.</p>
+              <p>Students who reach Level 3 stop seeing AI as something external. They start seeing it as a diagnostic instrument for their own reasoning. The prompt isn't just instructions for the machine. It's a test of whether you actually know what you want, what you mean, and what would count as a good answer. When the mirror shows something unclear, you don't fix the mirror. You fix your thinking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="values-divider"></div>
+    <div class="values-closing">
+      <div class="values-closing-num">9</div>
+      <div>
+        <div class="values-closing-title">Nine words. One standard.</div>
+        <div class="values-closing-text">These principles aren't aspirational — they're operational. Every project, every protocol, every output in this lab is measured against them. When you join, you're agreeing to hold yourself to this standard. Most people won't. That's what makes it worth doing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-label">Research Output</div>
+    <h2 class="section-title">Publications &amp; Working Papers</h2>
+
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <h3>Learning from the Stock Market: Abnormal Oil Price Risk Exposure, Management Responses, and Consequences</h3>
+          <div class="pub-authors">Chen, Z. and Chen, Z.</div>
+          <div class="pub-venue">Working Paper</div>
+        </div>
+        <span class="pub-badge working">Working Paper</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div>
+          <h3>Demystifying Monetary Policy Surprises</h3>
+          <div class="pub-authors">Chen, Zhengyang</div>
+          <div class="pub-venue">Journal of Macroeconomics</div>
+        </div>
+        <span class="pub-badge published">A Journal</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2020</div>
+        <div>
+          <h3>Once Bitten Twice Shy? Evidence from the US Banking Industry During the Crash of the Energy Market</h3>
+          <div class="pub-authors">Chen, Z., Craig, K.A., and Karpovics, M.</div>
+          <div class="pub-venue">Energy Economics, Vol. 92</div>
+        </div>
+        <span class="pub-badge published">A* Journal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-icon">AI+E</div>
+      <div class="footer-text">
+        <strong style="color:var(--white);">AI + Econ Lab</strong><br>
+        Wilson College of Business &middot; <a href="{{ .Site.BaseURL }}">University of Northern Iowa</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#people">People</a>
+      <a href="#projects">Projects</a>
+      <a href="#news">News</a>
+      <a href="#values">Values</a>
+      <a href="#publications">Papers</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+function filterNews(tag, btn) {
+  // Update active filter button
+  document.querySelectorAll('.news-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Show/hide items
+  document.querySelectorAll('.news-item').forEach(item => {
+    if (tag === 'all' || item.dataset.tag === tag) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+}
+
+function toggleCard(card) {
+  const wasOpen = card.classList.contains('open');
+  // Close all cards in the same category
+  const parent = card.closest('.values-cards');
+  parent.querySelectorAll('.values-card').forEach(c => c.classList.remove('open'));
+  // Toggle the clicked card
+  if (!wasOpen) {
+    card.classList.add('open');
+    // Smooth scroll into view if needed
+    setTimeout(() => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < 80 || rect.bottom > window.innerHeight) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+  }
+}
+
+// Intersection Observer for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.values-card, .values-cat-header, .values-closing').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+
+// Stagger the reveal of cards
+document.querySelectorAll('.values-cards').forEach(group => {
+  const cards = group.querySelectorAll('.values-card');
+  cards.forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.1) + 's';
+  });
+});
+</script>
+</body>
+</html>
