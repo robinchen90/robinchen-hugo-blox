@@ -28,6 +28,6 @@ main:
   - name: Contact
     url: '#contact'
     weight: 7
-  - name: AI+Econ Lab
+  - name: AI Plus Lab
     url: lab/
     weight: 8
