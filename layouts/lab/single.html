@@ -272,25 +272,24 @@
     margin-bottom: 1.5rem;
     animation: fadeInUp 0.8s ease-out 0.15s both;
     font-weight: 700;
-  }
-
-  .eq-row {
-    display: flex;
+    display: inline-grid;
+    grid-template-columns: auto auto;
     align-items: baseline;
   }
 
   .eq-plus {
-    display: inline-block;
-    width: 1.5em;
     text-align: right;
-    margin-right: 0.3em;
-    flex-shrink: 0;
+    padding-right: 0.3em;
+  }
+
+  .eq-text {
+    text-align: right;
   }
 
   .eq-line {
+    grid-column: 1 / -1;
     border-bottom: 4px solid var(--white);
     margin: 0.3em 0;
-    max-width: 100%;
   }
 
   .eq-result em {
@@ -1270,11 +1269,11 @@
   <div class="hero-content">
     <div class="hero-badge">Wilson College of Business &middot; University of Northern Iowa</div>
     <div class="hero-equation">
-      <div class="eq-row"><span class="eq-plus">&nbsp;</span> AI Tools</div>
-      <div class="eq-row"><span class="eq-plus">+</span> Econ/ Finance Methods</div>
-      <div class="eq-row"><span class="eq-plus">+</span> WLSN Students</div>
+      <span class="eq-plus">&nbsp;</span><span class="eq-text">AI Tools</span>
+      <span class="eq-plus">+</span><span class="eq-text">Econ/ Finance Methods</span>
+      <span class="eq-plus">+</span><span class="eq-text">WLSN Students</span>
       <div class="eq-line"></div>
-      <div class="eq-row eq-result"><span class="eq-plus">=</span> <em>High-Quality Research</em></div>
+      <span class="eq-plus">=</span><span class="eq-text"><em>High-Quality Research</em></span>
     </div>
     <p class="hero-desc">
       We use large language models to build novel datasets in monetary policy and energy finance. Undergraduate researchers work alongside faculty on every project.
