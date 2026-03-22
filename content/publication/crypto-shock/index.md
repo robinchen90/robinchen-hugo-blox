@@ -55,7 +55,7 @@ projects: []
 slides: ""
 
 # Links (optional).
-url_pdf: ""
+url_pdf: "https://scholarworks.uni.edu/facpub/6823/"
 url_code: ""
 url_dataset: ""
 url_project: ""
