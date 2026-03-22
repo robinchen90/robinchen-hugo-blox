@@ -205,7 +205,7 @@ sections:
 
         - title: 'Pre-Tenure Faculty Grant'
           certificate_url: ''
-          date_start: '2025-01-01'
+          date_start: '2026-01-01'
           date_end: '2026-05-31'
           description: '$1,500'
           organization: "Provost's Office, UNI"

@@ -36,7 +36,7 @@ slides: ""
 
 
 # Links (optional).
-url_pdf: "https://doi.org/10.1016/j.jedc.2021.104214"
+url_pdf: "https://scholarworks.uni.edu/facpub/6655/"
 url_code: ""
 url_dataset: ""
 url_project: ""

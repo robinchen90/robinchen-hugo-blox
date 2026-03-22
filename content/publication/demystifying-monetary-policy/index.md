@@ -43,7 +43,7 @@ projects: []
 slides: ""
 
 # Links (optional).
-url_pdf: ""
+url_pdf: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4401411"
 url_preprint: ""
 url_code: ""
 url_dataset: ""
@@ -51,12 +51,10 @@ url_project: ""
 url_slides: ""
 url_video: ""
 url_poster: ""
-url_source: "https://www.sciencedirect.com/science/article/abs/pii/S0164070425000722"
+url_source: ""
 
 # Custom links (optional).
 links:
-  - name: "ScienceDirect"
-    url: "https://www.sciencedirect.com/science/article/abs/pii/S0164070425000722"
   - name: "ResearchGate"
     url: "https://www.researchgate.net/publication/398633820_Demystifying_monetary_policy_surprises_Fed_response_to_financial_conditions_and_wait_and_see_for_new_economic_data"
 
