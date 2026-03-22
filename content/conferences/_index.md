@@ -65,15 +65,15 @@ summary: "Interactive map showing conference presentations and invited seminars 
 <div class="conference-stats">
     <div class="stat-box">
         <div class="stat-number">20+</div>
-        <div class="stat-label">Presentations</div>
+        <div class="stat-label" style="color:#4B116F !important;">Presentations</div>
     </div>
     <div class="stat-box">
         <div class="stat-number">15+</div>
-        <div class="stat-label">Cities</div>
+        <div class="stat-label" style="color:#4B116F !important;">Cities</div>
     </div>
     <div class="stat-box">
         <div class="stat-number">3</div>
-        <div class="stat-label">Countries</div>
+        <div class="stat-label" style="color:#4B116F !important;">Countries</div>
     </div>
 </div>
 
