@@ -187,7 +187,7 @@ sections:
           certificate_url: ''
           date_start: '2025-06-01'
           date_end: '2026-06-30'
-          description: ''
+          description: "→ [Demystifying Monetary Policy Surprises: Fed Response to Financial Conditions and Wait-and-See for New Economic Data](/publication/demystifying-monetary-policy/)"
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
           url: 'https://business.uni.edu/faculty-staff/named-professorships'
@@ -197,7 +197,7 @@ sections:
           certificate_url: ''
           date_start: '2025-05-01'
           date_end: '2025-08-31'
-          description: '$3,800 + match to 1/9 salary'
+          description: "$3,800 + match to 1/9 salary\n\n→ [Modeling Inflation Expectations in Forward-Looking Interest Rate and Money Growth Rules](/publication/inflation-expectations-policy-rules/)"
           organization: 'Division of Graduate Studies + Wilson College of Business, UNI'
           organization_url: ''
           url: 'https://grad.uni.edu/info-faculty-staff/summer-fellowship'
@@ -217,7 +217,7 @@ sections:
           certificate_url: ''
           date_start: '2024-05-01'
           date_end: '2024-08-31'
-          description: ''
+          description: "→ [A Granular Investigation on the Stability of Money Demand](/publication/money-demand-stability/)"
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
           url: ''
