@@ -57,7 +57,7 @@ summary: "Interactive map showing conference presentations and invited seminars 
     color: #2c3e50;
 }
 .stat-label {
-    color: #7f8c8d;
+    color: #4B116F;
     font-size: 0.9em;
 }
 </style>
