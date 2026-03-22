@@ -153,6 +153,16 @@ sections:
       text: ''
       date_format: Jan 2006
       items:
+        - title: 'Summer Research Award'
+          certificate_url: ''
+          date_start: '2026-05-01'
+          date_end: '2026-08-31'
+          description: '$10,000'
+          organization: 'Wilson College of Business, UNI'
+          organization_url: ''
+          url: ''
+          icon: ''
+
         - title: 'RSP Capacity Building Grant | Principal Investigator'
           certificate_url: ''
           date_start: '2026-02-01'
