@@ -52,10 +52,11 @@ sections:
         {{% callout note %}}
         Quickly discover relevant content by [filtering publications](./publication/).
         {{% /callout %}}
-      count: 5
+      count: 0
       filters:
         folders:
           - publication
+        publication_type: 'article-journal'
         exclude_featured: false
       sort_by: 'Date'
       sort_ascending: false

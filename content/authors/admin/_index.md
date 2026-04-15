@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Zhengyang (Robin) Chen
+title: Zhengyang Chen
 
 # Full Name (for SEO)
 first_name: Zhengyang
