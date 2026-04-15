@@ -43,7 +43,7 @@ projects: []
 slides: ""
 
 # Links (optional).
-url_pdf: ""
+url_pdf: "mexico-inflation-decomposition.pdf"
 url_preprint: ""
 url_code: ""
 url_dataset: ""
