@@ -28,5 +28,5 @@
 {{ with .Params.tags }}
   {{ $schema = merge $schema (dict "keywords" .) }}
 {{ end }}
-<script type="application/ld+json">{{ $schema | jsonify }}</script>
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
 {{ end }}
