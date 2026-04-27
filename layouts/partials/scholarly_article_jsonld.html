@@ -1,0 +1,32 @@
+{{ if and (eq .Type "publication") (not .IsSection) }}
+{{ $authorList := slice }}
+{{ range .Params.authors | default (slice) }}
+  {{ if or (eq . "admin") (eq . "Zhengyang Chen") }}
+    {{ $authorList = $authorList | append (dict "@type" "Person" "name" "Zhengyang Chen" "identifier" "https://orcid.org/0000-0002-8450-5801") }}
+  {{ else }}
+    {{ $authorList = $authorList | append (dict "@type" "Person" "name" .) }}
+  {{ end }}
+{{ end }}
+{{ $schema := dict
+  "@context" "https://schema.org"
+  "@type" "ScholarlyArticle"
+  "headline" .Title
+  "author" $authorList
+  "datePublished" (.Date.Format "2006-01-02")
+  "dateModified" (.Lastmod.Format "2006-01-02")
+  "inLanguage" "en"
+}}
+{{ with .Params.doi }}
+  {{ $schema = merge $schema (dict "identifier" (printf "https://doi.org/%s" .) "url" (printf "https://doi.org/%s" .)) }}
+{{ end }}
+{{ with .Params.publication }}
+  {{ $schema = merge $schema (dict "isPartOf" (dict "@type" "Periodical" "name" (. | plainify))) }}
+{{ end }}
+{{ with .Params.abstract }}
+  {{ $schema = merge $schema (dict "abstract" .) }}
+{{ end }}
+{{ with .Params.tags }}
+  {{ $schema = merge $schema (dict "keywords" .) }}
+{{ end }}
+<script type="application/ld+json">{{ $schema | jsonify }}</script>
+{{ end }}

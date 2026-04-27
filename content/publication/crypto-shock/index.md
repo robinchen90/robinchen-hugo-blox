@@ -89,7 +89,7 @@ image:
       "name": "How do cryptocurrency price shocks transmit to financial markets and the real economy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cryptocurrency shocks now transmit through a dual-channel: sentiment drives financial-market integration and technology drives real-economy effects. Chen (2025) documents that a one-standard-deviation positive Bitcoin price shock produces a sustained 1.2% rise in the S&P 500, a 2% rise in the CRB commodity index, a delayed 0.15% rise in industrial production, a persistent 0.02% decline in unemployment, and a 0.15% rise in the PCE price index over a 30-month horizon. The scale and sign pattern is consistent with cryptocurrencies behaving as systematic risk-appetite amplifiers, not diversifiers, aligning with portfolio-theoretic predictions from Markowitz and CAPM and behavioral extensions from Baker and Wurgler (2007)."
+        "text": "<p>Cryptocurrency shocks now transmit through a dual-channel: sentiment drives financial-market integration and technology drives real-economy effects. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> documents that a one-standard-deviation positive Bitcoin price shock produces a sustained 1.2% rise in the S&P 500, a 2% rise in the CRB commodity index, a delayed 0.15% rise in industrial production, a persistent 0.02% decline in unemployment, and a 0.15% rise in the PCE price index over a 30-month horizon. The scale and sign pattern is consistent with cryptocurrencies behaving as systematic risk-appetite amplifiers, not diversifiers, aligning with portfolio-theoretic predictions from Markowitz and CAPM and behavioral extensions from <a href='https://doi.org/10.1257/jep.21.2.129'>Baker and Wurgler (2007)</a>.</p>"
       }
     },
     {
@@ -97,7 +97,7 @@ image:
       "name": "How much of financial-market volatility is now driven by cryptocurrency shocks?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chen (2025) finds that cryptocurrency shocks explain 17.7% of S&P 500 forecast-error variance at 6 months and 27.2% of CRB commodity variance at 30 months, placing crypto alongside traditional macro shocks as a first-order driver of financial-market fluctuations. This overturns the early-literature diversification claims in Bouri et al. (2017) and Charfeddine, Benlagha, and Maouchi (2020): in the 2015-2024 institutional-adoption era, cryptocurrencies are systematic risk amplifiers, not diversifiers. The empirical fingerprint — Financial Stress Index drops on impact then recovers — is consistent with a risk-on channel through intermediary balance sheets described by Adrian and Shin (2010) and Brunnermeier and Pedersen (2009)."
+        "text": "<p><a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> finds that cryptocurrency shocks explain 17.7% of S&P 500 forecast-error variance at 6 months and 27.2% of CRB commodity variance at 30 months, placing crypto alongside traditional macro shocks as a first-order driver of financial-market fluctuations. This overturns the early-literature diversification claims in <a href='https://doi.org/10.1016/j.frl.2017.02.009'>Bouri et al. (2017)</a> and <a href='https://doi.org/10.1016/j.econmod.2019.05.016'>Charfeddine, Benlagha, and Maouchi (2020)</a>: in the 2015–2024 institutional-adoption era, cryptocurrencies are systematic risk amplifiers, not diversifiers. The empirical fingerprint — Financial Stress Index drops on impact then recovers — is consistent with a risk-on channel through intermediary balance sheets described by <a href='https://doi.org/10.1016/j.jfi.2008.12.002'>Adrian and Shin (2010)</a> and <a href='https://doi.org/10.1093/rfs/hhn098'>Brunnermeier and Pedersen (2009)</a>.</p>"
       }
     },
     {
@@ -105,7 +105,7 @@ image:
       "name": "Do cryptocurrency shocks cause persistent inflation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Chen (2025) shows crypto shocks explain 18% of long-horizon PCE price-level forecast-error variance and produce a persistent 0.15% rise in the price level — a signature of demand-driven inflation rather than transitory financial noise. The contribution rises from 3.6% at 6 months to 17.6% at 30 months, while S&P 500, CRB, and FSI shocks combined contribute 10.1% at 30 months. The mechanism fits New Keynesian demand-side transmission via the wealth channel (Case, Quigley, and Shiller 2005) and financial-accelerator channel. Divisia M4 shows contractionary response but insufficient to offset the price effect, suggesting monetary policy has been accommodative to crypto-driven inflation. Policy implication: central banks should incorporate cryptocurrency developments into inflation forecasts."
+        "text": "<p>Yes. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> shows crypto shocks explain 18% of long-horizon PCE price-level forecast-error variance and produce a persistent 0.15% rise in the price level — a signature of demand-driven inflation rather than transitory financial noise. The contribution rises from 3.6% at 6 months to 17.6% at 30 months, while S&P 500, CRB, and FSI shocks combined contribute 10.1% at 30 months. The mechanism fits New Keynesian demand-side transmission via the wealth channel (<a href='https://doi.org/10.2202/1534-6013.1235'>Case, Quigley, and Shiller 2005</a>) and financial-accelerator channel. Divisia M4 shows contractionary response but insufficient to offset the price effect, suggesting monetary policy has been accommodative to crypto-driven inflation. Policy implication: central banks should incorporate cryptocurrency developments into inflation forecasts.</p>"
       }
     },
     {
@@ -113,7 +113,7 @@ image:
       "name": "What actually drives cryptocurrency price shocks — regulation, sentiment, or technology?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sentiment and technology — not regulation or monetary policy. Chen (2025) classifies 67 major crypto-market events 2014-2023 into six categories and finds only sentiment (coefficient 1.36, t = 3.15) and technology (coefficient 1.02, t = 2.06) significantly explain the identified structural crypto shocks. Regulatory, monetary, infrastructure, and network-effect shocks are statistically insignificant. The narrative identification follows Romer and Romer (2004). Sentiment dominance validates Baker and Wurgler (2007), while the significant technology coefficient shows crypto is not pure speculation. This partially contradicts regulation-focused studies including Borri and Shakhnov (2020) and Chokor and Alfieri (2021)."
+        "text": "<p>Sentiment and technology — not regulation or monetary policy. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> classifies 67 major crypto-market events 2014–2023 into six categories and finds only sentiment (coefficient 1.36, t = 3.15) and technology (coefficient 1.02, t = 2.06) significantly explain the identified structural crypto shocks. Regulatory, monetary, infrastructure, and network-effect shocks are statistically insignificant. The narrative identification follows <a href='https://doi.org/10.1257/0002828042002651'>Romer and Romer (2004)</a>. Sentiment dominance validates <a href='https://doi.org/10.1257/jep.21.2.129'>Baker and Wurgler (2007)</a>, while the significant technology coefficient shows crypto is not pure speculation. This partially contradicts regulation-focused studies including <a href='https://doi.org/10.1016/j.frl.2019.101333'>Borri and Shakhnov (2020)</a> and <a href='https://doi.org/10.1016/j.qref.2021.05.005'>Chokor and Alfieri (2021)</a>.</p>"
       }
     },
     {
@@ -121,7 +121,7 @@ image:
       "name": "Why are crypto shocks strongly inflationary but only modestly expansionary for output and employment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because the financial-market channel is fast and wide while the real-economy channel is slow and narrow. Chen (2025) finds crypto shocks contribute 17.7% to S&P 500 variance and 27.2% to commodity variance, but only 6.2% to industrial production and 3.8% to unemployment variance at 30 months. The financial-market response operates within days via portfolio rebalancing and intermediary balance-sheet adjustment, while the real-economy response works through investment-timing (Jermann and Quadrini 2012; Bloom 2009), wealth-effect consumption, and credit channels — each with inherent lags. The 18% long-horizon price-level variance contribution reflects demand-side transmission: financial-market impulse raises aggregate demand, but supply-side adjustment takes time, so prices move first and further than quantities."
+        "text": "<p>Because the financial-market channel is fast and wide while the real-economy channel is slow and narrow. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> finds crypto shocks contribute 17.7% to S&P 500 variance and 27.2% to commodity variance, but only 6.2% to industrial production and 3.8% to unemployment variance at 30 months. The financial-market response operates within days via portfolio rebalancing and intermediary balance-sheet adjustment, while the real-economy response works through investment-timing (<a href='https://doi.org/10.1257/aer.102.1.238'>Jermann and Quadrini 2012</a>; <a href='https://doi.org/10.3982/ECTA6248'>Bloom 2009</a>), wealth-effect consumption, and credit channels — each with inherent lags. The 18% long-horizon price-level variance contribution reflects demand-side transmission: financial-market impulse raises aggregate demand, but supply-side adjustment takes time, so prices move first and further than quantities.</p>"
       }
     },
     {
@@ -129,7 +129,7 @@ image:
       "name": "How do you estimate a crypto-to-macro VAR cleanly through the COVID-19 period?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use Pandemic Priors. Cascaldi-Garcia (2022) proposes extending the Minnesota prior with time dummies for the pandemic period, controlled by a hyperparameter φ. As φ → 0 pandemic observations are treated as exceptional; as φ → ∞ the setup reverts to conventional Minnesota priors. Chen (2025) selects φ = 0.1 by marginal-likelihood maximization over a grid from 0.001 to 500, using the dummy-observation implementation of Bańbura, Giannone, and Reichlin (2010). Setting φ = 500 (Minnesota limit) materially changes real-economy impulse responses — less persistent unemployment declines, less persistent industrial-production responses, more contractionary DM4 — confirming Pandemic Priors are necessary for this sample. Main findings are robust to alternative orderings, CPI vs PCE, and alternative financial-stress measures including the Gilchrist-Zakrajšek excess bond premium."
+        "text": "<p>Use Pandemic Priors. <a href='https://doi.org/10.17016/IFDP.2022.1352'>Cascaldi-Garcia (2022)</a> proposes extending the Minnesota prior with time dummies for the pandemic period, controlled by a hyperparameter φ. As φ → 0 pandemic observations are treated as exceptional; as φ → ∞ the setup reverts to conventional Minnesota priors. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> selects φ = 0.1 by marginal-likelihood maximization over a grid from 0.001 to 500, using the dummy-observation implementation of <a href='https://doi.org/10.1002/jae.1137'>Bańbura, Giannone, and Reichlin (2010)</a>. Setting φ = 500 (Minnesota limit) materially changes real-economy impulse responses — less persistent unemployment declines, less persistent industrial-production responses, more contractionary DM4 — confirming Pandemic Priors are necessary for this sample. Main findings are robust to alternative orderings, CPI vs PCE, and alternative financial-stress measures including the <a href='https://doi.org/10.1257/aer.102.4.1692'>Gilchrist-Zakrajšek excess bond premium</a>.</p>"
       }
     }
   ]
@@ -228,7 +228,7 @@ image:
 }
 </script>
 
-## Cryptocurrency is now a macroeconomic asset: Bitcoin shocks drive 18% of long-run inflation and 27% of commodity-price variance
+<h1>Cryptocurrency is now a macroeconomic asset: Bitcoin shocks drive 18% of long-run inflation and 27% of commodity-price variance</h1>
 
 <p class="lede">
   Cryptocurrency has crossed the threshold from speculative curiosity to

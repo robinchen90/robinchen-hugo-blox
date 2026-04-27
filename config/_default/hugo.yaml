@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Robin Chen # Website name
-baseURL: 'https://robinchen.com/' # Website URL
+baseURL: 'https://robinchen.org/' # Website URL
 
 ############################
 ## LANGUAGE
@@ -61,3 +61,6 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml

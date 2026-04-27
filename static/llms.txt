@@ -1,0 +1,17 @@
+# Robin Chen
+> Assistant Professor of Economics, University of Northern Iowa.
+> Research: monetary policy transmission, structural VAR identification,
+> Divisia monetary aggregates, Federal Reserve policy rules.
+
+## Published research
+- [Decomposing Supply and Demand Driven Inflation in Mexico](https://robinchen.org/publication/mexico-inflation-decomposition/): Economics Letters (2026).
+- [Demystifying Monetary Policy Surprises](https://robinchen.org/publication/demystifying-monetary-policy/): Journal of Macroeconomics (2026).
+- [From Disruption to Integration: Cryptocurrency Prices, Financial Fluctuations, and Macroeconomy](https://robinchen.org/publication/crypto-shock/): JRFM (2025).
+- [Modeling Inflation Expectations in Forward-Looking Interest Rate and Money Growth Rules](https://robinchen.org/publication/inflation-expectations-policy-rules/): JEDC (2025).
+- [A Granular Investigation on the Stability of Money Demand](https://robinchen.org/publication/money-demand-stability/): Macroeconomic Dynamics (2024).
+- [Monetary Transmission in Money Markets](https://robinchen.org/publication/divisia-puzzle/): JEDC (2021).
+
+## Profile
+- [Homepage](https://robinchen.org/)
+- [Google Scholar](https://scholar.google.com/citations?user=fAkfUpYAAAAJ)
+- [University profile](https://business.uni.edu/economics/directory/zhengyang-robin-chen)

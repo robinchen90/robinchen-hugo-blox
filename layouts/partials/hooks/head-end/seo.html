@@ -1,0 +1,35 @@
+<!-- Google Search Console Verification -->
+<meta name="google-site-verification" content="z8ZES-OmBFxWoX83xGqQIy-tC3OjvP_dF6Giog59jnw" />
+
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Zhengyang Chen",
+  "alternateName": "Robin Chen",
+  "jobTitle": "Assistant Professor of Economics",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "University of Northern Iowa",
+    "url": "https://business.uni.edu/economics/directory/zhengyang-robin-chen"
+  },
+  "alumniOf": [
+    {"@type": "Organization", "name": "University of Texas at Dallas"},
+    {"@type": "Organization", "name": "Johns Hopkins University"},
+    {"@type": "Organization", "name": "Guangdong University of Foreign Studies"}
+  ],
+  "url": "{{ .Site.BaseURL }}",
+  "email": "zhengyang.chen@uni.edu",
+  "sameAs": [
+    "https://orcid.org/0000-0002-8450-5801",
+    "https://scholar.google.com/citations?user=fAkfUpYAAAAJ",
+    "https://www.researchgate.net/profile/Zhengyang-Chen-7",
+    "https://www.linkedin.com/in/robinchen90/",
+    "https://business.uni.edu/economics/directory/zhengyang-robin-chen"
+  ]
+}
+</script>
+{{ end }}
+
+{{ partial "scholarly_article_jsonld.html" . }}

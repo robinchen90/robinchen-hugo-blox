@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(go env GOMODCACHE 2>$null)",
+      "PowerShell($env:GOPATH)",
+      "PowerShell(@\\(\"$env:USERPROFILE\\\\go\\\\pkg\\\\mod\\\\github.com\", \"$env:LOCALAPPDATA\\\\hugo_cache\", \"C:\\\\hugo_cache\", \"$env:HOME\\\\go\\\\pkg\\\\mod\\\\github.com\"\\) | ForEach-Object { if \\(Test-Path $_\\) { Write-Output \\(\"EXISTS: \" + $_\\) } else { Write-Output \\(\"MISS:   \" + $_\\) } }; Get-ChildItem -Path \"$env:USERPROFILE\" -Filter \"go\" -Directory -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)"
+    ]
+  }
+}
