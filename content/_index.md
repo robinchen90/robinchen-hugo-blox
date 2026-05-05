@@ -145,15 +145,25 @@ sections:
     design:
       columns: '2'
 
-  # Grants & Fellowships
+  # Awards, Grants & Fellowships
   - block: accomplishments
     id: funding
     content:
-      title: 'Grants & Fellowships'
+      title: 'Awards, Grants & Fellowships'
       subtitle: ''
       text: ''
       date_format: Jan 2006
       items:
+        - title: 'Distinguished Scholarship Award'
+          certificate_url: ''
+          date_start: '2025-01-01'
+          date_end: '2026-12-31'
+          description: 'Recognizes one outstanding faculty member for high-level performance in research.'
+          organization: 'Wilson College of Business, UNI'
+          organization_url: ''
+          url: ''
+          icon: ''
+
         - title: 'Summer Research Award'
           certificate_url: ''
           date_start: '2026-05-01'
@@ -231,7 +241,7 @@ sections:
     id: projects
     content:
       title: Teaching Innovations
-      subtitle: Interactive Educational Tools
+      subtitle: ''
       text: ''
       filters:
         folders:
