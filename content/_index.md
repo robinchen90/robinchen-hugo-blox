@@ -152,7 +152,7 @@ sections:
       title: 'Awards, Grants & Fellowships'
       subtitle: ''
       text: ''
-      date_format: Jan 2006
+      date_format: '2006'
       items:
         - title: 'Distinguished Scholarship Award'
           certificate_url: ''
@@ -167,7 +167,7 @@ sections:
         - title: 'Summer Research Award'
           certificate_url: ''
           date_start: '2026-05-01'
-          date_end: '2026-08-31'
+          date_end: ''
           description: '$10,000'
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
@@ -196,8 +196,8 @@ sections:
 
         - title: 'Tim Williams Junior Faculty Fellowship'
           certificate_url: ''
-          date_start: '2025-06-01'
-          date_end: '2026-06-30'
+          date_start: '2024-01-01'
+          date_end: '2025-12-31'
           description: "→ [Demystifying Monetary Policy Surprises: Fed Response to Financial Conditions and Wait-and-See for New Economic Data](/publication/demystifying-monetary-policy/)"
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
@@ -207,7 +207,7 @@ sections:
         - title: 'Summer Research Fellowship'
           certificate_url: ''
           date_start: '2025-05-01'
-          date_end: '2025-08-31'
+          date_end: ''
           description: "$3,800 + match to 1/9 salary\n\n→ [Modeling Inflation Expectations in Forward-Looking Interest Rate and Money Growth Rules](/publication/inflation-expectations-policy-rules/)"
           organization: 'Division of Graduate Studies + Wilson College of Business, UNI'
           organization_url: ''
@@ -217,7 +217,7 @@ sections:
         - title: 'Pre-Tenure Faculty Grant'
           certificate_url: ''
           date_start: '2026-01-01'
-          date_end: '2026-05-31'
+          date_end: ''
           description: '$1,500'
           organization: "Provost's Office, UNI"
           organization_url: ''
@@ -227,7 +227,7 @@ sections:
         - title: 'Wilson College of Business Faculty Research Stipend'
           certificate_url: ''
           date_start: '2024-05-01'
-          date_end: '2024-08-31'
+          date_end: ''
           description: "→ [A Granular Investigation on the Stability of Money Demand](/publication/money-demand-stability/)"
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
