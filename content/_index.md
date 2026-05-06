@@ -157,8 +157,8 @@ sections:
         # Awards
         - title: 'Distinguished Scholarship Award'
           certificate_url: ''
-          date_start: '2025-01-01'
-          date_end: '2026-12-31'
+          date_start: '2026-05-02'
+          date_end: ''
           description: 'Recognizes one outstanding faculty member for high-level performance in research.'
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
@@ -178,8 +178,8 @@ sections:
         # Fellowships
         - title: 'Tim Williams Junior Faculty Fellowship'
           certificate_url: ''
-          date_start: '2024-01-01'
-          date_end: '2025-12-31'
+          date_start: '2025-05-02'
+          date_end: ''
           description: "→ [Demystifying Monetary Policy Surprises: Fed Response to Financial Conditions and Wait-and-See for New Economic Data](/publication/demystifying-monetary-policy/)"
           organization: 'Wilson College of Business, UNI'
           organization_url: ''
@@ -199,7 +199,7 @@ sections:
         # Grants
         - title: 'RSP Capacity Building Grant | Principal Investigator'
           certificate_url: ''
-          date_start: '2026-02-01'
+          date_start: '2026-02-02'
           date_end: '2027-10-31'
           description: '$15,000'
           organization: 'Office of Research & Sponsored Programs, UNI'
@@ -229,7 +229,7 @@ sections:
 
         - title: 'Wilson College of Business Faculty Research Stipend'
           certificate_url: ''
-          date_start: '2024-05-01'
+          date_start: '2024-01-01'
           date_end: ''
           description: "→ [A Granular Investigation on the Stability of Money Demand](/publication/money-demand-stability/)"
           organization: 'Wilson College of Business, UNI'
