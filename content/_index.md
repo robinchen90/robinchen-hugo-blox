@@ -154,26 +154,7 @@ sections:
       text: ''
       date_format: '2006'
       items:
-        - title: 'RSP Capacity Building Grant | Principal Investigator'
-          certificate_url: ''
-          date_start: '2026-02-01'
-          date_end: '2027-10-31'
-          description: '$15,000'
-          organization: 'Office of Research & Sponsored Programs, UNI'
-          organization_url: 'https://rsp.uni.edu'
-          url: 'https://rsp.uni.edu/internal-funding'
-          icon: ''
-
-        - title: 'RSP Capacity Building Grant | Co-Principal Investigator'
-          certificate_url: ''
-          date_start: '2026-02-01'
-          date_end: '2027-10-31'
-          description: '$7,425'
-          organization: 'Office of Research & Sponsored Programs, UNI'
-          organization_url: 'https://rsp.uni.edu'
-          url: 'https://rsp.uni.edu/internal-funding'
-          icon: ''
-
+        # Awards
         - title: 'Distinguished Scholarship Award'
           certificate_url: ''
           date_start: '2025-01-01'
@@ -194,16 +175,7 @@ sections:
           url: ''
           icon: ''
 
-        - title: 'Pre-Tenure Faculty Grant'
-          certificate_url: ''
-          date_start: '2026-01-01'
-          date_end: ''
-          description: '$1,500'
-          organization: "Provost's Office, UNI"
-          organization_url: ''
-          url: 'https://provost.uni.edu/pre-tenure-faculty-grant'
-          icon: ''
-
+        # Fellowships
         - title: 'Tim Williams Junior Faculty Fellowship'
           certificate_url: ''
           date_start: '2024-01-01'
@@ -222,6 +194,37 @@ sections:
           organization: 'Division of Graduate Studies + Wilson College of Business, UNI'
           organization_url: ''
           url: 'https://grad.uni.edu/info-faculty-staff/summer-fellowship'
+          icon: ''
+
+        # Grants
+        - title: 'RSP Capacity Building Grant | Principal Investigator'
+          certificate_url: ''
+          date_start: '2026-02-01'
+          date_end: '2027-10-31'
+          description: '$15,000'
+          organization: 'Office of Research & Sponsored Programs, UNI'
+          organization_url: 'https://rsp.uni.edu'
+          url: 'https://rsp.uni.edu/internal-funding'
+          icon: ''
+
+        - title: 'RSP Capacity Building Grant | Co-Principal Investigator'
+          certificate_url: ''
+          date_start: '2026-02-01'
+          date_end: '2027-10-31'
+          description: '$7,425'
+          organization: 'Office of Research & Sponsored Programs, UNI'
+          organization_url: 'https://rsp.uni.edu'
+          url: 'https://rsp.uni.edu/internal-funding'
+          icon: ''
+
+        - title: 'Pre-Tenure Faculty Grant'
+          certificate_url: ''
+          date_start: '2026-01-01'
+          date_end: ''
+          description: '$1,500'
+          organization: "Provost's Office, UNI"
+          organization_url: ''
+          url: 'https://provost.uni.edu/pre-tenure-faculty-grant'
           icon: ''
 
         - title: 'Wilson College of Business Faculty Research Stipend'
