@@ -19,7 +19,7 @@ publication_short: ""
 abstract: "This paper examines cryptocurrency shock transmission to financial markets and the macroeconomy using a Bayesian structural VAR with Pandemic Priors from 2015 to 2024. By affecting overall risk appetite, cryptocurrency price shocks generate positive financial market spillovers, accounting for 18% of equity and 27% of commodity price fluctuations. Real economic effects are significant in driving investment but remain limited, contributing only 4% to unemployment and 6% to industrial production variance. However, cryptocurrency shocks explain 18% of price-level forecast error variance at long horizons. Narrative analysis reveals sentiment and technology as primary shock drivers. These findings demonstrate cryptocurrency's deep financial system integration with important inflation implications for monetary policy."
 
 # Summary. An optional shortened abstract.
-summary: "Cryptocurrency price shocks now explain 18% of equity, 27% of commodity, and 18% of long-horizon inflation variance — evidence that Bitcoin has crossed from isolated digital experiment to systemically important financial asset."
+summary: "Crypto shocks explain 18% of equity, 27% of commodity, and 18% of long-horizon inflation variance — evidence of Bitcoin's systemic importance."
 
 # Digital Object Identifier (DOI)
 doi: "10.3390/jrfm18070360"

@@ -28,7 +28,7 @@ publication_short: "*Economics Letters*"
 abstract: "We decompose Mexico's inflation into supply- and demand-driven components across 31 CPI sectors from 2006 to 2024. To identify which sectors create inflation swings versus steady pressure, we construct an importance score combining correlation with aggregate inflation and average contribution size. Food ranks highest for both inflation types. This differs from developed economies where services dominate demand inflation. Mexican services contribute 24% of demand-driven inflation on average but fluctuate little, acting as a persistent floor that explains slow disinflation since 2023. Housing plays almost no role despite representing 18% of the CPI basket because prices there barely move. Structural VAR analysis validates these patterns: demand inflation responds to domestic monetary expansions while supply inflation reacts to global supply chain disruptions."
 
 # Summary. An optional shortened abstract.
-summary: "Using sectoral CPI data for Mexico (2006–2024), we decompose inflation into supply- and demand-driven components and show that food dominates both, services act as a persistent demand floor, and housing contributes negligibly despite its large CPI weight."
+summary: "Sectoral CPI analysis for Mexico (2006–2024): food dominates supply and demand inflation; services act as a demand floor; housing contributes negligibly."
 
 # Digital Object Identifier (DOI)
 doi: "10.1016/j.econlet.2026.112980"

@@ -28,7 +28,7 @@ publication_short: "*Journal of Macroeconomics*"
 abstract: "Why are supposedly exogenous monetary policy surprises, measured by changes in short-term financial contracts within short windows around FOMC announcements, partially predicted by pre-meeting economic and financial information? We propose a new explanation: the Federal Reserve targets economic variables by responding primarily to financial conditions while adopting a 'wait-and-see' approach to recent economic data. When markets expect the Fed to target economic variables directly, this creates the predictable component of policy surprises. Using daily-frequency economic and financial data from 2000–2019, we find three pieces of supporting evidence: First, the previously documented strong predictors are reflected in financial markets and not in the Fed's private information. Second, controlling for financial conditions, recent real economic surprises negatively predict policy surprises, which supports the 'wait-and-see' hypothesis over a more aggressive response to economic news (Bauer and Swanson, 2023b). Third, financial conditions alone predict policy surprises as effectively as all other documented predictors combined."
 
 # Summary. An optional shortened abstract.
-summary: "This paper explains why monetary policy surprises are predictable: the Fed responds to financial conditions while taking a wait-and-see approach to economic data."
+summary: "Why monetary policy surprises are predictable: the Fed responds to financial conditions while taking a wait-and-see approach to economic data."
 
 # Digital Object Identifier (DOI)
 doi: "10.1016/j.jmacro.2025.103736"
