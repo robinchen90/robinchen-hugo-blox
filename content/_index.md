@@ -161,7 +161,7 @@ sections:
           date_end: ''
           description: 'Recognizes one outstanding faculty member for high-level performance in research.'
           organization: 'Wilson College of Business, UNI'
-          organization_url: ''
+          organization_url: 'https://business.uni.edu'
           url: ''
           icon: ''
 
@@ -171,7 +171,7 @@ sections:
           date_end: ''
           description: '$10,000'
           organization: 'Wilson College of Business, UNI'
-          organization_url: ''
+          organization_url: 'https://business.uni.edu'
           url: ''
           icon: ''
 
@@ -182,7 +182,7 @@ sections:
           date_end: ''
           description: "→ [Demystifying Monetary Policy Surprises: Fed Response to Financial Conditions and Wait-and-See for New Economic Data](/publication/demystifying-monetary-policy/)"
           organization: 'Wilson College of Business, UNI'
-          organization_url: ''
+          organization_url: 'https://business.uni.edu'
           url: 'https://business.uni.edu/faculty-staff/named-professorships'
           icon: ''
 
@@ -192,7 +192,7 @@ sections:
           date_end: ''
           description: "$9,000\n\n→ [Modeling Inflation Expectations in Forward-Looking Interest Rate and Money Growth Rules](/publication/inflation-expectations-policy-rules/)"
           organization: 'Division of Graduate Studies + Wilson College of Business, UNI'
-          organization_url: ''
+          organization_url: 'https://business.uni.edu'
           url: 'https://grad.uni.edu/info-faculty-staff/summer-fellowship'
           icon: ''
 
@@ -223,7 +223,7 @@ sections:
           date_end: ''
           description: '$1,500'
           organization: "Provost's Office, UNI"
-          organization_url: ''
+          organization_url: 'https://provost.uni.edu'
           url: 'https://provost.uni.edu/pre-tenure-faculty-grant'
           icon: ''
 
@@ -233,7 +233,7 @@ sections:
           date_end: ''
           description: "→ [A Granular Investigation on the Stability of Money Demand](/publication/money-demand-stability/)"
           organization: 'Wilson College of Business, UNI'
-          organization_url: ''
+          organization_url: 'https://business.uni.edu'
           url: ''
           icon: ''
     design:
