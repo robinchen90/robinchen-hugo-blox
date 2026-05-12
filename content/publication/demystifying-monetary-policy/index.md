@@ -1,5 +1,8 @@
 ---
 title: "Demystifying Monetary Policy Surprises: Fed Response to Financial Conditions and Wait-and-See for New Economic Data"
+seo:
+  title: "Demystifying Monetary Policy Surprises"
+  description: "Why monetary policy surprises are predictable: the Fed responds to financial conditions while waiting on economic data."
 date: 2025-12-01T00:00:00
 draft: false
 

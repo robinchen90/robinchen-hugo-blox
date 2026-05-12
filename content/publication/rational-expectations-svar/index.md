@@ -1,5 +1,7 @@
 ---
 title: "Embedding Rational Expectations in a Structural VAR: Internal and External Instruments for Set Identification"
+seo:
+  title: "Rational Expectations in a Structural VAR"
 date: 2021-01-28T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

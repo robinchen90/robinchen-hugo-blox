@@ -1,5 +1,7 @@
 ---
 title: "Modeling Inflation Expectations in Forward-Looking Interest Rate and Money Growth Rules"
+seo:
+  title: "Inflation Expectations in Policy Rules"
 date: 2025-01-15T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

@@ -1,5 +1,7 @@
 ---
 title: "Safety Premia, Treasury Duration and Safe Asset Aggregation"
+seo:
+  title: "Safety Premia & Safe Asset Aggregation"
 date: 2021-01-06T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

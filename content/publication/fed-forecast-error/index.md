@@ -1,5 +1,7 @@
 ---
 title: "Political Influence in the Fed Policymaking: The Case of Economic Forecast Bias"
+seo:
+  title: "Political Influence in Fed Forecast Errors"
 date: 2021-03-06T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

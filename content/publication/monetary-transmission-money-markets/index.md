@@ -1,5 +1,7 @@
 ---
 title: "The Long-term Rate and Interest Rate Volatility in Monetary Policy Transmission"
+seo:
+  title: "Long-Term Rate & Interest Rate Volatility"
 subtitle: ""
 date: 2019-09-30T00:00:00
 

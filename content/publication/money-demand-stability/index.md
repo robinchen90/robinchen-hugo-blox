@@ -1,5 +1,7 @@
 ---
 title: "A Granular Investigation on the Stability of Money Demand"
+seo:
+  title: "Stability of Money Demand"
 date: 2024-09-30T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

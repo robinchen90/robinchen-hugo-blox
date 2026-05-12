@@ -1,5 +1,8 @@
 ---
 title: "Decomposing supply and demand driven inflation in Mexico: Evidence from sectoral analysis"
+seo:
+  title: "Mexico Inflation: Supply vs Demand Drivers"
+  description: "Sectoral CPI decomposition for Mexico (2006–2024): food dominates supply and demand inflation; services act as a persistent demand floor."
 date: 2026-04-13T00:00:00
 draft: false
 

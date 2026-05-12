@@ -1,5 +1,8 @@
 ---
 title: "From Disruption to Integration: Cryptocurrency Prices, Financial Fluctuations, and Macroeconomy"
+seo:
+  title: "Crypto Shocks, Markets & Macro Integration"
+  description: "Cryptocurrency price shocks now explain 18% of equity, 27% of commodity, and 18% of long-horizon inflation variance — Bitcoin as systemic asset."
 date: 2025-07-01T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
