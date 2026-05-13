@@ -117,6 +117,38 @@ image:
         "@type": "Answer",
         "text": "<p>No. <a href='https://doi.org/10.1016/j.jedc.2024.104999'>Chen and Valcarcel (2025)</a> verify the result across three samples (1967–2020, 1988–2020, 2008–2020), two price indexes (CPI and PCE), and two Divisia aggregates (M2 and M4). The Wu-Xia shadow rate produces 72–99% output puzzles and 93–99% price puzzles across all 12 combinations; Divisia M4 produces 2–24% output puzzles and 2–7% price puzzles (with one ambiguous cell in the historical PCE sample where both indicators struggle). The pattern is consistent with <a href='https://doi.org/10.1111/jmcb.12522'>Keating et al. (2019)</a> on pre/post-GFC stability and with <a href='https://doi.org/10.1017/S1365100524000427'>Chen and Valcarcel (2024)</a> on the stability of Divisia money demand.</p>"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I implement the RE-SVAR procedure on my own data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>The implementation has five steps once you have a balanced panel of inflation, output, and a policy indicator: write down the AS–IS–MP consensus model with the forward-looking horizons you want to test, derive the forecast-revision identity for each equation, set up the IV procedure that yields the structural policy shock as a linear combination of reduced-form residuals, grid-search over the policy-rule parameters (φπ, φy) and horizons (hπ, hy), and compute impulse responses for each grid point. <a href='https://doi.org/10.1016/j.jedc.2024.104999'>Chen and Valcarcel (2025) provide the full derivation in Sections 3–4</a>.</p><p>The non-trivial step is the IV procedure itself. The forward-looking AS–IS–MP system implies a contemporaneous restriction between the structural policy shock and the reduced-form residuals through the rational-expectations forecast-revision identity. The structural shock for each grid point is a known linear combination of residuals — no estimation needed for the contemporaneous identification; only the lag dynamics need a reduced-form VAR.</p><p><strong>Compute budget:</strong> With hπ ∈ {0…12} × hy ∈ {0…5} × φπ ∈ [0,4] at 1/15 × φy ∈ [0,4] at 1/15 = 241,865 specifications. Each grid point requires only matrix algebra applied to one reduced-form VAR — total runtime is minutes, not hours, on a laptop. Adding a fourth variable multiplies cost: each new variable requires its own structural equation, its own IV step, and verification that the <a href='https://doi.org/10.1111/j.1467-937X.2009.00578.x'>Rubio-Ramírez, Waggoner and Zha (2010) rank condition</a> for global identification holds. The paper demonstrates the four-variable extension for the <a href='https://doi.org/10.1257/aer.102.4.1692'>Gilchrist-Zakrajšek excess bond premium</a> in Section 7.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What minimum data set is required to estimate an RE-SVAR with a forward-looking policy rule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Three variables: a price index, a real activity measure, and a policy indicator — all monthly, ideally over a sample of at least 20 years. The RE-SVAR is deliberately low-dimensional and does not require commodity prices, factors, Greenbook forecasts, or futures data — the non-modularity property means each additional variable must come with a structural equation, so the minimum data set is the minimum model.</p><p>Recommended series for U.S. work, matching <a href='https://doi.org/10.1016/j.jedc.2024.104999'>Chen and Valcarcel (2025)</a>: CPI or PCE deflator (the paper uses both and shows robustness); industrial production index (monthly availability is the binding constraint); <a href='https://doi.org/10.1111/jmcb.12300'>Wu and Xia (2016) shadow federal funds rate</a> for the rate specification; <a href='https://centerforfinancialstability.org/amfm_data.php'>Divisia M4 (or M2) from CFS AMFM</a> in growth rates for the money specification. The paper estimates over 1967–2020, 1988–2020, and 2008–2020 — the three-sample comparison gives the cleanest test of robustness across structural breaks. For non-U.S. work, the procedure does not require Greenbook-style internal forecasts, which sidesteps the <a href='https://doi.org/10.1257/aer.91.4.964'>Orphanides (2001) real-time-data problem</a> — the rational-expectations restriction is inside the model, not imposed via external forecasts.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the RE-SVAR framework be extended to open-economy or international policy rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Yes, with two caveats: each open-economy variable (real exchange rate, foreign output, foreign rate) needs its own structural equation, and the rank condition for global identification must be re-verified for the larger system. This is the same non-modularity constraint that limits the framework's flexibility — but it is precisely what makes the open-economy extension principled rather than ad hoc.</p><p>The standard open-economy SVAR template comes from <a href='https://doi.org/10.1016/S0304-3932(97)00029-9'>Cushman and Zha (1997) for Canada</a> and <a href='https://doi.org/10.1016/S0304-3932(00)00010-6'>Kim and Roubini (2000) for the G7</a>, both using block-recursive identification with external variables ordered first. Practical entry points for researchers wanting to attempt this: for Eurozone monetary policy identification, <a href='https://doi.org/10.1016/j.jedc.2022.104312'>Belongia and Ireland's (2022) money-growth-rule framework</a> provides the theoretical anchor; for Mexico, <a href='https://doi.org/10.1111/jmcb.13198'>Colunga-Ramos and Valcarcel (2024)</a> construct a Mexican Divisia M4 that could serve as the policy indicator in an RE-SVAR adapted for an EM small open economy. The framework is, in principle, portable to these settings, though each extension requires verifying the identification conditions for the expanded system.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the RE-SVAR evidence imply for central banks considering money-growth rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>It implies that money-growth rules are more robust to forward-looking dynamics than interest-rate rules in low-dimensional consensus models — the opposite of the standard view that interest-rate rules are modern best practice and money-growth rules are historical curiosities. <a href='https://doi.org/10.1016/j.jedc.2024.104999'>Chen and Valcarcel (2025) document that as the policy-rule's forward-looking horizon hπ increases from 1 to 12 months, the no-joint-puzzle share for Divisia M4 rises from 88.4% to 99.1%, while for the Wu-Xia shadow rate it falls from 2.1% to 0.03%</a>. The asymmetry is structural and survives across price indices, sample periods, and aggregation tiers.</p><p>For applied central-bank work, three concrete implications: (1) Operational policy monitoring should include Divisia M4 growth alongside the policy rate, since the rate loses identifying content as the policy regime becomes more forward-looking. (2) Communication strategy: forward guidance and transparency are part of the reason the short-rate indicator fails, but they are not problems to walk back — they are facts about the modern monetary regime that the monetary aggregate accommodates. (3) Post-QE normalization: as central banks unwind balance sheets, Divisia M4's sensitivity to Treasury and repo holdings makes it a better real-time indicator of policy stance than the policy rate alone. This complements <a href='https://doi.org/10.1016/j.jedc.2022.104312'>Belongia and Ireland's (2022) theoretical case for money-growth rules</a>, who argue that a rule responding gradually to inflation and output can deliver stabilization comparable to an estimated Taylor rule.</p>"
+      }
     }
   ]
 }
@@ -638,6 +670,149 @@ image:
 <p><em>Related questions:</em>
   <a href="#q3">Why does Divisia M4 succeed?</a> ·
   <a href="#q2">Why does the federal funds rate fail?</a></p>
+
+<h2 id="q8">How do I implement the RE-SVAR procedure on my own data?</h2>
+
+<p>The implementation has five steps once you have a balanced panel of inflation,
+  output, and a policy indicator: write down the AS–IS–MP consensus model with
+  the forward-looking horizons you want to test, derive the forecast-revision
+  identity for each equation, set up the IV procedure that yields the structural
+  policy shock as a linear combination of reduced-form residuals, grid-search over
+  the policy-rule parameters (φ<sub>π</sub>, φ<sub>y</sub>) and horizons
+  (h<sub>π</sub>, h<sub>y</sub>), and compute impulse responses for each grid
+  point.
+  <a href='https://doi.org/10.1016/j.jedc.2024.104999'>Chen and Valcarcel (2025)
+  provide the full derivation in Sections 3–4</a>.</p>
+
+<p>The non-trivial step is the IV procedure itself. The forward-looking AS–IS–MP
+  system implies a contemporaneous restriction between the structural policy shock
+  and the reduced-form residuals through the rational-expectations forecast-revision
+  identity. The structural shock for each grid point is a <em>known</em> linear
+  combination of residuals — no estimation needed <em>for the contemporaneous
+  identification</em>; only the lag dynamics need a reduced-form VAR.</p>
+
+<p><strong>Compute budget:</strong> With (h<sub>π</sub> ∈ {0…12}) ×
+  (h<sub>y</sub> ∈ {0…5}) × (φ<sub>π</sub> ∈ [0,4] at 1/15) ×
+  (φ<sub>y</sub> ∈ [0,4] at 1/15) = 241,865 specifications. Each grid point
+  requires only matrix algebra applied to one reduced-form VAR — total runtime is
+  minutes on a laptop. Adding a fourth variable multiplies cost: each new variable
+  requires its own structural equation, its own IV step, and verification that the
+  <a href='https://doi.org/10.1111/j.1467-937X.2009.00578.x'>Rubio-Ramírez,
+  Waggoner and Zha (2010) rank condition</a> for global identification holds. The
+  paper demonstrates the four-variable extension for the
+  <a href='https://doi.org/10.1257/aer.102.4.1692'>Gilchrist-Zakrajšek excess
+  bond premium</a> in Section 7.</p>
+
+<p><em>Related questions:</em>
+  <a href="#q5">What is non-modularity?</a> ·
+  <a href="#q4">How should horizons be handled?</a></p>
+
+<h2 id="q9">What minimum data set is required to estimate an RE-SVAR with a forward-looking policy rule?</h2>
+
+<p>Three variables: a price index, a real activity measure, and a policy indicator —
+  all monthly, ideally over a sample of at least 20 years. The RE-SVAR is
+  deliberately low-dimensional and does not require commodity prices, factors,
+  Greenbook forecasts, or futures data — the non-modularity property means each
+  additional variable must come with a structural equation, so the minimum data
+  set is the minimum model.</p>
+
+<p>Recommended series for U.S. work, matching
+  <a href='https://doi.org/10.1016/j.jedc.2024.104999'>Chen and Valcarcel (2025)</a>:</p>
+<ul>
+  <li><em>Price:</em> CPI or PCE deflator (the paper uses both and shows
+    results are robust).</li>
+  <li><em>Activity:</em> Industrial production index (monthly availability
+    is the binding constraint).</li>
+  <li><em>Policy indicator (rate specification):</em>
+    <a href='https://doi.org/10.1111/jmcb.12300'>Wu and Xia (2016) shadow
+    federal funds rate</a>.</li>
+  <li><em>Policy indicator (money specification):</em>
+    <a href='https://centerforfinancialstability.org/amfm_data.php'>Divisia M4
+    (or M2) from CFS AMFM</a>, in growth rates.</li>
+  <li><em>Sample length:</em> The paper estimates over 1967–2020, 1988–2020,
+    and 2008–2020 — the three-sample comparison gives the cleanest robustness
+    test across structural breaks.</li>
+</ul>
+
+<p>For non-U.S. work, the procedure does not require Greenbook-style internal
+  forecasts, which sidesteps the
+  <a href='https://doi.org/10.1257/aer.91.4.964'>Orphanides (2001) real-time-data
+  problem</a> — the rational-expectations restriction is inside the model, not
+  imposed via external forecasts.</p>
+
+<p><em>Related questions:</em>
+  <a href="#q3">Why does Divisia M4 succeed?</a> ·
+  <a href="#q8">How is the RE-SVAR implemented?</a></p>
+
+<h2 id="q10">Can the RE-SVAR framework be extended to open-economy or international policy rules?</h2>
+
+<p>Yes, with two caveats: each open-economy variable (real exchange rate, foreign
+  output, foreign rate) needs its own structural equation, and the rank condition
+  for global identification must be re-verified for the larger system. This is
+  the same non-modularity constraint that limits the framework's flexibility —
+  but it is precisely what makes the open-economy extension principled rather
+  than ad hoc.</p>
+
+<p>The standard open-economy SVAR template comes from
+  <a href='https://doi.org/10.1016/S0304-3932(97)00029-9'>Cushman and Zha (1997)
+  for Canada</a> and
+  <a href='https://doi.org/10.1016/S0304-3932(00)00010-6'>Kim and Roubini (2000)
+  for the G7</a>, both using block-recursive identification with external variables
+  ordered first. The RE-SVAR analog would write a forward-looking IS equation
+  augmented by a real-exchange-rate term, derive the forecast-revision identity
+  for each equation, and add a monetary block for the foreign central bank.</p>
+
+<p>Practical entry points for researchers wanting to attempt this: for Eurozone
+  monetary policy identification,
+  <a href='https://doi.org/10.1016/j.jedc.2022.104312'>Belongia and Ireland's
+  (2022) money-growth-rule framework</a> provides the theoretical anchor; for
+  Mexico,
+  <a href='https://doi.org/10.1111/jmcb.13198'>Colunga-Ramos and Valcarcel (2024)
+  construct a Mexican Divisia M4</a> that could serve as the policy indicator in
+  an RE-SVAR adapted for a small open economy. The framework is, in principle,
+  portable to these settings, though each extension requires verifying the
+  identification conditions for the expanded system.</p>
+
+<p><em>Related questions:</em>
+  <a href="#q5">What is non-modularity?</a> ·
+  <a href="#q8">How is the RE-SVAR implemented?</a></p>
+
+<h2 id="q11">What does the RE-SVAR evidence imply for central banks considering money-growth rules?</h2>
+
+<p>It implies that money-growth rules are <em>more</em> robust to forward-looking
+  dynamics than interest-rate rules in low-dimensional consensus models — the
+  opposite of the standard view that interest-rate rules are modern best practice
+  and money-growth rules are historical curiosities.
+  <a href='https://doi.org/10.1016/j.jedc.2024.104999'>Chen and Valcarcel (2025)
+  document that as the policy-rule's forward-looking horizon h<sub>π</sub>
+  increases from 1 to 12 months, the no-joint-puzzle share for Divisia M4 rises
+  from 88.4% to 99.1%, while for the Wu-Xia shadow rate it falls from 2.1% to
+  0.03%</a>. The asymmetry is structural and survives across price indices, sample
+  periods, and aggregation tiers.</p>
+
+<p>For applied central-bank work, three concrete implications:</p>
+<ol>
+  <li><em>Operational monitoring</em> should include Divisia M4 growth alongside
+    the policy rate, since the rate loses identifying content as the policy regime
+    becomes more forward-looking.</li>
+  <li><em>Communication strategy</em>: forward guidance and transparency are part
+    of the reason the short-rate indicator fails — they are facts about the modern
+    monetary regime that the monetary aggregate accommodates, not problems to walk
+    back.</li>
+  <li><em>Post-QE normalization</em>: Divisia M4's sensitivity to Treasury and
+    repo holdings makes it a better real-time indicator of policy stance than the
+    policy rate alone as central banks unwind balance sheets.</li>
+</ol>
+
+<p>This complements
+  <a href='https://doi.org/10.1016/j.jedc.2022.104312'>Belongia and Ireland's
+  (2022) theoretical case for money-growth rules</a>, who argue that a rule
+  responding gradually to inflation and output can deliver stabilization
+  comparable to an estimated Taylor rule.</p>
+
+<p><em>Related questions:</em>
+  <a href="#q3">Why does Divisia M4 succeed?</a> ·
+  <a href="#q4">How should horizons be handled?</a></p>
 
 <h2>Data and reproducibility</h2>
 <ul>

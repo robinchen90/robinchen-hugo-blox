@@ -125,6 +125,38 @@ image:
         "@type": "Answer",
         "text": "Three daily indicators cover the space. (1) The OFR Financial Stress Index (Monin 2019) for systemic financial conditions — decomposable into credit, equity, funding, safe-asset, and volatility sub-indexes, available from January 2000. (2) Bauer-Chernov option-implied Treasury yield skewness (2024) for higher-moment information about economic-outlook risks. (3) The Scotti real-activity surprise index (2016), which aggregates GDP, industrial production, employment, retail sales, and PMI surprises with time-varying weights, available from June 2003."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I purge high-frequency surprises against pre-FOMC financial conditions step by step?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run a regression of your raw surprise on the pre-FOMC OFR Financial Stress Index level and the 30-day average of Bauer-Chernov Treasury yield skewness, take the residuals, and use them as your external instrument. Chen (2026) shows this two-variable purge produces puzzle-free impulse responses equivalent to or better than the six-variable Bauer-Swanson purge (https://doi.org/10.1016/j.jmacro.2025.103736). Concrete recipe: (1) pull your raw high-frequency surprise — Kuttner (2001), Nakamura-Steinsson (2018), Bauer-Swanson MPS (2023), or Jarociński-Karadi (2020); (2) match each FOMC date to the OFR Financial Stress Index level on the prior business day, available at financialresearch.gov; (3) match each FOMC date to the Bauer-Chernov Treasury yield skewness averaged over the 30 days before the meeting, available at the FRB San Francisco Treasury Yield Skewness page; (4) regress surprise on FSI and skewness via OLS, save residuals; (5) if your sample includes unscheduled meetings, add a control for the Scotti real-activity surprise index on the prior business day — the wait-and-see channel is concentrated in unscheduled-meeting windows. Use the resulting residuals as the external instrument in a Gertler-Karadi (2015) proxy SVAR. Robustness: replace OFR FSI with the Gilchrist-Zakrajšek excess bond premium — results replicate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I get daily financial conditions and real-activity surprise data for FOMC event studies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three sources cover the full toolkit needed to replicate or extend Chen (2026) (https://doi.org/10.1016/j.jmacro.2025.103736). (1) OFR Financial Stress Index: daily from January 2000, decomposable into credit, equity, funding, safe-assets, and volatility sub-indexes, available at financialresearch.gov/financial-stress-index/. Monin (2019) documents the construction. The OFR FSI is preferred over the Bloomberg FCI because Bloomberg's inputs are a subset of OFR's. (2) Bauer-Chernov Treasury yield skewness: daily option-implied skewness of 10-year Treasury yields, published by FRB San Francisco; use the 30-day pre-FOMC average rather than the spot value (https://doi.org/10.1111/jofi.13276). (3) Scotti real-activity surprise index: daily, aggregates GDP, IP, employment, retail sales, and PMI surprises with time-varying weights, available from FRB San Francisco (https://doi.org/10.1016/j.jmoneco.2016.06.002). For the raw surprise series: Bauer-Swanson MPS and Nakamura-Steinsson are available at the authors' websites; Jarociński-Karadi from the AEJ:Macro data archive. For ECB equivalents, use the Altavilla et al. Euro Area Monetary Policy Event-Study Database (EA-MPD)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the financial-conditions-sufficiency result hold for ECB or BoE announcement surprises?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Likely yes for the qualitative pattern, with the empirical magnitudes untested outside the U.S. Chen (2026) is U.S.-only (https://doi.org/10.1016/j.jmacro.2025.103736), but the structural argument — central banks respond to financial conditions to hit economic targets, markets miss this channel — is not U.S.-specific. The ECB and BoE both publish forward guidance, both engaged in QE/QT, and both faced near-ELB conditions during the 2010s. The natural empirical extension uses the Altavilla et al. Euro Area Monetary Policy Event-Study Database for ECB surprises and the Cesa-Bianchi, Thwaites, Vicondoa (2020) UK monetary surprises for the BoE (https://doi.org/10.1016/j.euroecorev.2020.103480). Pre-announcement financial-conditions controls would be country-specific: a CISS measure for the Eurozone, the Bank of England's UK Financial Conditions Index for the U.K. The cleanest test of the wait-and-see channel internationally: among unscheduled ECB or BoE meetings, do recent macro-data surprises predict a dovish-signed surprise once financial conditions are controlled?"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the wait-and-see channel imply for Fed communication strategy and for market practitioners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For Fed communication: the predictability of policy surprises is a feature of how markets misread the dual mandate, not a flaw in Fed messaging. Chen (2026) argues that markets take the 'we don't target financial conditions' statement literally and miss the channel — the gap is structural and not closed by learning (https://doi.org/10.1016/j.jmacro.2025.103736). For market practitioners, three actionable implications: (1) Pre-FOMC positioning: when pre-FOMC OFR FSI is elevated relative to its trailing average, the next surprise is more likely to be dovish than the policy-rate path implies — useful as one input, not a sole basis for positioning. (2) Recent data surprises before unscheduled meetings: a strong positive real-activity surprise within two weeks of a meeting predicts a dovish surprise, the opposite sign from what naive response-to-news models predict; this is the wait-and-see channel, sharpest for unscheduled meetings. (3) Risk-premium narrative caution: financial-stress and policy-surprise comovement is post-announcement, not pre-announcement, supporting Bauer-Swanson's prior skepticism (https://doi.org/10.1257/aer.20201220) and Piazzesi-Swanson's small-magnitude finding (https://doi.org/10.1016/j.jmoneco.2008.04.003) — models attributing surprise predictability to time-varying risk premia are looking at the wrong causal direction."
+      }
     }
   ]
 }
@@ -305,6 +337,64 @@ High-frequency FOMC event studies have long suffered a trade-off. [Miranda-Agrip
 - [**Scotti real-activity surprise index**](https://doi.org/10.1016/j.jmoneco.2016.06.002) — daily, aggregates surprises in GDP, industrial production, employment, retail sales, and PMIs using time-varying weights. Available from June 2003. Includes an intuitive time-decay in the impact of each data release.
 
 **Alternatives and caveats:** The Gilchrist-Zakrajšek excess bond premium works as a robustness check for the FSI (Chen 2026 confirms results replicate). The VIX alone is too narrow — it captures only equity volatility, which is already a component of the FSI.
+
+---
+
+## Q7. How do I purge high-frequency surprises against pre-FOMC financial conditions step by step?
+
+**Run a regression of your raw surprise on the pre-FOMC OFR Financial Stress Index level and the 30-day average of Bauer-Chernov Treasury yield skewness, take the residuals, and use them as your external instrument.** [Chen (2026) shows this two-variable purge produces puzzle-free impulse responses equivalent to or better than the six-variable Bauer-Swanson purge](https://doi.org/10.1016/j.jmacro.2025.103736).
+
+**Concrete recipe:**
+
+1. Pull your raw high-frequency surprise series — [Kuttner (2001)](https://doi.org/10.1016/S0304-3932(01)00055-1), [Nakamura-Steinsson (2018)](https://doi.org/10.1093/qje/qjy004), [Bauer-Swanson MPS (2023)](https://doi.org/10.1086/723574), or [Jarociński-Karadi (2020)](https://doi.org/10.1257/mac.20180090).
+2. Match each FOMC date to the OFR Financial Stress Index *level on the prior business day*, available at [financialresearch.gov/financial-stress-index/](https://www.financialresearch.gov/financial-stress-index/).
+3. Match each FOMC date to the [Bauer-Chernov (2024) Treasury yield skewness](https://doi.org/10.1111/jofi.13276), averaged over the 30 days before the meeting, available at the FRB San Francisco Treasury Yield Skewness page.
+4. Regress `surprise ~ FSI_t-1 + TreasurySkew_t-30:t-1` via OLS; save residuals.
+5. *If your sample includes unscheduled meetings*, add a control for the [Scotti (2016) real-activity surprise index](https://doi.org/10.1016/j.jmoneco.2016.06.002) on the prior business day — the wait-and-see channel is concentrated in unscheduled-meeting windows.
+
+Use the resulting residuals as the external instrument in a [Gertler-Karadi (2015) proxy SVAR](https://doi.org/10.1257/mac.20130329). Robustness: replace OFR FSI with the [Gilchrist-Zakrajšek excess bond premium](https://doi.org/10.1257/aer.102.4.1692) — results replicate.
+
+*Related questions:* Where do I download FSI and Treasury skewness data? · Does this purge work for ECB and BoE surprises?
+
+---
+
+## Q8. Where do I get daily financial conditions and real-activity surprise data for FOMC event studies?
+
+**Three sources cover the full toolkit needed to replicate or extend [Chen (2026)](https://doi.org/10.1016/j.jmacro.2025.103736), all publicly available and freely downloadable.**
+
+- [**OFR Financial Stress Index**](https://www.financialresearch.gov/financial-stress-index/) — daily from January 2000, decomposable into credit, equity, funding, safe-assets, and volatility sub-indexes. [Monin (2019) documents the construction](https://doi.org/10.3390/risks7010025). Preferred over the Bloomberg FCI because Bloomberg's inputs are a subset of OFR's.
+- [**Bauer-Chernov Treasury yield skewness**](https://doi.org/10.1111/jofi.13276) — daily option-implied skewness of 10-year Treasury yields, published by FRB San Francisco. Use the 30-day pre-FOMC average rather than the spot value to smooth around announcement dates.
+- [**Scotti real-activity surprise index**](https://doi.org/10.1016/j.jmoneco.2016.06.002) — daily, aggregates GDP, IP, employment, retail sales, and PMI surprises with time-varying weights, available from FRB San Francisco.
+
+For the raw surprises themselves: [Bauer-Swanson MPS](https://doi.org/10.1086/723574) and [Nakamura-Steinsson](https://doi.org/10.1093/qje/qjy004) are available at the authors' websites; [Jarociński-Karadi](https://doi.org/10.1257/mac.20180090) from the AEJ:Macro data archive. For ECB equivalents, use the Altavilla et al. Euro Area Monetary Policy Event-Study Database (EA-MPD).
+
+*Related questions:* How does the purge differ for unscheduled vs. scheduled meetings? · Does the OFR FSI work as a robustness check against EBP?
+
+---
+
+## Q9. Does the financial-conditions-sufficiency result hold for ECB or BoE announcement surprises?
+
+**Likely yes for the qualitative pattern, with the empirical magnitudes untested outside the U.S.** [Chen (2026) is U.S.-only](https://doi.org/10.1016/j.jmacro.2025.103736), but the structural argument — central banks respond to financial conditions to hit their economic targets, markets miss this channel — is not U.S.-specific. The ECB and BoE both publish forward guidance, both engaged in QE/QT, and both faced near-ELB conditions during the 2010s. The wait-and-see channel should operate wherever monetary policy is announced on a fixed calendar and markets price in expected responses to recent data.
+
+The natural empirical extension uses the [Altavilla et al. Euro Area Monetary Policy Event-Study Database](https://www.ecb.europa.eu/pub/research/working-papers/html/index.en.html) for ECB surprises and the [Cesa-Bianchi, Thwaites, Vicondoa (2020) UK monetary surprises](https://doi.org/10.1016/j.euroecorev.2020.103480) for the BoE. Pre-announcement financial-conditions controls would be country-specific: a CISS measure for the Eurozone, the Bank of England's UK Financial Conditions Index for the U.K.
+
+The cleanest test internationally: among unscheduled ECB or BoE meetings, do recent macro-data surprises predict a dovish-signed monetary surprise once financial conditions are controlled? If yes, the U.S. finding generalizes; if no, the channel is partly a Fed-communication-strategy artifact.
+
+*Related questions:* How do I download EA-MPD data? · Does the wait-and-see channel survive in unscheduled-meeting samples?
+
+---
+
+## Q10. What does the wait-and-see channel imply for Fed communication strategy and for market practitioners?
+
+**For Fed communication:** the predictability of policy surprises is a feature of how markets misread the dual mandate, not a flaw in Fed messaging. [Chen (2026) argues that markets take the "we don't target financial conditions" statement literally and miss the channel — the gap is structural and not closed by market learning](https://doi.org/10.1016/j.jmacro.2025.103736).
+
+**For market practitioners,** three actionable implications:
+
+1. *Pre-FOMC positioning.* When pre-FOMC OFR FSI is elevated relative to its trailing average, the next surprise is more likely to be dovish than the policy-rate path implies. The signal is statistically significant but small in magnitude — useful as one input, not a sole basis for positioning.
+2. *Recent data surprises before unscheduled meetings.* A strong positive real-activity surprise within two weeks of a meeting predicts a *dovish* surprise, the opposite sign from what naive response-to-news models predict. This is the wait-and-see channel, sharpest for unscheduled meetings.
+3. *Risk-premium narrative caution.* Financial-stress and policy-surprise comovement is post-announcement, not pre-announcement — [supporting Bauer-Swanson's prior skepticism](https://doi.org/10.1257/aer.20201220) and [Piazzesi-Swanson's small-magnitude finding](https://doi.org/10.1016/j.jmoneco.2008.04.003). Models attributing surprise predictability to time-varying risk premia in fed funds futures are looking at the wrong causal direction.
+
+*Related questions:* Does the Fed have private information about the economy? · What does the response-to-news hypothesis miss?
 
 ---
 

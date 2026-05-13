@@ -123,6 +123,38 @@ image:
         "@type": "Answer",
         "text": "Three episodes show the decomposition provided policy-relevant guidance aggregate inflation missed. (1) May 2020: headline inflation at 2.56% looked neutral, but Colunga-Ramos, Chen, and Perales (2026) show 93.4% of it was supply-driven (2.39% vs 0.17% demand), validating Banco de Mexico's rate cuts from 7.00% to 4.25%. (2) September 2008 - March 2010 Global Financial Crisis: the demand component fell from 3.12% to 1.84% while supply fell less, meaning the decline was cyclical. (3) June-July 2024: headline inflation at 4.70% in June masked a demand component at 2.53% (above its 2.06% long-run average); next month headline jumped to 5.22% with demand at 3.32%, and Banco de Mexico correctly held at 11.00%."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I replicate the rolling-window bivariate VAR sectoral decomposition step by step?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Replicating the Colunga-Ramos, Chen, and Perales (2026) decomposition requires three stages: bivariate VAR estimation on each sector, residual-sign classification, and aggregation to economically meaningful groups. For each of Mexico's 31 CPI sectors, estimate a rolling 12-lag bivariate VAR on log prices and log quantities using a 42-month window following Shapiro (2024, JMCB). When contemporaneous residuals from both equations share a sign, classify the shock as demand-driven; when they differ in sign, classify it as supply-driven. Multiply each residual by its CPI weight, then sum sector-level contributions into food, energy, services, manufacturing, and housing groups — aggregating after decomposition, not before, to preserve sign-based identification. Construct an importance score as the product of each category's absolute correlation with aggregate inflation and its average contribution. Validate with a structural VAR: demand-driven inflation should respond to domestic monetary expansions and supply-driven inflation to global supply-chain proxies such as the NY Fed's Global Supply Chain Pressure Index."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I get sectoral CPI and quantity proxies for the Mexico decomposition?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three sources cover the data requirements. Sectoral CPI comes from INEGI (inegi.org.mx), which publishes the National Consumer Price Index (INPC) with 299 generic items organized into 31 special-aggregate sectors at monthly frequency back to 1969. Quantity proxies come from INEGI's Indicador Global de la Actividad Económica (IGAE) — Mexico's monthly GDP equivalent, available at the sector level — or from sector-level industrial and services production indexes in INEGI's Banco de Información Económica. Monetary and financial data come from Banco de México's Sistema de Información Económica: Divisia M2, policy rate, exchange rate, and inflation expectations. External data include the NY Fed Global Supply Chain Pressure Index, U.S. macro variables from FRED, and global oil prices. Note: April–June 2020 and April–May 2021 had IGAE growth exceeding three standard deviations; Colunga-Ramos, Chen, and Perales (2026) treat these with dummy variables in the validation SVAR to avoid distorted impulse responses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this sectoral decomposition be applied to other emerging markets like Brazil, India, or Turkey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The methodology is, in principle, portable to any economy with sectoral CPI and monthly quantity proxies spanning at least eight to ten years, though cross-country application is outside the scope of this paper. Brazil is the most data-ready candidate: IBGE publishes the IPCA with detailed sectoral breakdowns and sector-level industrial production (PIM-PF); given Brazil's larger formal services sector, services may dominate demand-driven inflation more strongly than in Mexico. India's MoSPI CPI and Central Statistics Office IIP data support the same approach; India's higher food expenditure share would likely amplify the food-dominance pattern. Turkey's TÜİK CPI is available, though sectoral quantity proxies are sparser, and the 2018–2024 currency-crisis episode would test whether the decomposition can separate demand inflation from supply-side passthrough under exchange-rate stress. South Africa, Indonesia, Chile, and Colombia have the necessary statistical infrastructure; a cross-country panel would test whether the food-dominance pattern holds generally in emerging markets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the food-services-housing decomposition imply for Banco de México's monetary policy strategy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three concrete implications follow for any inflation-targeting central bank facing food-dominant and services-floor inflation. First, traditional interest-rate tightening is a blunt tool for food-driven inflation because food responds substantially to global supply disruptions beyond the reach of domestic monetary policy. Second, the services floor means disinflation will be slow even after demand-driven goods inflation normalizes; Colunga-Ramos, Chen, and Perales (2026) show services demand barely responded to twelve months of policy rates at 11.25%, so central banks should plan for extended hold periods rather than expecting symmetric easing when headline falls. Third, the near-zero housing contribution implies that housing-wealth and mortgage-cost transmission channels operating in advanced economies work weakly in Mexico, so rate cuts should not be expected to stimulate demand through housing as in the U.S. or Eurozone. For forward guidance design, when the demand-driven component is above its historical average — as in June 2024 ahead of the July reacceleration documented in the paper — the decomposition supports holding rates even as headline declines, providing a clear communication: rates are elevated because demand inflation remains above trend, not because the central bank is indifferent to food prices."
+      }
     }
   ]
 }
@@ -321,6 +353,70 @@ Sign-restriction identification provides complementary validation. [Uhlig (2005)
 **June-July 2024 — the disinflation head-fake.** Headline inflation had fallen from 8.11% to 4.70% by June 2024, and markets priced in further cuts. The decomposition told a different story: demand-driven inflation stood at 2.53%, above its long-run average of 2.06%, while the supply component at 2.17% was doing most of the work. The next month, headline jumped to 5.22% as the demand component rose to 3.32% — exactly what the decomposition would have forecast. Banco de México held at 11.00% through the June 27 meeting and resumed cutting only in August.
 
 The goods-services divergence over 2023-2024 completes the picture. [Goods inflation fell 5.06 percentage points driven by supply normalization (shipping costs, peso appreciation), while services inflation barely moved and the services demand component actually rose](https://doi.org/10.1016/j.econlet.2026.112980). This is the services floor in operation: external supply shocks pass through goods quickly, domestic demand in labor-intensive services does not.
+
+---
+
+## Q7. How do I replicate the rolling-window bivariate VAR sectoral decomposition step by step?
+
+**The decomposition has three stages: bivariate VAR estimation on each sector, residual-sign classification, and aggregation to economically meaningful groups — applied after decomposition, not before.**
+
+[Colunga-Ramos, Chen, and Perales (2026) extend the Shapiro (2024) framework to 31 Mexican CPI sectors using a rolling 12-lag bivariate VAR on log prices and log quantities with a 42-month estimation window](https://doi.org/10.1016/j.econlet.2026.112980). The recipe:
+
+1. **Sector-level data assembly.** Match each CPI sector to a monthly quantity proxy — for Mexico, INEGI's IGAE components or sector-level industrial and services production indexes from the Banco de Información Económica.
+2. **Rolling bivariate VAR.** For each sector and each end-of-window month *t*, estimate the 12-lag bivariate VAR using the 42 months ending in *t*. [Shapiro (2024, JMCB)](https://doi.org/10.1111/jmcb.13209) establishes this window; the paper documents robustness across 36, 42, 48, and 60 months.
+3. **Residual-sign classification.** Save the contemporaneous residuals at *t*. Same sign = demand-driven (upward-sloping supply curve). Opposite sign = supply-driven (downward-sloping demand curve). Multiply each residual by its CPI weight to get the sector's contribution.
+4. **Aggregation to five categories.** Sum into food, energy, services, manufacturing, and housing using fixed CPI weights. *Do not aggregate before decomposition* — sectoral sign identification breaks if the data are collapsed first.
+5. **Importance score.** Compute |correlation with aggregate inflation type| × average contribution for each category — the ranking metric the paper introduces.
+6. **External validation.** Estimate a structural VAR with demand-driven and supply-driven series as separate variables; demand inflation should respond to domestic monetary expansions and supply inflation to the [NY Fed Global Supply Chain Pressure Index](https://doi.org/10.2139/ssrn.4114973).
+
+*Related questions:* Where do I get sectoral CPI data for Mexico? · Can this method be applied to other emerging markets?
+
+---
+
+## Q8. Where do I get sectoral CPI and quantity proxies for the Mexico decomposition?
+
+**All primary data sources are public: INEGI provides the CPI and quantity proxies, Banco de México provides monetary series, and external supply-chain data come from the NY Fed.**
+
+**1. Sectoral CPI (INEGI, inegi.org.mx).** The National Consumer Price Index (INPC) covers 299 generic items organized into 31 special-aggregate sectors, monthly since 1969 (current methodology from 2018). These 31 sectors map directly to the food, energy, services, manufacturing, and housing groups the paper uses.
+
+**2. Quantity proxies (INEGI's IGAE and production indexes).** [Colunga-Ramos, Chen, and Perales (2026)](https://doi.org/10.1016/j.econlet.2026.112980) match each CPI sector to a monthly quantity proxy from the Indicador Global de la Actividad Económica — Mexico's monthly GDP equivalent — or from sector-level industrial and services production indexes in INEGI's Banco de Información Económica. Sectors without a direct quantity proxy use the closest production indicator at the same frequency.
+
+**3. Monetary and financial data (Banco de México SIE, banxico.org.mx).** The Sistema de Información Económica provides monthly Divisia M2, the policy interest rate, exchange rate, and inflation expectations from professional forecaster surveys. The Mexico Divisia M4 constructed in [Colunga-Ramos and Valcarcel (2024)](https://doi.org/10.1111/jmcb.13198) is the preferred monetary aggregate for the validation SVAR.
+
+**External data:** The NY Fed's [Global Supply Chain Pressure Index](https://doi.org/10.2139/ssrn.4114973) is the primary external supply proxy; U.S. macro variables (CPI, industrial production) come from FRED; global oil prices use Brent and WTI from FRED. The sample runs November 2006 through July 2024.
+
+**COVID treatment:** April–June 2020 and April–May 2021 had IGAE growth exceeding three standard deviations of the rolling distribution. [Colunga-Ramos, Chen, and Perales (2026)](https://doi.org/10.1016/j.econlet.2026.112980) treat these with dummy variables in the validation SVAR; leaving them untreated distorts impulse responses substantially.
+
+*Related questions:* What is the Mexican Divisia M2? · What SVAR ordering identifies monetary policy shocks in Mexico?
+
+---
+
+## Q9. Can this sectoral decomposition be applied to other emerging markets like Brazil, India, or Turkey?
+
+**The methodology is, in principle, portable to any economy with sectoral CPI and monthly quantity proxies spanning at least eight to ten years, though cross-country application is outside the scope of this paper.**
+
+Country readiness for the [Colunga-Ramos, Chen, and Perales (2026)](https://doi.org/10.1016/j.econlet.2026.112980) framework:
+
+- **Brazil** — IBGE publishes the IPCA with detailed sectoral breakdowns and sector-level industrial production (PIM-PF) at monthly frequency, making Brazil the most data-ready candidate. Given Brazil's larger formal services sector, services may dominate demand-driven inflation more strongly than in Mexico, potentially reversing the food-dominance pattern.
+- **India** — MoSPI CPI with detailed components and Central Statistics Office IIP data support the same approach. India's higher food expenditure share would likely amplify food's dominance; the services floor's magnitude will depend on the formal-informal employment composition, which varies across states.
+- **Turkey** — TÜİK CPI is available, but sectoral quantity proxies are sparser. The 2018–2024 currency-crisis episode would test whether the decomposition can separate demand inflation from supply-side passthrough under exchange-rate stress — a high-stakes test of the framework's identification robustness.
+- **South Africa, Indonesia, Chile, Colombia** — all have the necessary statistical infrastructure; a cross-country panel would test whether the food-dominance pattern holds generally in emerging markets and whether the services floor's magnitude correlates with formal-labor-market depth.
+
+*Related questions:* What is the food-dominance pattern? · What historical episodes validate the decomposition in Mexico?
+
+---
+
+## Q10. What does the food-services-housing decomposition imply for Banco de México's monetary policy strategy?
+
+**Three concrete implications follow for any inflation-targeting central bank facing food-dominant and services-floor inflation: rate tightening is a blunt tool for supply-driven food inflation, the services floor demands patience, and the weak housing channel removes a standard stimulus option.**
+
+[Colunga-Ramos, Chen, and Perales (2026)](https://doi.org/10.1016/j.econlet.2026.112980) document three patterns that reshape policy design:
+
+1. **Real-time decomposition as a standing input.** The sector-level supply/demand split can be computed in near-real-time once INEGI releases monthly CPI and IGAE data. A central bank running this in-house gains a systematic basis for the "is current inflation demand-driven?" question that otherwise depends on judgment calls in Monetary Policy Reports.
+2. **Forward guidance design for holds vs. cuts.** When the demand-driven component is above its long-run average — as it was in June 2024 (2.53% vs. the 2.06% long-run mean) — the decomposition supports holding rates even as headline inflation declines. The July 2024 reacceleration [documented in the paper](https://doi.org/10.1016/j.econlet.2026.112980) would have been visible in real time: a hold signal, not a cut signal. This provides a public communication anchor: rates are elevated because demand inflation remains above trend, not because the bank is indifferent to food prices.
+3. **Supply-driven inflation and FX reserves.** Food and energy supply shocks often pass through the exchange rate; since supply-driven inflation does not respond to domestic interest rates, reserve management and FX intervention decisions should be conditioned on the shock's origin. The analogous argument for the U.S. — that money-growth rules become operational once the monetary signal is cleaned up — is developed in [Belongia and Ireland (2022)](https://doi.org/10.1016/j.jedc.2022.104500), and the logic applies symmetrically to Banco de México.
+
+*Related questions:* What is the services floor? · What historical episodes validate the decomposition?
 
 ---
 

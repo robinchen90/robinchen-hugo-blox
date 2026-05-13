@@ -110,6 +110,38 @@ image:
         "@type": "Answer",
         "text": "Divisia monetary aggregates weight each component of the money stock by its user cost, recognizing that currency, demand deposits, savings, money-market funds, and T-bills provide different flows of liquidity services and have different opportunity costs. Simple-sum aggregates (M1, M2) treat all components as perfect substitutes — the Barnett critique. Belongia (1996) showed empirically that Divisia reverses qualitative inference across major studies, and Belongia and Ireland (2014) formalized the Barnett critique inside a New Keynesian model. Chen and Valcarcel (2021) use Divisia M4 — the 15-component broadest U.S. aggregate, including institutional money funds, large time deposits, repos, commercial paper, and T-bills — as the policy indicator in their modern-sample VAR. The data come from the Center for Financial Stability. Belongia and Ireland (2019) document a stable Divisia money demand function over 1967-2019, undermining claims of inherent money-demand instability."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I estimate a TVP-FAVAR with Divisia M4 as the policy indicator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The workflow has four moving parts: a block-recursive ordering with Divisia M4 before the monetary block, a stochastic-volatility TVP state space estimated via Primiceri-style MCMC, factors extracted from a panel of monthly macro indicators, and a clean sample-break treatment for 2008. Chen and Valcarcel (2021) walk through the exact specification (https://doi.org/10.1016/j.jedc.2021.104214). The pipeline: (1) construct a balanced monthly panel of macro indicators and standardize each series; (2) extract 3–5 principal-component factors as the slow-moving block; (3) order Divisia M4 before the money-market block, following the block-recursive logic from Keating, Kelly, Smith and Valcarcel (2019) (https://doi.org/10.1111/jmcb.12522); (4) estimate TVP coefficients with Primiceri's stochastic-volatility MCMC sampler (https://doi.org/10.1111/j.1467-937X.2005.00353.x), using the Del Negro–Primiceri corrigendum to the ordering of steps (https://doi.org/10.1093/restud/rdv024); (5) report impulse-response slices at specific calendar dates rather than averaging over the sample. Two practical warnings: the sampler is sensitive to the prior on the variance of the time-varying coefficients (Primiceri's defaults are a reasonable baseline), and TVP-VARs with stochastic volatility require a large number of post-burn-in draws to stabilize the IRF distributions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I download Divisia monetary aggregate data and which vintage should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Center for Financial Stability's AMFM program at centerforfinancialstability.org/amfm_data.php is the authoritative source for U.S. Divisia monetary aggregates and their user costs, updated monthly in three aggregation tiers (DM1, DM2, DM4) alongside component-level quantities and matching user costs. For macro VARs, use Divisia M4 growth rate, monthly, log-differenced. For money demand cointegration, use Divisia M2 or M3 level paired with the matching real user cost. For asset-level liquidity questions, use the 15 component series and their individual user costs following Barnett, Liu, Mattson and van den Noort (2013) (https://doi.org/10.1007/s11079-012-9257-1). Through the ELB, use Divisia growth rather than the Wu-Xia shadow rate, because the user-cost dual remains positive while the federal funds rate is pinned to zero (https://doi.org/10.1080/13504851.2016.1153780). Vintage note: CFS revises historical series when component definitions change; for replication, freeze a vintage and document the download date. Beyond the U.S., Belongia and Ireland (2019) document Divisia M2 demand stability through 2019 using CFS data (https://doi.org/10.1016/j.jmacro.2019.103128)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Divisia approach to monetary policy identification apply to other countries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Divisia monetary aggregates have been constructed for the U.K., Eurozone, Mexico, India, China, and several emerging markets, and the pattern of Divisia outperforming short-rate indicators recurs across countries. For Mexico, Colunga-Ramos and Valcarcel (2024) construct the first Divisia M4 for the Mexican economy and show it delivers sensible monetary responses without commodity-price augmentation, reproducing the Chen-Valcarcel (2021) finding outside the U.S. (https://doi.org/10.1111/jmcb.13198). Colunga-Ramos, Chen, and Perales (2026) use Mexican Divisia M2 in a sectoral inflation decomposition that validates monetary-versus-supply identification at the sector level (https://doi.org/10.1016/j.econlet.2026.112980). Barnett, Ghosh, and Adil (2022) document stable broad-Divisia money demand across multiple countries (https://doi.org/10.1016/j.eap.2022.03.019). For non-U.S. work: if your country has a Divisia series, use it as the policy indicator. If not, the Barnett (1980) procedure requires only component-level quantities and a benchmark yield, both of which are typically in central-bank statistics (https://doi.org/10.1016/0304-4076(80)90070-6). The framework is, in principle, portable to any setting with this minimum data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Chen-Valcarcel (2021) imply for empirical work on QE, QT, or the Wu-Xia shadow rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three concrete implications for papers using the Wu-Xia shadow rate to identify unconventional monetary policy effects: First, impulse responses estimated off the shadow rate are likely contaminated by the modern-sample price puzzle, regardless of whether commodity prices or futures are included as controls. Second, the contamination is particularly acute for money-market and credit-market outcomes, where short-rate shocks generate implausibly contractionary responses post-2008. Third, the cleanest fix is to switch the policy indicator to Divisia M4; the second-cleanest is to combine a daily-frequency event-study approach with Smith and Valcarcel's (2023) framework for quantitative-tightening event studies (https://doi.org/10.1016/j.jedc.2022.104582), which documents balance-sheet effects invisible to monthly short-rate SVARs. For QE event studies, Chen and Valcarcel (2021) report time-varying IRFs at the QE1, QE2, and QE3 starting dates and find that Divisia M4 delivers theory-consistent price responses while Wu-Xia delivers price puzzles. For applied work using high-frequency surprises as instruments, Chen (2026) shows that pre-FOMC financial conditions already absorb most of the predictable component (https://doi.org/10.1016/j.jmacro.2025.103736); the cleaner combined approach identifies off Divisia M4 and uses financial-conditions-purged surprises as a robustness instrument."
+      }
     }
   ]
 }
@@ -314,6 +346,65 @@ Chen and Valcarcel (2021) operationalize these insights for modern-sample moneta
 2. It properly weights each component by user cost, respecting the Barnett critique.
 3. In Chen-Valcarcel's block-recursive identification, it generates theory-consistent responses without commodity prices or futures data.
 4. It exhibits a stable cointegrating money demand relationship over the full modern period.
+
+---
+
+## Q7. How do I estimate a TVP-FAVAR with Divisia M4 as the policy indicator?
+
+**The workflow has four moving parts: a block-recursive ordering with Divisia M4 before the monetary block, a stochastic-volatility TVP state space estimated via Primiceri-style MCMC, factors extracted from a panel of monthly macro indicators, and a clean sample-break treatment for 2008.**
+
+[Chen and Valcarcel (2021) walk through the exact specification](https://doi.org/10.1016/j.jedc.2021.104214), and the practical pipeline distills to:
+
+1. Construct a balanced monthly panel (1988m1–2020m12) of macro indicators (industrial production, employment, prices, financial conditions) and standardize each series.
+2. Extract 3–5 principal-component factors from the panel and place them as the slow-moving block.
+3. Order Divisia M4 *before* the money-market block (currency, demand deposits, OCDs, savings, IMMFs, large time deposits, repos, CP, T-bills) — the [block-recursive logic from Keating, Kelly, Smith and Valcarcel (2019)](https://doi.org/10.1111/jmcb.12522).
+4. Estimate the TVP coefficients with [Primiceri's stochastic-volatility MCMC sampler](https://doi.org/10.1111/j.1467-937X.2005.00353.x), using [Del Negro and Primiceri's corrigendum to the ordering of steps](https://doi.org/10.1093/restud/rdv024).
+5. Report impulse-response slices at specific calendar dates (the paper uses December 2008, November 2010, September 2012) rather than averaging over the sample.
+
+Two practical warnings: the sampler is sensitive to the prior on the variance of the time-varying coefficients (Primiceri's defaults are a reasonable baseline), and TVP-VARs with stochastic volatility require a large number of post-burn-in draws to stabilize the IRF distributions.
+
+*Related questions:* Should I use DM4 or DM2 in a modern-sample VAR? · How do I extract principal-component factors for a TVP-FAVAR?
+
+---
+
+## Q8. Where do I download Divisia monetary aggregate data and which vintage should I use?
+
+**The Center for Financial Stability's Advances in Monetary and Financial Measurement program at [centerforfinancialstability.org/amfm_data.php](https://centerforfinancialstability.org/amfm_data.php) is the authoritative source for U.S. Divisia monetary aggregates and their user costs, updated monthly in three aggregation tiers (DM1, DM2, DM4) alongside component-level quantities and matching user costs.**
+
+What to pull, by research question:
+
+- *Macro VARs with a broad monetary indicator* → Divisia M4 growth rate, monthly, log-differenced; for replication of [Chen and Valcarcel (2021)](https://doi.org/10.1016/j.jedc.2021.104214) and [Chen and Valcarcel (2024)](https://doi.org/10.1017/S1365100524000427).
+- *Money demand cointegration* → Divisia M2 or M3 level, monthly or quarterly, paired with the matching real user cost.
+- *Asset-level liquidity questions* → the 15 component series and their individual user costs, following [Barnett, Liu, Mattson and van den Noort (2013)](https://doi.org/10.1007/s11079-012-9257-1).
+- *Through-the-ELB samples* → Divisia growth, not the Wu-Xia shadow rate, because [the user-cost dual remains positive through the ELB while the federal funds rate is pinned to zero](https://doi.org/10.1080/13504851.2016.1153780).
+
+**Vintage note:** CFS revises the historical series when component definitions change. For published-paper replication, freeze a vintage and document the download date; for new research, use the latest vintage.
+
+*Related questions:* How do I construct a Divisia index from scratch if my country isn't covered? · Should I use DM4 or DM2 for my VAR?
+
+---
+
+## Q9. Does the Divisia approach to monetary policy identification apply to other countries?
+
+**Yes — Divisia monetary aggregates have been constructed for the U.K., Eurozone, Mexico, India, China, and several emerging markets, and the pattern of Divisia outperforming short-rate indicators recurs. The portability of the result is itself evidence that the failure of short-rate identification is a general property of late-cycle, transparent, ELB-touching monetary regimes.**
+
+For Mexico, [Colunga-Ramos and Valcarcel (2024) construct the first Divisia M4 for the Mexican economy and show it delivers sensible monetary responses without commodity-price augmentation](https://doi.org/10.1111/jmcb.13198), reproducing the Chen-Valcarcel (2021) finding outside the U.S. [Colunga-Ramos, Chen, and Perales (2026) use Mexican Divisia M2 in a sectoral inflation decomposition that validates monetary-versus-supply identification at the sector level](https://doi.org/10.1016/j.econlet.2026.112980). For broader EM coverage, [Barnett, Ghosh, and Adil (2022) document stable broad-Divisia money demand across multiple countries](https://doi.org/10.1016/j.eap.2022.03.019). The U.K. Divisia series supports demand stability and policy identification work parallel to the U.S. evidence in [Belongia and Ireland (2019)](https://doi.org/10.1016/j.jmacro.2019.103128).
+
+**Practical takeaway for non-U.S. work:** if your country has an aggregation-theoretic Divisia series, use it as the policy indicator. If not, [the Barnett (1980) procedure](https://doi.org/10.1016/0304-4076(80)90070-6) requires only component-level quantities and a benchmark yield — both of which are typically in central-bank statistics. The framework is, in principle, portable to any setting with this minimum data, though constructing a country-specific Divisia series is itself a publishable contribution.
+
+*Related questions:* How is Divisia M4 constructed in countries without an official series? · Does the post-crisis flight-to-safety pattern appear in Eurozone money markets?
+
+---
+
+## Q10. What does Chen-Valcarcel (2021) imply for empirical work on QE, QT, or the Wu-Xia shadow rate?
+
+**Three concrete implications for any paper currently using the Wu-Xia shadow rate to identify unconventional monetary policy effects.**
+
+First, impulse responses estimated off the shadow rate are likely contaminated by the modern-sample price puzzle, regardless of whether commodity prices or futures are included as controls. Second, the contamination is particularly acute for money-market and credit-market outcomes, where short-rate shocks generate implausibly contractionary responses for currency, savings, repos, and T-bill balances post-2008. Third, the cleanest fix is to switch the policy indicator to Divisia M4; the second-cleanest is to combine a daily-frequency event-study approach with [Smith and Valcarcel's (2023) framework for quantitative-tightening event studies](https://doi.org/10.1016/j.jedc.2022.104582), which documents balance-sheet effects invisible to monthly short-rate SVARs.
+
+For QE event studies specifically, [Chen and Valcarcel (2021)](https://doi.org/10.1016/j.jedc.2021.104214) report time-varying IRFs at the QE1, QE2, and QE3 starting dates and find that Divisia M4 delivers theory-consistent price responses while Wu-Xia delivers price puzzles. For applied work using high-frequency surprises as instruments, [Chen (2026) shows that pre-FOMC financial conditions already absorb most of the predictable component](https://doi.org/10.1016/j.jmacro.2025.103736); the cleaner combined approach identifies off Divisia M4 in the structural VAR and uses financial-conditions-purged surprises as a robustness instrument.
+
+*Related questions:* How do I purge high-frequency surprises for SVAR identification? · What is the right monetary policy indicator for QE event studies?
 
 ---
 

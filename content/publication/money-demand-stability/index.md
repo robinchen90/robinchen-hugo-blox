@@ -117,6 +117,38 @@ image:
         "@type": "Answer",
         "text": "No. Chen and Valcarcel (2024) conclude that 'the instability of money demand is a matter of measurement rather than a consequence of a structural change in agents' preference for monetary assets.' The preference-change reading, implicit in Friedman and Kuttner (1992), is undermined once proper aggregation and proper opportunity costs are used. This reading is reinforced by Belongia (1996), Lucas and Nicolini (2015), Barnett, Ghosh, and Adil (2022), and Jadidzadeh and Serletis (2019)."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I run a Johansen cointegration test of Divisia money demand on my own data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Six steps in any econometrics package. Chen and Valcarcel (2024) follow the Johansen (1995) framework (https://doi.org/10.1017/S1365100524000427). The practical recipe: (1) pull quarterly or monthly data on real money balances, real income, and the relevant opportunity cost — for Divisia, use the matching CFS aggregate and its own real user cost, not the T-bill yield; (2) take logs of money and income; try both the semi-log form (user cost in levels) and the double-log form (log user cost); (3) run ADF and DF-GLS unit-root tests on each series — most monetary aggregates and real income are I(1); user costs typically test as level-stationary, while T-bill yields fail unit-root tests post-2008; (4) select VAR lag length via AIC/BIC/HQIC on the levels system; (5) estimate the Johansen VECM under all four deterministic-trend specifications: restricted constant, unrestricted constant, restricted trend, unrestricted trend — a result holding across all four is robust, while a result conditional on one is fragile; (6) test cointegration rank with trace and maximum-eigenvalue tests and confirm the sign on the user-cost coefficient is negative. For structural breaks: re-run the entire procedure on pre-1980Q2 and post-1980Q2 samples for the DIDMCA break, and pre-2008Q3 vs post-2008Q3 for the ELB break."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I download CFS Divisia aggregates, user costs, and component-level series?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All from the Center for Financial Stability's AMFM page at centerforfinancialstability.org/amfm_data.php, updated monthly. CFS publishes Divisia M1, M2, M3, M4-, and M4 aggregates, each with its corresponding real user cost — the opportunity cost variable that Chen and Valcarcel (2024) show is the correct partner for cointegration tests (https://doi.org/10.1017/S1365100524000427). The file structure: Divisia monetary services indexes (monthly levels of DM1–DM4) for cointegration work; real user costs (DMSI_UC) for each aggregate; component-level data for 15 monetary asset series with their own user costs, which is what the granular money-demand cointegration tests use; and the benchmark interest rate used in the Barnett (1980) Divisia construction. Companion U.S. macro data — real personal income, PCE price index, three-month T-bill yield — are from FRED (fred.stlouisfed.org). CFS Divisia goes back to January 1967, matching the Belongia and Ireland (2019) Divisia M2 demand sample (https://doi.org/10.1016/j.jmacro.2019.103128). Barnett, Liu, Mattson, and van den Noort (2013) document the user-cost construction (https://doi.org/10.1007/s11079-012-9257-1)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the Divisia money demand stability results hold for other countries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Divisia demand stability has been documented for the UK, Eurozone, Japan, Canada, and several emerging markets, and the qualitative finding generalizes: simple-sum aggregates break with financial deregulation, Divisia aggregates do not. The portability of this result is strong support for the measurement-not-preference verdict in Chen and Valcarcel (2024) (https://doi.org/10.1017/S1365100524000427) — if the U.S. instability were preference-driven, similar institutional features should not produce the same Divisia-versus-simple-sum gap elsewhere. Cross-country evidence: for the U.K., Belongia and Ireland (2014) document CFS-style Divisia stability through Brexit-era data (https://doi.org/10.1016/j.jeconom.2014.06.006). For multi-country coverage, Barnett, Ghosh, and Adil (2022) find stable demand for broad Divisia money across multiple countries (https://doi.org/10.1016/j.eap.2022.03.019). For Mexico, Colunga-Ramos and Valcarcel (2024) construct Mexican Divisia M4 and show monetary identification works (https://doi.org/10.1111/jmcb.13198). For researchers in countries without an official Divisia series, the Barnett (1980) construction (https://doi.org/10.1016/0304-4076(80)90070-6) requires only component quantities and a benchmark yield — the required inputs are typically in national monetary statistics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a stable Divisia money demand imply for monetary policy frameworks like NGDP targeting or money-growth rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It removes the strongest empirical objection to money-quantity-based policy frameworks. The standard case against rules like Friedman's k-percent rule or McCallum's nominal-GDP-feedback rule has been that 'money demand is unstable.' Chen and Valcarcel (2024) show this objection rests on simple-sum aggregation and on using the T-bill yield as the opportunity cost (https://doi.org/10.1017/S1365100524000427); with Divisia aggregates and matching user costs, the long-run demand relationship is stable across the 1980 DIDMCA break and the post-2008 ELB. Implications for policy design: (1) Money-growth rules become operational again — Belongia and Ireland's (2022) theoretical case for a money-growth rule responding gradually to inflation and output requires a stable demand function as a precondition, which is now empirically supported (https://doi.org/10.1016/j.jedc.2022.104312). (2) NGDP targeting becomes more credible — if real money demand is stable, nominal NGDP can be controlled via a Divisia M4 instrument with predictable elasticity, even at the ELB. (3) For operational policy monitoring, Divisia M4 growth alongside the policy rate provides a robust real-time measure of monetary stance, particularly through ELB periods where the rate alone loses information content."
+      }
     }
   ]
 }
@@ -319,6 +351,71 @@ The preference-change story dates to [Friedman and Kuttner (1992)](https://doi.o
 The measurement reading has accumulated support. [Belongia (1996) reversed several prominent null results by substituting Divisia for simple-sum](https://doi.org/10.1086/262052). [Lucas and Nicolini (2015) restored stability by adding MMDAs to M1](https://doi.org/10.1016/j.jmoneco.2015.03.005), pointing to the 1982 Regulation Q weakening as the source of the apparent break. [Barnett, Ghosh, and Adil (2022) find stable demand for broad Divisia money across multiple countries](https://doi.org/10.1016/j.eap.2022.03.019). [Jadidzadeh and Serletis (2019) reject simple-sum aggregation assumptions using a disaggregated demand system](https://doi.org/10.1111/jmcb.12550).
 
 [Chen and Valcarcel (2024) make the cleanest version of this case](https://doi.org/10.1017/S1365100524000427) by running the subsample test on both the aggregate index and its components, both before and after 1980, using both the T-bill yield and the Divisia user cost, across all Johansen (1995) specifications. The result: simple-sum breaks, Divisia does not; T-bill breaks after 2008, user costs do not. The authors conclude that "the instability of money demand is a matter of measurement rather than a consequence of a structural change in agents' preference for monetary assets." That is the **measurement-not-preference verdict**.
+
+---
+
+## Q8. How do I run a Johansen cointegration test of Divisia money demand on my own data?
+
+**Six steps in any econometrics package (R, Stata, EViews, Python with `statsmodels`).** [Chen and Valcarcel (2024)](https://doi.org/10.1017/S1365100524000427) follow the [Johansen (1995)](https://global.oup.com/academic/product/likelihood-based-inference-in-cointegrated-vector-autoregressive-models-9780198774501) framework — the practical recipe:
+
+1. Pull quarterly (or monthly) data on real money balances, real income, and the relevant opportunity cost. For Divisia, use the matching CFS aggregate and *its own* real user cost (not the T-bill yield).
+2. Take logs of money and income. Try both the semi-log form (user cost in levels) and the double-log form (log user cost).
+3. Run unit-root tests (ADF, DF-GLS) on each series. Most monetary aggregates and real income are I(1); user costs typically test as level-stationary, while T-bill yields fail unit-root tests post-2008.
+4. Select VAR lag length via AIC/BIC/HQIC on the levels system.
+5. Estimate the Johansen VECM under all four deterministic-trend specifications: restricted constant, unrestricted constant, restricted trend, unrestricted trend. A result holding across all four is robust; a result conditional on one is fragile.
+6. Test cointegration rank with trace and maximum-eigenvalue tests. Confirm the sign on the user-cost coefficient is negative.
+
+**Subsample test for structural breaks:** Re-run the entire procedure on pre-1980Q2 and post-1980Q2 samples for the DIDMCA break, and pre-2008Q3 vs. post-2008Q3 for the ELB break. Cointegration that survives both subsample splits is what supports the [measurement-not-preference verdict](https://doi.org/10.1017/S1365100524000427).
+
+*Related questions:* Should I use semi-log or double-log? · Where do I get the matching Divisia user costs?
+
+---
+
+## Q9. Where do I download CFS Divisia aggregates, user costs, and component-level series?
+
+**All from the Center for Financial Stability's AMFM page at [centerforfinancialstability.org/amfm_data.php](https://centerforfinancialstability.org/amfm_data.php), updated monthly.** CFS publishes Divisia M1, M2, M3, M4-, and M4 aggregates, each accompanied by its corresponding real user cost — the opportunity cost variable [Chen and Valcarcel (2024)](https://doi.org/10.1017/S1365100524000427) show is the correct partner for cointegration tests.
+
+**What to download:**
+
+- *Divisia monetary services indexes (DMSI):* monthly levels of DM1, DM2, DM3, DM4-, DM4. Use logs for cointegration work.
+- *Real user costs (DMSI_UC):* the matching real user cost for each aggregate. Use levels for semi-log specifications, logs for double-log.
+- *Component-level data:* 15 monetary asset series (currency, demand deposits, OCDs, savings, retail and institutional MMFs, small and large time deposits, repos, CP, T-bills) each with its own user cost. These are what the [granular money-demand cointegration tests](https://doi.org/10.1017/S1365100524000427) use.
+
+Companion U.S. macro data — real personal income, PCE price index, three-month T-bill yield — are from [FRED](https://fred.stlouisfed.org/). CFS Divisia goes back to January 1967, matching the [Belongia and Ireland (2019) sample](https://doi.org/10.1016/j.jmacro.2019.103128). [Barnett, Liu, Mattson, and van den Noort (2013) document the user-cost construction](https://doi.org/10.1007/s11079-012-9257-1), and [Mattson and Valcarcel (2016) show user costs stayed positive through 2008–2015 while the federal funds rate collapsed](https://doi.org/10.1080/13504851.2016.1153780) — exactly the reason user costs work where the T-bill fails.
+
+*Related questions:* What user cost do I use for Divisia M4? · How are user costs constructed?
+
+---
+
+## Q10. Do the Divisia money demand stability results hold for other countries?
+
+**Yes — Divisia demand stability has been documented for the UK, Eurozone, Japan, Canada, and several emerging markets, and the qualitative finding generalizes: simple-sum aggregates break with financial deregulation, Divisia aggregates do not.** The portability of this result is strong support for the [measurement-not-preference verdict in Chen and Valcarcel (2024)](https://doi.org/10.1017/S1365100524000427) — if the U.S. instability were preference-driven, similar institutional features should not produce the same Divisia-versus-simple-sum gap elsewhere.
+
+Cross-country evidence:
+
+- *U.K.:* [Belongia and Ireland's (2014) New Keynesian formalization](https://doi.org/10.1016/j.jeconom.2014.06.006) uses U.K. data alongside the U.S., and CFS-style Divisia for the U.K. shows stable demand patterns.
+- *Multi-country:* [Barnett, Ghosh, and Adil (2022) document stable demand for broad Divisia money across multiple countries](https://doi.org/10.1016/j.eap.2022.03.019), reinforcing the pattern.
+- *Mexico:* [Colunga-Ramos and Valcarcel (2024) construct Mexican Divisia M4 and show monetary identification works](https://doi.org/10.1111/jmcb.13198); a follow-on money-demand cointegration paper is the natural extension.
+
+For researchers in countries without an official Divisia series, [the Barnett (1980) construction](https://doi.org/10.1016/0304-4076(80)90070-6) is well-documented. The required inputs — component quantities and a benchmark yield — are typically in national monetary statistics.
+
+*Related questions:* How is Divisia constructed for countries without an official series? · Does the post-2008 user-cost-sufficiency result hold abroad?
+
+---
+
+## Q11. What does a stable Divisia money demand imply for monetary policy frameworks like NGDP targeting or money-growth rules?
+
+**It removes the strongest empirical objection to money-quantity-based policy frameworks.** The standard case against rules like Friedman's k-percent rule or NGDP targeting has been that "money demand is unstable" — making any money-quantity target a moving target. [Chen and Valcarcel (2024) show this objection rests on simple-sum aggregation and on using the T-bill yield as the opportunity cost](https://doi.org/10.1017/S1365100524000427); with Divisia aggregates and matching user costs, the long-run demand relationship is stable across the 1980 DIDMCA break and the post-2008 ELB.
+
+**Implications for policy design:**
+
+1. *Money-growth rules become operational again.* [Belongia and Ireland's (2022) theoretical case for a money-growth rule responding gradually to inflation and output](https://doi.org/10.1016/j.jedc.2022.104312) requires a stable demand function as a precondition; the stability is now empirically supported.
+2. *NGDP targeting becomes more credible.* If real money demand is stable, then nominal NGDP can be controlled via a Divisia M4 instrument with predictable elasticity, even at the ELB.
+3. *Operational policy monitoring.* For central banks not formally adopting a money-quantity rule, Divisia M4 growth alongside the policy rate provides a robust real-time measure of monetary stance, particularly through ELB periods where the rate alone loses content.
+
+The point is not that money-growth rules are necessarily *optimal* — that depends on the loss function, transmission lags, and exogenous shocks — but that the empirical precondition for considering them is now met.
+
+*Related questions:* What does a money-growth policy rule look like operationally? · How does Divisia M4 perform through the ELB?
 
 ---
 

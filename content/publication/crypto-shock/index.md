@@ -133,6 +133,38 @@ image:
         "@type": "Answer",
         "text": "<p>The current paper covers Bitcoin only, motivated by its dominant market capitalization during 2015–2024 and the need for a sufficiently long monthly time series for structural VAR identification. Bitcoin's market dominance averaged 40–65% of total cryptocurrency market cap over the sample, making the results descriptive of the overall market as well. Whether smaller cryptocurrencies, stablecoins, or DeFi tokens exhibit similar transmission mechanisms is an open empirical question. Main findings are robust to alternative variable orderings, price-level measures (CPI vs. PCE), and financial-stress indicators, suggesting the core result is not a Bitcoin-specific artifact.</p>"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I estimate a Bayesian SVAR with Pandemic Priors for cryptocurrency shock analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>The setup combines a standard BVAR with <a href='https://doi.org/10.17016/IFDP.2022.1352'>Cascaldi-Garcia (2022) Pandemic Priors</a>, which down-weight COVID-period observations to prevent them from contaminating impulse-response estimates while preserving the information they carry about volatility. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> implements this in five steps: (1) construct a monthly panel of cryptocurrency price (Bitcoin), traditional financial market variables (equity, commodity prices, financial stress index), and macro variables (industrial production, unemployment, PCE); (2) specify the BVAR with Minnesota-style shrinkage on the coefficients, plus Pandemic Priors that introduce additional shrinkage on COVID-period error variances (March 2020 through approximately mid-2021); (3) identify cryptocurrency shocks via recursive ordering — crypto last among financial market variables but before macro real activity — and validate with <a href='https://doi.org/10.1257/0002828042002651'>Romer and Romer (2004)</a> narrative identification matched against documented crypto events; (4) estimate via Gibbs sampling; (5) report impulse responses with 16/84 credible bands and forecast error variance decompositions at 12-, 24-, 36-month horizons. Why Pandemic Priors matter here: cryptocurrency markets experienced extreme volatility in March 2020 that would dominate a standard BVAR's estimated dynamics. The priors preserve the structural relationships estimated in non-pandemic periods while still using the pandemic data for parameter updating.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which cryptocurrency price and macro variables are appropriate for systemic-risk SVAR analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>For the cryptocurrency variable, Bitcoin's log price is the standard choice given its dominant market capitalization during 2015–2024. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> uses a monthly SVAR with eight variables ordered recursively: PCE price index, unemployment rate, industrial production, Divisia M4, Bitcoin price, S&amp;P 500, CRB commodity index, and the St. Louis Fed Financial Stress Index. Data sources: cryptocurrency prices from CoinMarketCap; traditional financial markets from FRED (SP500, PPIACO); OFR Financial Stress Index from <a href='https://www.financialresearch.gov/financial-stress-index/'>financialresearch.gov</a>; macro variables from FRED (INDPRO, UNRATE, PCEPI); Divisia M4 from the <a href='https://centerforfinancialstability.org/amfm_data.php'>CFS AMFM dataset</a>. Sample period: January 2015 onward; earlier data has too little institutional adoption to identify the integrated regime. Variable selection cautions: do not include trading volume in the SVAR — it breaks identification; do include a financial stress measure in addition to equity prices, as they capture distinct channels; for research on monetary-policy effects on crypto, add a policy indicator using <a href='https://doi.org/10.1016/j.jedc.2021.104214'>Divisia M4 following Chen and Valcarcel (2021)</a>.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the cryptocurrency-macro spillover result extend to altcoins, DeFi protocols, or stablecoins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Likely yes for altcoins (top-10 by market cap), more nuanced for DeFi, and structurally different for stablecoins — but the empirical evidence is sparse and a natural extension of <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a>. Altcoins typically comove strongly with Bitcoin in return space, so the spillover pattern should replicate at smaller magnitudes; a natural extension applies the BSVAR with Bitcoin replaced by Ethereum or a market-cap-weighted top-10 index. DeFi protocols introduce additional channels — total value locked, governance token dynamics, liquidation cascades — that a price-only SVAR misses; the right extension would add aggregate DeFi TVL and a measure of leverage in lending protocols. Stablecoins are structurally different: their price shocks are small (depegging events are large but rare), and the relevant shock is the supply of stablecoins — a large stablecoin issuance amounts to mechanical T-bill demand, making the right framework closer to a money-supply shock in traditional monetary economics than a risk-asset price shock. Cross-country adoption rates vary enormously, so the U.S. results in Chen (2025) likely overstate the macro effect in low-adoption economies and understate it in high-adoption ones.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does cryptocurrency's 18% inflation variance contribution imply for monetary policy and CBDC design?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>For monetary policy: the result implies that cryptocurrency markets have moved to a quantitatively significant input into the inflation process, and central banks should monitor crypto-driven financial conditions alongside traditional credit and equity measures. <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025)</a> documents that positive Bitcoin price shocks generate persistent inflationary pressure (a 0.15% rise in PCE), operating through wealth and investment channels familiar from the <a href='https://doi.org/10.2307/2117474'>Bernanke-Blinder (1992)</a> monetary transmission framework. The 18% long-horizon inflation variance contribution grows from 3.6% at 6 months to 17.6% at 30 months, making it the largest single non-own driver of price-level variance in this sample. Concrete implications: include crypto-driven financial conditions in monetary policy dashboards; recognize crypto wealth effects in consumption forecasting; distinguish sentiment-driven from technology-driven crypto shocks, since <a href='https://doi.org/10.3390/jrfm18070360'>Chen (2025) finds sentiment shocks dominate</a> and produce the inflation spillover. For financial regulators: prudential rules for bank crypto exposure and stablecoin reserve requirements need to account for the documented spillover magnitudes. The design implications for CBDC, if explored, would require a separate empirical framework beyond the scope of this paper.</p>"
+      }
     }
   ]
 }
@@ -331,6 +363,74 @@ Whether the results generalize to the full cryptocurrency ecosystem involves two
 The paper's main findings are robust to alternative variable orderings, price-level measures (CPI vs. PCE), and financial-stress indicators (excess bond premium vs. St. Louis FSI vs. Cleveland FSI), suggesting the Bitcoin-specific result is not an artifact of particular specification choices. Extending the framework to other cryptocurrency assets as data availability improves remains an important direction for future empirical work.
 
 *Related questions:* [What drives cryptocurrency price shocks?](#q2-what-drives-cryptocurrency-price-shocks--sentiment-technology-or-regulation) · [Why use Pandemic Priors?](#q4-why-use-bayesian-svar-with-pandemic-priors-for-this-question)
+
+---
+
+## Q7. How do I estimate a Bayesian SVAR with Pandemic Priors for cryptocurrency shock analysis?
+
+**The setup combines a standard BVAR with [Cascaldi-Garcia (2022) Pandemic Priors](https://doi.org/10.17016/IFDP.2022.1352), which down-weight COVID-period observations to prevent them from contaminating impulse-response estimates while preserving the information they carry about volatility.**
+
+[Chen (2025)](https://doi.org/10.3390/jrfm18070360) implements this in five steps:
+
+1. Construct a monthly panel of cryptocurrency price (Bitcoin), traditional financial market variables (equity, commodity prices, financial stress index), and macro variables (industrial production, unemployment, PCE).
+2. Specify the BVAR with Minnesota-style shrinkage on the coefficients, plus Pandemic Priors that introduce additional shrinkage on COVID-period error variances (March 2020 through approximately mid-2021), using the dummy-observation implementation of [Bańbura, Giannone, and Reichlin (2010)](https://doi.org/10.1002/jae.1137).
+3. Identify cryptocurrency shocks via recursive ordering — crypto last among financial market variables but before macro real activity — and validate with [Romer and Romer (2004)](https://doi.org/10.1257/0002828042002651) narrative identification matched against 67 documented crypto-market events.
+4. Estimate via Gibbs sampling with overall tightness λ = 0.2; select the Pandemic Prior hyperparameter φ = 0.1 by marginal-likelihood maximization.
+5. Report impulse responses with 16/84 credible bands and forecast error variance decompositions at 12-, 24-, 36-month horizons.
+
+**Why Pandemic Priors matter here:** cryptocurrency markets experienced extreme volatility in March 2020 that would dominate a standard BVAR's estimated dynamics. Setting φ = 500 (conventional Minnesota limit) materially changes real-economy impulse responses — less persistent unemployment declines, more contractionary Divisia M4 — confirming the priors are necessary for this sample.
+
+*Related questions:* What cryptocurrency price series is appropriate for an SVAR? · How does narrative identification validate the recursive ordering?
+
+---
+
+## Q8. Which cryptocurrency price and macro variables are appropriate for systemic-risk SVAR analysis?
+
+**For the cryptocurrency variable, Bitcoin's log price is the standard choice given its dominant 40–65% market capitalization share during 2015–2024.** [Chen (2025)](https://doi.org/10.3390/jrfm18070360) uses an eight-variable monthly SVAR ordered recursively: PCE price index, unemployment rate, industrial production, Divisia M4, Bitcoin price, S&P 500, CRB commodity index, and the St. Louis Fed Financial Stress Index.
+
+**Data sources:**
+
+- *Cryptocurrency prices:* CoinMarketCap (daily, aggregated to monthly).
+- *Traditional financial markets:* S&P 500 and CRB commodity index from [FRED](https://fred.stlouisfed.org/); [OFR Financial Stress Index](https://www.financialresearch.gov/financial-stress-index/).
+- *Macro variables:* industrial production (INDPRO), unemployment (UNRATE), PCE (PCEPI) from FRED.
+- *Monetary aggregate:* [Divisia M4 from CFS AMFM](https://centerforfinancialstability.org/amfm_data.php).
+- *Sample period:* January 2015 onward — earlier data has too little institutional adoption to identify the integrated regime.
+
+**Variable selection cautions:** do not include trading volume in the SVAR (it breaks identification); do include a financial stress measure in addition to equity prices, as they capture distinct channels; for research on monetary-policy effects on crypto, add a policy indicator using [Divisia M4 following Chen and Valcarcel (2021)](https://doi.org/10.1016/j.jedc.2021.104214).
+
+*Related questions:* How are Pandemic Priors implemented? · Does the result hold if Bitcoin is replaced by Ethereum?
+
+---
+
+## Q9. Does the cryptocurrency-macro spillover result extend to altcoins, DeFi protocols, or stablecoins?
+
+**Likely yes for altcoins, more nuanced for DeFi, and structurally different for stablecoins — but the empirical evidence is sparse and a natural extension of [Chen (2025)](https://doi.org/10.3390/jrfm18070360).**
+
+**Altcoins** typically comove strongly with Bitcoin in return space, so the spillover pattern should replicate at smaller magnitudes. A natural extension applies the BSVAR with Bitcoin replaced by Ethereum or a market-cap-weighted top-10 index. Ethereum, with its DeFi infrastructure role, may show distinct dynamics that warrant separate identification.
+
+**DeFi protocols** introduce additional channels — total value locked, governance token dynamics, liquidation cascades during stress — that a price-only SVAR misses. The right extension would add aggregate DeFi TVL and a measure of leverage in lending protocols.
+
+**Stablecoins** are structurally different: their price shocks are small (depegging events are large but rare), and the relevant shock is the *supply* of stablecoins. A large stablecoin issuance amounts to mechanical T-bill demand — making the right framework closer to a money-supply shock in traditional monetary economics than a risk-asset price shock.
+
+**Cross-country considerations:** cryptocurrency adoption rates vary enormously. The U.S. results in Chen (2025) likely overstate the macro effect in low-adoption economies and understate it in high-adoption ones.
+
+*Related questions:* How does DeFi affect monetary transmission? · What are stablecoins' systemic risk implications?
+
+---
+
+## Q10. What does cryptocurrency's 18% inflation variance contribution imply for monetary policy and financial regulators?
+
+**For monetary policy:** the result implies that cryptocurrency markets have moved to a quantitatively significant input into the inflation process, and central banks should monitor crypto-driven financial conditions alongside traditional credit and equity measures. [Chen (2025)](https://doi.org/10.3390/jrfm18070360) documents that positive Bitcoin price shocks generate persistent inflationary pressure — a 0.15% rise in the PCE price level over a 30-month horizon — operating through wealth and investment channels. The 18% long-horizon inflation variance contribution grows from 3.6% at 6 months to 17.6% at 30 months, making cryptocurrency the largest single non-own driver of price-level variance in this sample.
+
+**Concrete implications for central-bank monitoring:**
+
+1. *Include crypto-driven financial conditions in the dashboard.* The OFR Financial Stress Index does not currently include crypto-specific volatility; an extension would improve real-time signal.
+2. *Recognize crypto wealth effects in consumption forecasting.* With large retail crypto holdings, even modest wealth elasticities translate to first-order consumption effects.
+3. *Distinguish sentiment-driven from technology-driven crypto shocks.* [Chen (2025) finds sentiment shocks dominate](https://doi.org/10.3390/jrfm18070360) and produce the inflation spillover; technology shocks are smaller in magnitude.
+
+**For financial regulators:** prudential rules for bank crypto exposure, stablecoin reserve requirements, and stress-test scenarios all need to account for the documented spillover magnitudes. The demand-driven nature of the inflationary impulse — as opposed to a transitory financial-market disturbance — makes it policy-actionable rather than a noise term.
+
+*Related questions:* What is the wealth-effect channel for cryptocurrency? · How does Divisia M4 respond to crypto shocks?
 
 ---
 
