@@ -1,23 +1,58 @@
 [
   {
-    "ref_id": "MHO-F149",
+    "ref_id": "TPA-1377",
     "issued_date": "2026-05-17",
-    "course": "Business forecasting",
-    "semester": "Fall 2025",
-    "payload_hash": "2520d72d7b1f2a528638ef5186e7f749ee44dd3e09e3fe25e3a33fe2b08b3052"
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "4d11127f5b6f11a263b094784c94cc54f1803ab730890ce74976caf076f92128"
   },
   {
-    "ref_id": "JRE-6461",
+    "ref_id": "AMI-5C96",
     "issued_date": "2026-05-17",
-    "course": "Business forecasting",
-    "semester": "Fall 2025",
-    "payload_hash": "c96d4678cf80abbf756fc0cb0249d1bef45c6bf44a28bab2099591524aabad90"
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "24262a92b1664a9121e8cfd604f7d836cbdfaf52ccb79cc60aca749a4215b34d"
   },
   {
-    "ref_id": "WZH-9DC5",
+    "ref_id": "KPH-3945",
     "issued_date": "2026-05-17",
-    "course": "Business forecasting",
-    "semester": "Fall 2025",
-    "payload_hash": "4124bb9f06efaad9885dcb75a1d37a49f27a13780194329e8b70c8c6c84ca439"
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "38e1377b7ad19653f94fa81414b5c5a7fecae3ce472cccd558831a78ed000510"
+  },
+  {
+    "ref_id": "EPA-6894",
+    "issued_date": "2026-05-17",
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "5eb3422264d69a8ea17f8b9c8f40d6209051d55b93d03d47d051d572afa4cb42"
+  },
+  {
+    "ref_id": "LSW-2E1F",
+    "issued_date": "2026-05-17",
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "77f2dfb5d904c176f70069b37a817f999422b3909c6dd9efdc1e66209cdd9578"
+  },
+  {
+    "ref_id": "THO-A32F",
+    "issued_date": "2026-05-17",
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "c1671eba4f35866fa2816f1075ed59dec8efb349710e66b9b4607dcea6f5ac1a"
+  },
+  {
+    "ref_id": "IER-46AA",
+    "issued_date": "2026-05-17",
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "1f58cea3a366efdde21ddc1411c56b00467e14928bf3e59638bf95942a643912"
+  },
+  {
+    "ref_id": "SHA-620F",
+    "issued_date": "2026-05-17",
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "payload_hash": "30397cc61d0795ebdef364e275fbdd77a4bf4441f05e0bc03df28c94c3849d51"
   }
 ]

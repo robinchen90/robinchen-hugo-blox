@@ -1,0 +1,18 @@
+{
+  "payload": {
+    "ref_id": "KPH-3945",
+    "issued_to": "Karlee Phillips",
+    "course": "ECON3371 Business Forecasting",
+    "semester": "Spring 2026",
+    "issued_date": "2026-05-17",
+    "issuer": "Robin Chen",
+    "issuer_affiliation": "University of Northern Iowa",
+    "issuer_disclaimer": "Personal recognition. Not an institutional credential.",
+    "type": "professors-list-recognition-v1",
+    "verification_url": "https://robinchen.org/survived/KPH-3945",
+    "public_key_url": "https://robinchen.org/.well-known/chen-pubkey.txt",
+    "body_text": "Showed up consistently, joined the room rather than just attending it, and worked alongside a team through coding assignments that did not yield to a single sitting. Carried that work into an original research project \u00e2\u20ac\u201d chose the question, built the model, met the data on its own terms, and produced a paper that had to defend itself against reality. Along the way the model broke, the data misbehaved, and the first answer turned out to be wrong more than once. Each time, kept going. The point of the course is not the paper at the end. It is the proof, accumulated in real outcomes the student can evaluate themselves against, that they can fail, recover, and learn faster the next time. That capacity is the durable skill of the AI era, and it is the one this recognition attests to."
+  },
+  "signature": "f9c5d25112ce9b284f119170c6a3c86ffc9c5020eae63cb26cf5d9306acd326681ac2db0442cf56b336ce4025f7b0070afd4a303ff3a7b00d2d2890e21b94008",
+  "algorithm": "Ed25519"
+}
