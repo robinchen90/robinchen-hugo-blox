@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Professor's List — personal, signed recognition from Robin Chen for students who showed up and survived the course.">
+<title>The Professor's List · Robin Chen</title>
+
+{{ $icon := resources.Get "media/icon.png" }}
+{{ if $icon }}<link rel="icon" type="image/png" href="{{ $icon.RelPermalink }}">{{ end }}
+
+{{ if eq hugo.Environment "production" }}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YHNDLE3XG5"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YHNDLE3XG5');</script>
+{{ end }}
+
+<style>
+:root {
+  --bg: #0F1419;
+  --bg2: #141D27;
+  --ink: #E8E5DC;
+  --ink-dim: #A09B8C;
+  --gold: #C8A96E;
+  --border: rgba(200,169,110,0.18);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Georgia, serif; background: var(--bg); color: var(--ink); min-height: 100vh; line-height: 1.7; }
+
+nav {
+  padding: 1.1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15,20,25,0.97);
+}
+.nav-back { color: var(--gold); text-decoration: none; font-family: sans-serif; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; }
+.nav-back:hover { color: var(--ink); }
+.nav-brand { color: var(--ink-dim); font-family: sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; }
+
+.page { max-width: 820px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+.eyebrow { font-family: sans-serif; font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-style: italic; color: var(--ink); line-height: 1.05; margin-bottom: 1.5rem; }
+
+.intro { font-size: 1rem; color: var(--ink-dim); max-width: 600px; line-height: 1.85; margin-bottom: 3rem; }
+.intro a { color: var(--gold); text-decoration: none; }
+.intro a:hover { text-decoration: underline; }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 0 0 2.5rem; }
+
+.cert-grid { display: flex; flex-direction: column; gap: 0; }
+
+.cert-row {
+  display: grid;
+  grid-template-columns: 6rem 1fr 7rem 4rem;
+  align-items: center;
+  gap: 0 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.cert-row:hover { background: rgba(200,169,110,0.04); margin: 0 -1rem; padding: 1rem; }
+
+.cert-header {
+  font-family: sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  grid-template-columns: 6rem 1fr 7rem 4rem;
+  gap: 0 1.5rem;
+  display: grid;
+  margin-bottom: 0.25rem;
+}
+
+.ref-id { font-family: monospace; font-size: 0.82rem; color: var(--gold); letter-spacing: 0.5px; }
+.course { font-size: 0.9rem; color: var(--ink); }
+.semester { font-family: sans-serif; font-size: 0.78rem; color: var(--ink-dim); }
+.verify-link { text-align: right; }
+.verify-link a {
+  font-family: sans-serif; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--gold); text-decoration: none; border: 1px solid var(--border);
+  padding: 0.3rem 0.75rem; border-radius: 2px; transition: 0.2s;
+}
+.verify-link a:hover { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+
+.loading-msg { font-family: monospace; font-size: 0.85rem; color: var(--gold); padding: 2rem 0; }
+.error-msg { font-family: monospace; font-size: 0.85rem; color: #F87171; padding: 2rem 0; display: none; }
+
+.disclaimer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: sans-serif;
+  font-size: 0.7rem;
+  color: var(--ink-dim);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.25rem;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+.back-link:hover { background: var(--gold); color: var(--bg); }
+
+@media (max-width: 640px) {
+  .cert-row, .cert-header { grid-template-columns: 5.5rem 1fr; gap: 0.25rem 0.75rem; }
+  .semester, .cert-header .h-semester { display: none; }
+  .verify-link { grid-column: 2; text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/project/" class="nav-back">← Innovations</a>
+  <span class="nav-brand">robinchen.org</span>
+</nav>
+
+<div class="page">
+  <p class="eyebrow">Robin Chen · University of Northern Iowa</p>
+  <h1>The Professor's List.</h1>
+
+  <p class="intro">
+    Personal recognition for students who showed up, worked through the hard parts, and survived the course.
+    Each certificate is signed with my Ed25519 private key — anyone can verify it is authentic and unaltered.
+    <a href="/project/professors-list/">How verification works →</a>
+  </p>
+
+  <hr class="divider">
+
+  <div class="cert-header">
+    <span>Ref</span>
+    <span>Course</span>
+    <span class="h-semester">Semester</span>
+    <span></span>
+  </div>
+
+  <div class="cert-grid" id="cert-grid">
+    <p class="loading-msg" id="loading-msg">Loading certificates…</p>
+    <p class="error-msg" id="error-msg"></p>
+  </div>
+
+  <a href="/project/professors-list/" class="back-link">About this list →</a>
+
+  <p class="disclaimer">
+    Personal recognition from Robin Chen as an individual scholar. Not an institutional credential.
+    Does not replace or supplement any record issued by the University of Northern Iowa.
+    All certificates are cryptographically signed and publicly verifiable.
+  </p>
+</div>
+
+<script>
+fetch('/survived/ledger.json')
+  .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(function(ledger) {
+    var grid = document.getElementById('cert-grid');
+    document.getElementById('loading-msg').remove();
+
+    if (!ledger.length) {
+      grid.innerHTML = '<p style="color:var(--ink-dim);font-family:sans-serif;font-size:.85rem;padding:2rem 0;">No certificates issued yet.</p>';
+      return;
+    }
+
+    ledger.slice().reverse().forEach(function(entry) {
+      var row = document.createElement('div');
+      row.className = 'cert-row';
+      row.innerHTML =
+        '<span class="ref-id">' + entry.ref_id + '</span>' +
+        '<span class="course">' + entry.course + '</span>' +
+        '<span class="semester">' + entry.semester + '</span>' +
+        '<span class="verify-link"><a href="/survived/' + entry.ref_id + '/">Verify</a></span>';
+      grid.appendChild(row);
+    });
+  })
+  .catch(function(err) {
+    document.getElementById('loading-msg').remove();
+    var msg = document.getElementById('error-msg');
+    msg.textContent = 'Could not load ledger: ' + err.message;
+    msg.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>

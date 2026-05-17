@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Certificate of recognition for {{ .Params.issued_to }} — {{ .Params.course }}, {{ .Params.semester }}.">
+<title>{{ .Params.issued_to }} · The Professor's List · Robin Chen</title>
+
+{{ $icon := resources.Get "media/icon.png" }}
+{{ if $icon }}<link rel="icon" type="image/png" href="{{ $icon.RelPermalink }}">{{ end }}
+
+{{ if eq hugo.Environment "production" }}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YHNDLE3XG5"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YHNDLE3XG5');</script>
+{{ end }}
+
+<!-- TweetNaCl 1.0.3 — Ed25519 verification -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tweetnacl/1.0.3/nacl.min.js"
+  integrity="sha512-Y3uH6LJI2RBp6Ebvyom1/v+MQitXJBNSshRcTxKHn0sL0DSf+G+8KK1VZsXtzlX9xd17gGNi61MdYdcY+56oNw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+
+<style>
+:root {
+  --bg:      #0F1419;
+  --bg2:     #141D27;
+  --ink:     #E8E5DC;
+  --ink-dim: #A09B8C;
+  --gold:    #C8A96E;
+  --green:   #4ADE80;
+  --red:     #F87171;
+  --border:  rgba(200,169,110,0.18);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Georgia, serif; background: var(--bg); color: var(--ink); min-height: 100vh; line-height: 1.7; }
+
+nav {
+  padding: 1.1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15,20,25,0.97);
+}
+.nav-back  { color: var(--gold); text-decoration: none; font-family: sans-serif; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; }
+.nav-back:hover { color: var(--ink); }
+.nav-brand { color: var(--ink-dim); font-family: sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; }
+
+.page { max-width: 720px; margin: 0 auto; padding: 3.5rem 2rem 6rem; }
+
+.eyebrow { font-family: sans-serif; font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+h1 { font-size: clamp(3rem, 9vw, 5.5rem); font-style: italic; color: var(--ink); line-height: 1; margin-bottom: 0.3rem; }
+.course-line { font-family: sans-serif; font-size: 0.88rem; color: var(--ink-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2.5rem; }
+
+.body-text { font-size: 1.05rem; color: var(--ink); line-height: 1.9; margin-bottom: 2.5rem; max-width: 600px; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 2px;
+  font-family: monospace;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 2rem;
+  transition: 0.3s;
+}
+.badge.loading  { background: rgba(200,169,110,0.08); border: 1px solid var(--gold);  color: var(--gold);  }
+.badge.verified { background: rgba(74,222,128,0.08);  border: 1px solid var(--green); color: var(--green); }
+.badge.tampered { background: rgba(248,113,113,0.08); border: 1px solid var(--red);   color: var(--red);   }
+
+.meta { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 0.5rem; }
+.meta dl { display: grid; grid-template-columns: 8rem 1fr; row-gap: 0.75rem; column-gap: 1rem; }
+.meta dt { font-family: sans-serif; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding-top: 0.1rem; }
+.meta dd { font-family: monospace; font-size: 0.82rem; color: var(--ink-dim); word-break: break-all; }
+
+.actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.btn-primary { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.btn-primary:hover { background: transparent; color: var(--gold); }
+.btn-outline  { background: transparent; color: var(--ink-dim); border-color: var(--border); }
+.btn-outline:hover  { color: var(--ink); border-color: var(--gold); }
+
+.issuer-line {
+  margin-top: 2.5rem;
+  font-family: sans-serif;
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  letter-spacing: 1px;
+  font-style: italic;
+}
+.disclaimer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(200,169,110,0.08);
+  font-family: sans-serif;
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+  line-height: 1.7;
+  max-width: 560px;
+}
+.error-detail {
+  font-family: monospace;
+  font-size: 0.78rem;
+  color: var(--red);
+  margin-top: 0.5rem;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .page { padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 3rem; }
+  .meta dl { grid-template-columns: 1fr; row-gap: 0.25rem; }
+  .meta dt { margin-top: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/survived/" class="nav-back">← The Professor's List</a>
+  <span class="nav-brand">robinchen.org</span>
+</nav>
+
+<div class="page">
+  <p class="eyebrow">The Professor's List &middot; A Note of Recognition</p>
+  <h1>Survived.</h1>
+  <p class="course-line" id="course-line">{{ .Params.course }} &middot; {{ .Params.semester }}</p>
+
+  <p class="body-text" id="body-text">Loading certificate…</p>
+
+  <div id="badge" class="badge loading">⏳&nbsp;Verifying signature…</div>
+  <p id="error-detail" class="error-detail"></p>
+
+  <div class="meta">
+    <dl>
+      <dt>Issued to</dt>   <dd id="issued-to">{{ .Params.issued_to }}</dd>
+      <dt>Reference</dt>   <dd id="ref-id">{{ .Params.ref_id }}</dd>
+      <dt>Issued</dt>      <dd id="issued-date">—</dd>
+      <dt>Verify at</dt>   <dd id="verify-url">—</dd>
+    </dl>
+  </div>
+
+  <div class="actions">
+    <a id="pdf-link" href="/survived/{{ .Params.ref_id }}.pdf" download class="btn btn-primary">Download PDF</a>
+    <a href="/survived/" class="btn btn-outline">Browse The List</a>
+  </div>
+
+  <p class="issuer-line">Robin Chen &middot; Assistant Professor of Economics &middot; University of Northern Iowa</p>
+
+  <p class="disclaimer">
+    Personal recognition from Robin Chen as an individual scholar.
+    Not an institutional credential. Does not replace or supplement any record issued by the University of Northern Iowa.
+    Certificate signatures are verifiable by anyone using the Ed25519 public key at
+    <a href="/.well-known/chen-pubkey.txt" style="color:var(--gold)">/.well-known/chen-pubkey.txt</a>.
+  </p>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var REF_ID = '{{ .Params.ref_id }}';
+
+  /* Canonical JSON — must match Python:
+     json.dumps(payload, sort_keys=True, separators=(",",":"), ensure_ascii=False) */
+  function canonicalJson(obj) {
+    if (Array.isArray(obj)) {
+      return '[' + obj.map(canonicalJson).join(',') + ']';
+    }
+    if (obj !== null && typeof obj === 'object') {
+      return '{' + Object.keys(obj).sort().map(function (k) {
+        return JSON.stringify(k) + ':' + canonicalJson(obj[k]);
+      }).join(',') + '}';
+    }
+    return JSON.stringify(obj);
+  }
+
+  function hexToBytes(hex) {
+    var out = new Uint8Array(hex.length / 2);
+    for (var i = 0; i < hex.length; i += 2) {
+      out[i >> 1] = parseInt(hex.substr(i, 2), 16);
+    }
+    return out;
+  }
+
+  function setBadge(state) {
+    var el = document.getElementById('badge');
+    el.className = 'badge ' + state;
+    if (state === 'verified') el.textContent = '✓  VERIFIED';
+    else if (state === 'tampered') el.textContent = '⚠  SIGNATURE INVALID';
+    else el.textContent = '⏳  Verifying…';
+  }
+
+  function showError(msg) {
+    setBadge('tampered');
+    var el = document.getElementById('error-detail');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  Promise.all([
+    fetch('/survived/' + REF_ID + '.json')
+      .then(function (r) { if (!r.ok) throw new Error('cert fetch failed (' + r.status + ')'); return r.json(); }),
+    fetch('/.well-known/chen-pubkey.txt')
+      .then(function (r) { if (!r.ok) throw new Error('pubkey fetch failed (' + r.status + ')'); return r.text(); })
+  ]).then(function (results) {
+    var cert     = results[0];
+    var pubKeyHex = results[1].trim();
+    var payload  = cert.payload;
+
+    /* Populate dynamic fields */
+    document.getElementById('body-text').textContent  = payload.body_text;
+    document.getElementById('issued-date').textContent = payload.issued_date;
+    document.getElementById('issued-to').textContent  = payload.issued_to;
+    document.getElementById('ref-id').textContent     = payload.ref_id;
+
+    var url = payload.verification_url;
+    var dd  = document.getElementById('verify-url');
+    dd.innerHTML = '<a href="' + url + '" style="color:var(--gold)">' + url + '</a>';
+
+    /* Ed25519 verification */
+    var canonical  = canonicalJson(payload);
+    var msgBytes   = new TextEncoder().encode(canonical);
+    var sigBytes   = hexToBytes(cert.signature);
+    var pubKeyBytes = hexToBytes(pubKeyHex);
+
+    var valid = nacl.sign.detached.verify(msgBytes, sigBytes, pubKeyBytes);
+    setBadge(valid ? 'verified' : 'tampered');
+    if (!valid) {
+      document.getElementById('error-detail').textContent =
+        'The certificate payload does not match the signature. This certificate may have been altered.';
+      document.getElementById('error-detail').style.display = 'block';
+    }
+  }).catch(function (err) {
+    showError(err.message);
+  });
+}());
+</script>
+
+</body>
+</html>
