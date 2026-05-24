@@ -61,8 +61,8 @@ sections:
           - publication
         publication_type: 'article-journal'
         tag: 'core-research'
-      sort_by: 'Date'
-      sort_ascending: false
+      sort_by: 'Weight'
+      sort_ascending: true
     design:
       columns: '2'
       view: citation

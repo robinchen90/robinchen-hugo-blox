@@ -4,6 +4,7 @@ seo:
   title: "Demystifying Monetary Policy Surprises"
   description: "Why monetary policy surprises are predictable: the Fed responds to financial conditions while waiting on economic data."
 date: 2025-12-01T00:00:00
+weight: 4
 draft: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

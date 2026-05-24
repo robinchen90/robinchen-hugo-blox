@@ -3,6 +3,7 @@ title: "Modeling Inflation Expectations in Forward-Looking Interest Rate and Mon
 seo:
   title: "Inflation Expectations in Policy Rules"
 date: 2025-01-15T00:00:00
+weight: 1
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors: ["admin","Victor J. Valcarcel"]

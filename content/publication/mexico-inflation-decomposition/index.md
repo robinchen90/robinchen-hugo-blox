@@ -4,6 +4,7 @@ seo:
   title: "Mexico Inflation: Supply vs Demand Drivers"
   description: "Sectoral CPI decomposition for Mexico (2006–2024): food dominates supply and demand inflation; services act as a persistent demand floor."
 date: 2026-04-13T00:00:00
+weight: 3
 draft: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
