@@ -4,6 +4,7 @@ subtitle: ""
 date: 2019-06-01T00:00:00
 lastmod: 2019-06-01T00:00:00
 draft: false
+private: true
 authors:
   - admin
 tags:

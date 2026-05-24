@@ -4,6 +4,7 @@ subtitle: ""
 date: 2020-11-23T00:00:00
 lastmod: 2020-11-23T00:00:00
 draft: false
+private: true
 authors:
   - admin
 tags:

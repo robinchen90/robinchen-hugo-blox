@@ -4,6 +4,9 @@ title:
 date: 2022-10-24
 type: landing
 
+seo:
+  description: "Robin Chen, Professor of Economics at UNI — research on monetary policy transmission, Divisia aggregates, structural VAR, and AI governance."
+
 sections:
   # About/Biography
   - block: about.biography

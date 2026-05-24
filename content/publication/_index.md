@@ -2,6 +2,9 @@
 title: Research
 type: widget_page
 
+seo:
+  description: "Peer-reviewed papers by Robin Chen on monetary policy transmission, Divisia aggregates, structural VAR identification, inflation dynamics, and AI governance."
+
 # Optional banner image (relative to `assets/media/` folder).
 banner:
   caption: ''

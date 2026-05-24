@@ -1,8 +1,8 @@
 {{ $scr := .Scratch }}
 
-{{/* Request search engines not to index private pages. */}}
-{{ if .Params.private }}
-  <meta name="robots" content="noindex" />
+{{/* Request search engines not to index private pages and thin taxonomy/term pages. */}}
+{{ if or .Params.private (in (slice "term" "taxonomy") .Kind) }}
+  <meta name="robots" content="noindex, follow" />
 {{- end -}}
 
 {{/* Attempt to load superuser (the main site author). */}}
