@@ -27,7 +27,7 @@ doi: "10.1016/j.jedc.2024.104999"
 featured: true
 
 # Tags (optional).
-tags: ["RE-SVAR", "Response Clouds", "No-Joint-Puzzle Response", "Low-Dimensional Forward-Lookingness", "Non-Modularity of RE-SVAR", "Monetary Policy", "Rational Expectations", "Divisia Monetary Aggregates", "Price Puzzle", "Forward-Looking Policy Rules", "Bayesian SVAR", "Structural VAR"]
+tags: ["RE-SVAR", "Response Clouds", "No-Joint-Puzzle Response", "Low-Dimensional Forward-Lookingness", "Non-Modularity of RE-SVAR", "Monetary Policy", "Rational Expectations", "Divisia Monetary Aggregates", "Price Puzzle", "Forward-Looking Policy Rules", "Bayesian SVAR", "Structural VAR", "core-research"]
 
 # Projects (optional).
 projects: []

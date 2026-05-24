@@ -47,7 +47,7 @@ sections:
     design:
       columns: '2'
 
-  # Recent Publications
+  # Recent Publications — Core Research Pipeline
   - block: collection
     content:
       title: Recent Publications
@@ -60,7 +60,24 @@ sections:
         folders:
           - publication
         publication_type: 'article-journal'
-        exclude_featured: false
+        tag: 'core-research'
+      sort_by: 'Date'
+      sort_ascending: false
+    design:
+      columns: '2'
+      view: citation
+
+  # Interdisciplinary Research
+  - block: collection
+    content:
+      title: Interdisciplinary Research
+      text: ""
+      count: 0
+      filters:
+        folders:
+          - publication
+        publication_type: 'article-journal'
+        tag: 'interdisciplinary'
       sort_by: 'Date'
       sort_ascending: false
     design:

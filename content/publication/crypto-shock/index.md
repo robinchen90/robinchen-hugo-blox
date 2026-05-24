@@ -41,6 +41,7 @@ tags:
   - Variance Decomposition
   - Cryptocurrency-as-Systematic-Risk-Factor
   - Sentiment-Dominant Transmission
+  - interdisciplinary
 
 faq:
   - question: "Has cryptocurrency become a systematically important financial asset?"

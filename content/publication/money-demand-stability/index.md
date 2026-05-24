@@ -27,7 +27,7 @@ doi: "10.1017/S1365100524000427"
 featured: true
 
 # Tags (optional).
-tags: ["Money Demand", "Divisia Monetary Aggregates", "Cointegration", "Barnett Critique", "User Cost of Money", "Measurement-Not-Preference Verdict", "User-Cost Sufficiency", "Granular Money-Demand Cointegration", "DIDMCA 1980", "Zero Lower Bound", "Monetary Policy"]
+tags: ["Money Demand", "Divisia Monetary Aggregates", "Cointegration", "Barnett Critique", "User Cost of Money", "Measurement-Not-Preference Verdict", "User-Cost Sufficiency", "Granular Money-Demand Cointegration", "DIDMCA 1980", "Zero Lower Bound", "Monetary Policy", "core-research"]
 
 # Projects (optional).
 projects: []

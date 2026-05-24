@@ -37,7 +37,7 @@ doi: "10.1016/j.econlet.2026.112980"
 featured: true
 
 # Tags (optional).
-tags: ["Inflation", "Monetary Policy", "Mexico", "Supply and Demand Shocks", "Sectoral Analysis", "Services Floor", "Food-Dominance Pattern", "Housing Non-Response", "Banco de Mexico", "Inflation Decomposition", "Emerging Markets", "Structural VAR"]
+tags: ["Inflation", "Monetary Policy", "Mexico", "Supply and Demand Shocks", "Sectoral Analysis", "Services Floor", "Food-Dominance Pattern", "Housing Non-Response", "Banco de Mexico", "Inflation Decomposition", "Emerging Markets", "Structural VAR", "core-research"]
 
 # Projects (optional).
 projects: []

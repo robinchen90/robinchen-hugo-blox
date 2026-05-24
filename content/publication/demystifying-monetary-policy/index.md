@@ -37,7 +37,7 @@ doi: "10.1016/j.jmacro.2025.103736"
 featured: true
 
 # Tags (optional).
-tags: ["Monetary Policy", "Federal Reserve", "FOMC", "Financial Conditions", "Policy Surprises", "Macroeconomics", "Wait-and-See Channel", "Financial-Conditions-Sufficiency", "Monetary Policy Identification", "High-Frequency Event Study", "Proxy SVAR", "Fed Information Effect"]
+tags: ["Monetary Policy", "Federal Reserve", "FOMC", "Financial Conditions", "Policy Surprises", "Macroeconomics", "Wait-and-See Channel", "Financial-Conditions-Sufficiency", "Monetary Policy Identification", "High-Frequency Event Study", "Proxy SVAR", "Fed Information Effect", "core-research"]
 
 # Projects (optional).
 projects: []

@@ -27,7 +27,7 @@ doi: "10.1016/j.jedc.2021.104214"
 featured: true
 
 # Tags (optional).
-tags: ["Price Puzzle", "Divisia Money", "Divisia M4", "Monetary Policy", "TVP-VAR", "TVP-FAVAR", "Money Markets", "Federal Reserve", "Modern-Sample Price Puzzle", "Divisia-Sufficiency", "Post-Crisis Flight-to-Safety Transmission", "Wu-Xia Shadow Rate", "Barnett Critique"]
+tags: ["Price Puzzle", "Divisia Money", "Divisia M4", "Monetary Policy", "TVP-VAR", "TVP-FAVAR", "Money Markets", "Federal Reserve", "Modern-Sample Price Puzzle", "Divisia-Sufficiency", "Post-Crisis Flight-to-Safety Transmission", "Wu-Xia Shadow Rate", "Barnett Critique", "core-research"]
 
 # Projects (optional).
 projects: []
