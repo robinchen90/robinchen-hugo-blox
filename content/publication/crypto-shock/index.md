@@ -74,7 +74,9 @@ url_poster: ""
 url_source: ""
 
 # Custom links (optional).
-links: []
+links:
+  - name: "SSRN"
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5333277"
 
 # Featured image
 image:

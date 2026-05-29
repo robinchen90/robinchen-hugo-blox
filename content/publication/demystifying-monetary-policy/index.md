@@ -59,6 +59,8 @@ url_source: ""
 
 # Custom links (optional).
 links:
+  - name: "SSRN"
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852376"
   - name: "ResearchGate"
     url: "https://www.researchgate.net/publication/398633820_Demystifying_monetary_policy_surprises_Fed_response_to_financial_conditions_and_wait_and_see_for_new_economic_data"
 

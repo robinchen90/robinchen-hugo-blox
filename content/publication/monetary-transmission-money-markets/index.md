@@ -38,6 +38,8 @@ projects: [""]
 
 # Custom links (optional).
 links:
+  - name: "SSRN"
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3462101"
   - name: "Preprint"
     url: "https://drive.google.com/file/d/1D6M3fSyoHy035opSPUdvnhe1W07s1zrq/view?usp=sharing"
 
