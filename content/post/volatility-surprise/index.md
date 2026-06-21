@@ -9,6 +9,8 @@ authors:
 tags:
   - Academic
 summary: " ."
+seo:
+  description: "The volatility surprise measures how FOMC announcements shift 30-day expected volatility of the 10-year Treasury yield, tracking monetary policy's risk-taking channel."
 ---
 **What is the volatility surprise?**
 

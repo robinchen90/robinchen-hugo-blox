@@ -10,6 +10,8 @@ authors:
 tags:
   - Academic
 summary: " ."
+seo:
+  description: "A curated reference list of free economic indicators for financial markets, households, firms, and monetary policy analysis, maintained by Robin Chen."
 ---
 ## Financial Markets
 

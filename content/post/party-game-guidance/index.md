@@ -12,6 +12,8 @@ authors:
 tags:
   - Academic
 summary: " ."
+seo:
+  description: "A student-authored party game guidebook from Robin Chen's January 2021 course 'Economics of Playing Games' at Birmingham-Southern College, covering strategy games for social reconnection."
 links:
   - name: Preprint
     url: https://drive.google.com/file/d/1KWcAmGpArUSCFAd4uoUvccz0IUPL8U0W/view?usp=sharing

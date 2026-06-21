@@ -9,6 +9,8 @@ authors:
 tags:
   - Academic
 summary: " ."
+seo:
+  description: "Robin Chen's diversity statement reflecting on inclusive teaching, supporting underrepresented students, and fostering a global perspective in economics education."
 ---
 
 

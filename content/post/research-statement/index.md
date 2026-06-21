@@ -9,6 +9,8 @@ authors:
 tags:
   - Academic
 summary: " ."
+seo:
+  description: "Robin Chen's research statement on structural VAR identification of monetary policy shocks, money demand stability, and safe asset aggregation."
 ---
 
 I am an applied macroeconomist with research interests in the intersection of monetary economics, financial economics and time-series analysis. Methodologically, my work combines careful attention to the identification of causality, measurement, and economic theory. Two topics are of particular interest: first, the identification of monetary policy shocks in structural models; second, the incorporation of expectations into a structural VAR (SVAR). They reflect the application and theoretical endeavor in my research. Thematically, I have studied questions motivated by the major macroeconomic developments of the past two decades, including the 2000s housing cycle in the U.S., the role of the financial sector and other forces in the Great Recession, the monetary policy response to the zero lower bound, the enhanced transparency of the Federal Reserve's communication.

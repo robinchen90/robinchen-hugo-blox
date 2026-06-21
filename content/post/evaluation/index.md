@@ -10,6 +10,8 @@ authors:
 tags:
   - Academic
 summary: " ."
+seo:
+  description: "Student comments and teaching evaluations from Robin Chen's Principles of Macroeconomics courses at UT Dallas."
 ---
 
 **Spring 2019**

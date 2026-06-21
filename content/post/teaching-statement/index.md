@@ -9,6 +9,8 @@ authors:
 tags:
   - Academic
 summary: " ."
+seo:
+  description: "Robin Chen's teaching statement on helping students think beyond their majors by blending economic theory, empirical evidence, and real-world events in the classroom."
 ---
 My teaching philosophy can be succinctly encapsulated in a few words: **learning economics in the classroom should be conducive to students thinking outside the box**.
 

@@ -2,6 +2,7 @@
 title: "Embedding Rational Expectations in a Structural VAR: Internal and External Instruments for Set Identification"
 seo:
   title: "Rational Expectations in a Structural VAR"
+  description: "Chen and Valcarcel embed rational expectations in a low-dimensional structural VAR, using internal and external instruments to set-identify monetary policy shocks."
 date: 2021-01-28T00:00:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
